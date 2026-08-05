@@ -15,7 +15,7 @@ compiles, and renders a preview.
 ## Setup
 
 ```bash
-npm i -D @vosjs/cli        # ≥ 0.4 — the fetch/check/push verbs
+npm i -D @vosjs/cli        # ≥ 0.5 — the fetch/check/push/pull loop
 ```
 
 No browser needed for this loop (rendering previews happens on the
@@ -74,11 +74,25 @@ can publish: pushed voses stay private until a human publishes on vos.so.
    ```bash
    vos push <slug>/config.json --vos <id> --note "cooler palette, slower drift"
    ```
-   Pass `--base <versionId>` (from the previous push's output) so the
-   platform can detect when its copy moved under you; on a conflict the CLI
-   prints what changed there — fetch, rebase your edit, push again.
+   The directory TRACKS its vos through `meta.json`, so the base version is
+   carried automatically: if the human edited in the studio since your last
+   push, the push is rejected WITH their typed changelog. `--note` is your
+   handoff line — it is what the human reads first; `--label` names the
+   version.
 
-7. **Hand back BOTH links** — the watch page (preview, knobs, code) and the
+7. **Pull before every editing round** — the human may have fine-tuned:
+   ```bash
+   vos pull <slug>          # what changed since your base, then sync
+   ```
+   Prints each version attributed (`v3 (studio · warmer): knob hue 0.2→0.35`
+   plus their notes), syncs `config.json` to the head (your previous copy is
+   kept as `config.backup.json`), and repoints the base. **Human-edited
+   nodes are protected**: a push that touches them is rejected unless you
+   pass `--overrides id,id` — do that ONLY when the user's instruction
+   explicitly targets that node. Their turns of your knobs are preference
+   data: read the changelog before deciding what to do next.
+
+8. **Hand back BOTH links** — the watch page (preview, knobs, code) and the
    studio (`https://vos.so/studio?vos=<id>`) where the user fine-tunes your
    knobs live. Publishing is their act, on vos.so.
 

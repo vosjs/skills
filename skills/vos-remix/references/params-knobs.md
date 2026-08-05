@@ -57,7 +57,10 @@ whenever the program has 4+ params.
 3. **Respect human-set values.** A value the human adjusted is theirs — when
    you regenerate code, preserve what each knob does. Renaming or retiring
    a knob is something you SAY in the iteration note ("replaced `speed`
-   with `tempo`"), never something that happens silently.
+   with `tempo`"), never something that happens silently. This rule is
+   ENFORCED: the platform rejects a push that touches nodes a studio
+   version edited since your last push, until you pass `--overrides` — the
+   consent switch for "the user asked me to change exactly this".
 4. **Name knobs by intent, not implementation** — `mood`, `drama`, `pace`;
    never `blurRadius`. The knob is language between two authors; its name
    becomes the vocabulary of the next prompt.

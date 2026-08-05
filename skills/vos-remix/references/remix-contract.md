@@ -33,7 +33,8 @@ quota'd (50/24h).
 | `GET /api/vos/{id}` | metadata: title, slug, params, `contentUrls`, `forkedFrom`, `currentVersionId` |
 | `GET /api/vos/{id}/config` | `{ "config": VosConfigJson }` — the raw stored config, params included |
 | `POST /api/vos` | create: `{ title, slug, visibility: "private", config, remixOfId? }` → `201 { vos: { id, … } }`; preview render auto-queues |
-| `POST /api/vos/{id}/versions` | iterate: `{ config }` → `201 { version: { id, versionNumber } }` |
+| `POST /api/vos/{id}/versions` | iterate: `{ config, baseVersionId?, label?, note?, overrides? }` → `201 { version: { id, versionNumber } }`; stale base or protected nodes → 409 (see Errors) |
+| `GET /api/vos/{id}/changes?since={versionId}` | owner-only: the typed changelog after your base — attributed versions (origin/label/note), semantic `summary` + ops per version, and the `protected` human-edited node set |
 | `PATCH /api/vos/{id}` | `{ title \| config \| tags \| visibility: "private"\|"unlisted" }` |
 
 Base URL `https://vos.so`. `slug` is `[a-z0-9-]`, unique per user, ≤50
@@ -73,5 +74,7 @@ Give the user both URLs every time:
 | 400 | Invalid input / Failed to compile config | fix locally (`vos check`), re-push |
 | 401 | Invalid or revoked key | re-resolve credentials; ask the user |
 | 403 | missing `content` scope · cannot publish · grant off its source vos | respect the boundary; don't retry |
-| 409 | slug exists | pick another slug (the CLI retries derived slugs automatically) |
+| 409 | slug exists (on create) | pick another slug (the CLI retries derived slugs automatically) |
+| 409 | `stale_base` (on versions) | the platform copy moved since your base — the body EMBEDS the typed changes you missed; `vos pull`, re-apply, push with the fresh base |
+| 409 | `protected_conflict` (on versions) | your push touches nodes a studio version edited since your last push — keep the human's values, or include the listed ids in `overrides` ONLY when the user asked for that change |
 | 429 | 50/24h create quota, or grant's 5-push cap | iterate versions instead of creating; or wait |

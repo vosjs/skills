@@ -1,0 +1,25 @@
+{
+  "name": "vos-skills",
+  "owner": {
+    "name": "vosjs",
+    "url": "https://github.com/vosjs"
+  },
+  "metadata": {
+    "description": "Agent skills for vos: product demo videos from URLs, vos animation program authoring.",
+    "version": "0.1.0"
+  },
+  "plugins": [
+    {
+      "name": "vos-skills",
+      "source": "./",
+      "description": "Product demo videos from a URL (vos CLI take pipeline) and vos animation program authoring (VosConfigJson). Deterministic renders, JSON-editable documents.",
+      "version": "0.1.0",
+      "author": { "name": "vosjs", "url": "https://github.com/vosjs" },
+      "homepage": "https://vos.so/agents",
+      "repository": "https://github.com/vosjs/skills",
+      "license": "MIT",
+      "keywords": ["video", "product-video", "screen-recording", "animation", "motion-graphics", "vos"],
+      "strict": false
+    }
+  ]
+}

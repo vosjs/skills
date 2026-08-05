@@ -1,0 +1,98 @@
+---
+name: vos-remix
+description: Remix a vos animation program from the vos.so gallery with the vos CLI or HTTP API. Fetch a program's config, edit its declared knobs or code locally, validate with vos check, push a private copy back with lineage, and hand the user watch and studio links. Use for branded template videos, customizing a gallery animation, agent-authored motion graphics, swapping content into an existing animation program, or iterating a vos with new versions. Works with a durable API key or the ephemeral remix grant from a watch page prompt.
+license: MIT
+---
+
+# Remix a vos program
+
+Every video on [vos.so/gallery](https://vos.so/gallery) is a program:
+inputs + a deterministic function → video. Remixing is editing that
+program's JSON config and pushing the result back as a **private** vos on
+the user's account, with lineage. You edit locally; the platform validates,
+compiles, and renders a preview.
+
+## Setup
+
+```bash
+npm i -D @vosjs/cli        # ≥ 0.4 — the fetch/check/push verbs
+```
+
+No browser needed for this loop (rendering previews happens on the
+platform). Everything also works as plain HTTP if the CLI is unavailable:
+`references/remix-contract.md` documents every endpoint.
+
+## Credentials (never print them)
+
+Two shapes, both used as `Authorization: Bearer`:
+
+1. **Remix grant** (`vos_rg_…`) — if the user's prompt contains one, use it.
+   24h lifetime, bound to ONE source vos, max 5 pushes.
+2. **Durable key** (`vos_sk_…`) — resolution order before asking:
+   `VOS_API_KEY` env, then the first line of `~/.config/vos/credentials`.
+   Humans mint keys at https://vos.so/app/api.
+
+The CLI resolves both automatically (`export VOS_API_KEY=…`). Neither shape
+can publish: pushed voses stay private until a human publishes on vos.so.
+
+## The loop
+
+1. **Fetch** the source program (public programs need no auth):
+   ```bash
+   vos fetch https://vos.so/vos/<id>        # or the bare id
+   # → <slug>/config.json (params preserved) + <slug>/meta.json
+   ```
+
+2. **Edit** `config.json` locally. The function fields (`setup`,
+   `createContent`, `createTimeline`, `onFrame`) are JavaScript **as
+   strings** — no TypeScript syntax, no `${}` template interpolation.
+   Change 1–2 axes decisively (palette, motion grammar, density) — never a
+   10%-nudge duplicate. If the program declares `params`, prefer retuning
+   or extending those knobs over surgery on function strings.
+
+3. **Declare knobs and Looks** — the remix's control surface. 2–4
+   intent-named params plus 2–3 presets. This is a craft with rules:
+   `references/params-knobs.md`.
+
+4. **Check** locally before pushing:
+   ```bash
+   vos check <slug>/config.json     # migrate → schema → syntax → compile → lints
+   ```
+   Fix every error; treat determinism warnings seriously (a config that
+   renders differently per run is broken by definition).
+
+5. **Push** as a private vos with lineage (the CLI reads `meta.json` beside
+   the config for the `remixOfId` credit):
+   ```bash
+   vos push <slug>/config.json --title "Aurora Ribbons — dusk"
+   # → Created private vos <id>
+   #   watch:  https://vos.so/vos/<id>
+   #   studio: https://vos.so/studio?vos=<id>
+   ```
+
+6. **Iterate** — further edits become versions of the same vos:
+   ```bash
+   vos push <slug>/config.json --vos <id> --note "cooler palette, slower drift"
+   ```
+   Pass `--base <versionId>` (from the previous push's output) so the
+   platform can detect when its copy moved under you; on a conflict the CLI
+   prints what changed there — fetch, rebase your edit, push again.
+
+7. **Hand back BOTH links** — the watch page (preview, knobs, code) and the
+   studio (`https://vos.so/studio?vos=<id>`) where the user fine-tunes your
+   knobs live. Publishing is their act, on vos.so.
+
+## Rules that keep pushes honest
+
+- **Private is the contract.** Never try `visibility: "public"` — it clamps
+  to private, and publishing by key is rejected by design.
+- **Quota-aware**: durable keys create ≤50 voses/24h; grants push ≤5. Iterate
+  versions on one vos instead of creating many voses.
+- **Server-render constraints** (the preview fleet is software-GL): no
+  `THREE.DoubleSide` on transmission materials, no `dispersion`, and every
+  fetched asset must be an absolute `https` URL the fleet can reach.
+- **Every knob must act.** A param the code never reads is worse than no
+  param — see the honesty section of `references/params-knobs.md`.
+- 3D model swaps (GLB into a showcase program): `references/3d-recipe.md`.
+- Full endpoint reference, quotas, and error table:
+  `references/remix-contract.md`.

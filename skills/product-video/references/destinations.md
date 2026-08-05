@@ -6,6 +6,12 @@ lands. All assets come from ONE take — pick apex moments with
 `vos frames take --frame <t> --size WxH` and videos with render presets +
 `--range`.
 
+**Producing a full launch kit?** Use the `launch-kit` skill from this
+repo — it drives the whole per-channel loop against the machine-readable
+spec sheet (`schema/channel-specs.json` in `@vosso/cli`) and verifies
+every asset in a manifest. The tables below are the quick reference for
+one-off cuts.
+
 ## Landing-page embed (your site's hero or feature section)
 
 - Record at 2560×1440 so a 2K render is footage-native; render webm.

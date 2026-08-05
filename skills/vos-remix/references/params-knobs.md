@@ -48,9 +48,12 @@ whenever the program has 4+ params.
    recurring prompt themes become knobs ("you keep circling pacing — I
    added `pace`").
 2. **Knob honesty is renderable.** Every knob must visibly change the
-   output. Verify: render one frame at the knob's min and one at its max —
-   if the frames are near-identical, the knob is dead; wire it or drop it.
-   Fake agency poisons the whole paradigm.
+   output. Verify: render frames at several points of the knob's range and
+   compare — min, MIDPOINT, max for numbers. The midpoint matters:
+   circular quantities (hue is the classic) look identical at the two range
+   ends (±half a turn is the same rotation), so a min-vs-max check calls a
+   working knob dead. If the best pair is near-identical, the knob is dead;
+   wire it or drop it. Fake agency poisons the whole paradigm.
 3. **Respect human-set values.** A value the human adjusted is theirs — when
    you regenerate code, preserve what each knob does. Renaming or retiring
    a knob is something you SAY in the iteration note ("replaced `speed`

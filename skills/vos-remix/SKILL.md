@@ -15,7 +15,7 @@ compiles, and renders a preview.
 ## Setup
 
 ```bash
-npm i -D @vosjs/cli        # ≥ 0.5 — the fetch/check/push/pull loop
+npm i -D @vosjs/cli @vosso/vos-plugin   # the fetch/check/push/pull loop
 ```
 
 No browser needed for this loop (rendering previews happens on the
@@ -40,7 +40,7 @@ can publish: pushed voses stay private until a human publishes on vos.so.
 1. **Fetch** the source program (public programs need no auth):
    ```bash
    vos fetch https://vos.so/vos/<id>        # or the bare id
-   # → <slug>/config.json (params preserved) + <slug>/meta.json
+   # → <slug>/config.json (params preserved) + <slug>/vos.json (tracking)
    ```
 
 2. **Edit** `config.json` locally. The function fields (`setup`,
@@ -61,7 +61,7 @@ can publish: pushed voses stay private until a human publishes on vos.so.
    Fix every error; treat determinism warnings seriously (a config that
    renders differently per run is broken by definition).
 
-5. **Push** as a private vos with lineage (the CLI reads `meta.json` beside
+5. **Push** as a private vos with lineage (the CLI reads `vos.json` beside
    the config for the `remixOfId` credit):
    ```bash
    vos push <slug>/config.json --title "Aurora Ribbons — dusk"
@@ -74,7 +74,7 @@ can publish: pushed voses stay private until a human publishes on vos.so.
    ```bash
    vos push <slug>/config.json --vos <id> --note "cooler palette, slower drift"
    ```
-   The directory TRACKS its vos through `meta.json`, so the base version is
+   The directory TRACKS its vos through `vos.json`, so the base version is
    carried automatically: if the human edited in the studio since your last
    push, the push is rejected WITH their typed changelog. `--note` is your
    handoff line — it is what the human reads first; `--label` names the
@@ -88,7 +88,7 @@ can publish: pushed voses stay private until a human publishes on vos.so.
    plus their notes), syncs `config.json` to the head (your previous copy is
    kept as `config.backup.json`), and repoints the base. **Human-edited
    nodes are protected**: a push that touches them is rejected unless you
-   pass `--overrides id,id` — do that ONLY when the user's instruction
+   pass `--override <id>` — do that ONLY when the user's instruction
    explicitly targets that node. Their turns of your knobs are preference
    data: read the changelog before deciding what to do next.
 

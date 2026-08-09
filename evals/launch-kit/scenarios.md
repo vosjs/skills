@@ -3,7 +3,7 @@
 Run before each release tag, on ≥2 model tiers. Environment: a directory
 containing a finished take (provide a fixture take with a tuned doc.json),
 the skill installed via `npx skills add vosjs/skills`,
-`npm i -D @vosjs/cli @vosso/cli`, ffmpeg on PATH, system Chrome. Record
+`npm i -D @vosjs/cli @vosso/vos-plugin`, ffmpeg on PATH, system Chrome. Record
 runs in `results/` plus a no-skill baseline note.
 
 ## S1 — the stills kit

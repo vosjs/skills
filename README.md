@@ -17,15 +17,17 @@ add the repo as a plugin marketplace: `/plugin marketplace add vosjs/skills`.
 
 | Skill | What it does | Needs |
 | --- | --- | --- |
-| [`product-video`](skills/product-video/SKILL.md) | Record and produce a shippable product demo video of a website, app, or feature: the agent drives the browser from a JSON script, the recording auto-plans zooms, and every edit is a JSON patch on `doc.json`. One take also yields exact-size store screenshots, tiles, and social stills. | `npm i -D @vosjs/cli @vosso/cli`, a Chromium, network |
+| [`product-video`](skills/product-video/SKILL.md) | Record and produce a shippable product demo video of a website, app, or feature: the agent drives the browser from a JSON script, the recording auto-plans zooms, and every edit is a JSON patch on `doc.json`. One take also yields exact-size store screenshots, tiles, and social stills. | `npm i -D @vosjs/cli @vosso/vos-plugin`, a Chromium, network |
 | [`vos-authoring`](skills/vos-authoring/SKILL.md) | Author vos animation programs (VosConfigJson) from scratch: schema, dialect rules, params/presets knobs, local validation with `@vosjs/core`. | `npm i @vosjs/core` (validation), `@vosjs/cli` (render) |
-| [`vos-remix`](skills/vos-remix/SKILL.md) | Remix a program from the vos.so gallery: fetch its config, edit knobs or code, validate locally, push a private copy back with lineage — then iterate it as versions. Ships the params/Looks doctrine (2–4 intent-named knobs, every knob verified to act). | `npm i -D @vosjs/cli` (≥0.4), a content key or remix grant |
-| [`launch-kit`](skills/launch-kit/SKILL.md) | One take → the full launch asset kit: YouTube demo + thumbnail, X/LinkedIn cuts, Chrome Web Store screenshots + tiles, Product Hunt gallery, GitHub README loop, OG cards. Per-channel specs ship as data and every asset is verified against them in a `kit.json` manifest. | `npm i -D @vosjs/cli @vosso/cli`, ffmpeg, a finished take |
+| [`vos-remix`](skills/vos-remix/SKILL.md) | Remix a program from the vos.so gallery: fetch its config, edit knobs or code, validate locally, push a private copy back with lineage — then iterate it as versions. Ships the params/Looks doctrine (2–4 intent-named knobs, every knob verified to act). | `npm i -D @vosjs/cli @vosso/vos-plugin`, a content key or remix grant |
+| [`launch-kit`](skills/launch-kit/SKILL.md) | One take → the full launch asset kit: YouTube demo + thumbnail, X/LinkedIn cuts, Chrome Web Store screenshots + tiles, Product Hunt gallery, GitHub README loop, OG cards. Per-channel specs ship as data and every asset is verified against them in a `kit.json` manifest. | `npm i -D @vosjs/cli @vosso/vos-plugin`, ffmpeg, a finished take |
 
-One CLI, two packages: `@vosjs/cli` is the MIT `vos` binary and engine
-verbs; `@vosso/cli` adds the take pipeline (record, plan, frames, render on
-screen recordings). Both are free to use; `@vosso/cli` is proprietary,
-source-available.
+One CLI, two packages: `@vosjs/cli` is the MIT `vos` binary and the engine
+verbs (local, no account); `@vosso/vos-plugin` adds everything else — the
+take pipeline (record, plan, frames, render on screen recordings) and the
+vos.so platform verbs (fetch, push, pull, login). Both are free to use;
+`@vosso/vos-plugin` is proprietary, source-available. (It was previously
+published as `@vosso/cli`; that name keeps working as a forwarding shim.)
 
 ## Why these are different
 

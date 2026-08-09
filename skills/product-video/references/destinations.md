@@ -8,7 +8,7 @@ lands. All assets come from ONE take — pick apex moments with
 
 **Producing a full launch kit?** Use the `launch-kit` skill from this
 repo — it drives the whole per-channel loop against the machine-readable
-spec sheet (`schema/channel-specs.json` in `@vosso/cli`) and verifies
+spec sheet (`schema/channel-specs.json` in `@vosso/vos-plugin`) and verifies
 every asset in a manifest. The tables below are the quick reference for
 one-off cuts.
 

@@ -14,15 +14,15 @@ product, and re-running after a product change regenerates the whole kit.
 ## Setup
 
 ```bash
-npm i -D @vosjs/cli @vosso/cli    # the vos CLI (take pipeline included)
+npm i -D @vosjs/cli @vosso/vos-plugin    # the vos CLI (take pipeline included)
 ```
 
 Plus `ffmpeg` on PATH for re-encodes. MP4 renders need system Chrome
 (`--format mp4`). The per-channel specs ship as data in the CLI package
-(`@vosso/cli` ≥0.3):
+(`@vosso/vos-plugin` ≥0.4):
 
 ```
-node_modules/@vosso/cli/schema/channel-specs.json
+node_modules/@vosso/vos-plugin/schema/channel-specs.json
 ```
 
 `references/channel-specs.md` is the same data as a table (and the

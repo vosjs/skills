@@ -2,7 +2,7 @@
 
 Run before each release tag, on ≥2 model tiers. Environment: clean
 directory, skill installed via `npx skills add vosjs/skills`,
-`npm i -D @vosjs/cli` (≥0.4), a content key in `VOS_API_KEY` (scoped test
+`npm i -D @vosjs/cli @vosso/vos-plugin`, a content key in `VOS_API_KEY` (scoped test
 account). Record runs in `results/` plus a no-skill baseline note.
 
 ## S1 — the full loop against production

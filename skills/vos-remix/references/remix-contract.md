@@ -36,6 +36,7 @@ quota'd (50/24h).
 | `POST /api/vos/{id}/versions` | iterate: `{ config, baseVersionId?, label?, note?, overrides? }` → `201 { version: { id, versionNumber } }`; stale base or protected nodes → 409 (see Errors) |
 | `GET /api/vos/{id}/changes?since={versionId}` | owner-only: the typed changelog after your base — attributed versions (origin/label/note), semantic `summary` + ops per version, and the `protected` human-edited node set |
 | `PATCH /api/vos/{id}` | `{ title \| config \| tags \| visibility: "private"\|"unlisted" }` |
+| `POST /api/claim` | **no auth** — the claimable push: `{ title, slug?, config }` → `201 { claimUrl, expiresAt, vos: { id } }`. Programs only, config ≤200KB, 5/24h per network. The claimUrl goes to the user and nowhere else; unclaimed work is deleted after 72h |
 
 Base URL `https://vos.so`. `slug` is `[a-z0-9-]`, unique per user, ≤50
 chars. `remixOfId` stamps the "remixed from" credit — always set it when

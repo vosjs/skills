@@ -32,8 +32,23 @@ Two shapes, both used as `Authorization: Bearer`:
    `VOS_API_KEY` env, then the first line of `~/.config/vos/credentials`.
    Humans mint keys at https://vos.so/app/api.
 
-The CLI resolves both automatically (`export VOS_API_KEY=…`). Neither shape
-can publish: pushed voses stay private until a human publishes on vos.so.
+3. **No credential at all** — the claimable push (programs only):
+   ```bash
+   curl -s -X POST https://vos.so/api/claim \
+     -H 'content-type: application/json' \
+     -d '{"title": "My remix", "config": <the VosConfigJson>}'
+   # → { "claimUrl": "https://vos.so/claim/…", "expiresAt": "…" }
+   ```
+   Hand `claimUrl` to the user and nowhere else — it is the only reference
+   and the only credential. The link lasts 72 hours; unclaimed work is
+   deleted after that (deliberate cleanup, not data loss — re-push if it
+   lapses). Claiming moves the vos into the user's library and starts its
+   hosted preview; iteration after claim rides their key (the loop below).
+   Limits: config ≤200KB, 5 pushes per day per network.
+
+The CLI resolves grants and keys automatically (`export VOS_API_KEY=…`). No
+shape can publish: pushed voses stay private until a human publishes on
+vos.so.
 
 ## The loop
 

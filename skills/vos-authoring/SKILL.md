@@ -44,6 +44,27 @@ vos preview my-config.json             # local playback page
 vos info   my-config.json
 ```
 
+## Share for preview (no account needed)
+
+Local render is the default — nothing leaves the machine unless the user
+asks for sharing or hosting. When they do want to see it hosted (playable
+link, fine-tuning in the vos.so studio) and no API key is configured, use
+the claimable push:
+
+```bash
+curl -s -X POST https://vos.so/api/claim \
+  -H 'content-type: application/json' \
+  -d '{"title": "…", "config": <the VosConfigJson>}'
+# → { "claimUrl": "https://vos.so/claim/…", "expiresAt": "…" }
+```
+
+Hand `claimUrl` to the user and nowhere else — it is the only reference and
+the only credential. It lasts 72 hours; unclaimed work is deleted after
+that (re-push if it lapses). Claiming moves the vos into the user's
+library. With a key configured (`VOS_API_KEY` or `vos login`), prefer
+`vos push` — keyed pushes have no expiry. Programs only, config ≤200KB,
+5 pushes per day per network.
+
 ## VosConfigJson structure
 
 ```json

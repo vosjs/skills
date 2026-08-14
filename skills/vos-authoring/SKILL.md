@@ -52,6 +52,10 @@ link, fine-tuning in the vos.so studio) and no API key is configured, use
 the claimable push:
 
 ```bash
+vos push my-config.json --claimable --title "…"
+# → claim: https://vos.so/claim/…   expires: <72h from now>
+
+# No CLI, or an older one? The same thing over plain HTTP:
 curl -s -X POST https://vos.so/api/claim \
   -H 'content-type: application/json' \
   -d '{"title": "…", "config": <the VosConfigJson>}'

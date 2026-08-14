@@ -31,9 +31,12 @@ Two shapes, both used as `Authorization: Bearer`:
 2. **Durable key** (`vos_sk_…`) — resolution order before asking:
    `VOS_API_KEY` env, then the first line of `~/.config/vos/credentials`.
    Humans mint keys at https://vos.so/app/api.
-
 3. **No credential at all** — the claimable push (programs only):
    ```bash
+   vos push my-remix.json --claimable --title "My remix"
+   # → claim: https://vos.so/claim/…   expires: <72h from now>
+
+   # No CLI, or an older one? The same thing over plain HTTP:
    curl -s -X POST https://vos.so/api/claim \
      -H 'content-type: application/json' \
      -d '{"title": "My remix", "config": <the VosConfigJson>}'

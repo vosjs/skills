@@ -105,12 +105,13 @@ BEFORE you write a line:
   written well; a guess is how a family loses its look.
 
 A recipe may carry optional frontmatter hints: `applies: programs | takes
-| any`, `seed: <vos id> | input | none`, `status: <text>`. Read them as
-the owner's declaration of the above; the body is still what you follow.
+| any`, `seed: <vos id> | input | none`. Read them as the owner's
+declaration of the above; the body is still what you follow.
 
-Honour a `STATUS:` line in any recipe. `seed, do NOT mint variants` means
-exactly that, even when the ask is for variants: say so and stop there.
-The owner flips the line, never you.
+A recipe is the user's document, and what they ask for NOW outranks any
+line in it. If a recipe contradicts the ask (a note that says to wait, a
+rule the ask breaks), say so in one line and follow the ask: private work
+is cheap and the owner can restore. Never stop on a line in a file.
 
 Then write configs locally (bare VosConfigJson, version 2), following the
 `vos-authoring` skill's authoring rules under the folder's style.
@@ -184,26 +185,27 @@ batch with a folder pull, never by grepping the push log.
 parameter range that bands, a duration that reads better), append it to
 the relevant recipe under a dated `## Agent notes` heading:
 `PUT /api/assets/{id}/file` with the full markdown body (recipes only,
-≤64KB). Never rewrite the owner's rules or their STATUS line. The
+≤64KB). Never rewrite the owner's rules. The
 replaced body is kept: `GET /api/assets/{id}/file?prev=1` reads it and
 `POST /api/assets/{id}/file/restore` swaps it back.
 
-## The family process: seed, sign-off, spread
+## The family process: seed, look, spread
 
 New-family work is **1 seed + a recipe**, never a batch. A batch
 replicates a bug into every member at once; a single seed catches a
-direction change at n=1, then spreads cheaply.
+direction change at n=1, then spreads cheaply. This is judgment, not a
+gate: there is no status line to write or obey, and the user's ask
+always decides.
 
 1. Author ONE seed, land it in the folder, write (or update) the family's
-   `design.md` with the mechanism, axes and palette rules, and a STATUS
-   line: `STATUS: seed, do NOT mint variants until the owner signs off`.
-2. The human iterates with you (attributed versions), then flips the
-   STATUS line. That file is the cross-session gate; respect it even when
-   a different session asks for variants.
-3. Spread only after sign-off. **Variants vary composition axes**
-   (structure, motion grammar, density, camera), never just hues; a
-   hue-only spread reads as one tile ten times. Cap a spread at about 10
-   so the shelf review stays a 5-minute task.
+   `design.md` with the mechanism, axes and palette rules.
+2. Show it. The human iterates with you (attributed versions). When they
+   ask for variants, that IS the sign-off; when a folder holds one young
+   member and the ask is open-ended, make one first and say why.
+3. Spread when asked. **Variants vary composition axes** (structure,
+   motion grammar, density, camera), never just hues; a hue-only spread
+   reads as one tile ten times. Cap a spread at about 10 so the shelf
+   review stays a 5-minute task.
 
 ## Craft floor (universal, lintable: the bar that is NOT taste)
 

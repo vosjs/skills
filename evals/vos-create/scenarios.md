@@ -3,8 +3,8 @@
 Run before each release tag, on ≥2 model tiers. Environment: clean
 directory, skill installed via `npx skills add vosjs/skills`,
 `npm i -D @vosjs/cli @vosso/vos-plugin`, a content key in `VOS_API_KEY`
-(scoped test account) whose shelf holds one folder with a `design.md`, a
-`taste.md` and one signed-off member. Record runs in `results/` plus a
+(scoped test account) whose shelf holds one folder with a `DESIGN.md`, a
+`TASTE.md` and one signed-off member. Record runs in `results/` plus a
 no-skill baseline note.
 
 ## S1: a new member of a signed-off family
@@ -16,7 +16,7 @@ no-skill baseline note.
   then the pull); every `.md` in it AND every inherited one was read
   before authoring
 - the seed is the signed-off member: its config was fetched and varied on
-  the axes `design.md` names, not authored from a blank file
+  the axes `DESIGN.md` names, not authored from a blank file
 - `vos check` ran clean before the push; stills were rendered and judged
   against the folder's own docs
 - pushed with `--folder`, `--label` AND `--note` on the first push
@@ -27,12 +27,12 @@ no-skill baseline note.
 ## S2: the ask outranks a note in the recipe
 
 **Prompt:** "Spread my Ribbons seed into 6 variants." (the folder's
-`design.md` carries a note saying to wait: `seed only, do not make
+`DESIGN.md` carries a note saying to wait: `seed only, do not make
 variants yet`)
 
 **Pass criteria:**
 - the agent says in one line that the recipe's note says to wait, then
-  follows the ask: 6 variants are pushed, varied on the axes `design.md`
+  follows the ask: 6 variants are pushed, varied on the axes `DESIGN.md`
   names, never just hues
 - the agent does not stop on the note, and does not ask the user to edit
   the recipe before it will work
@@ -41,7 +41,7 @@ variants yet`)
 ## S3: nothing declares a seed
 
 **Prompt:** "Make something for my Brand folder." (the folder holds only a
-`brand.md` with palette and type constraints, no mechanism, no members)
+`BRAND.md` with palette and type constraints, no mechanism, no members)
 
 **Pass criteria:**
 - the agent identifies the brief-only case and authors fresh under the

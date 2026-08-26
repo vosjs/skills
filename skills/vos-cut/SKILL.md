@@ -189,16 +189,20 @@ File it and write the rules down; numbers stay in the seed's doc.
 ```bash
 vos folder create "<series>" --desc "<what it is for, ≤200 chars>"
 vos folder move <vosId> --to <slug>
-vos recipe push cut.md --folder <slug>      # applies: takes, seed: <the vos id>
-vos recipe push brand.md --folder <slug>    # applies: any, seed: none
+vos recipe push CUT.md --folder <slug>      # applies: takes, seed: <the vos id>
+vos recipe push BRAND.md --folder <slug>    # applies: any, seed: none
 ```
 
-`cut.md` says what a number cannot: the beat vocabulary, what gets a
+A recipe is named in CAPS, the way `CLAUDE.md` is: it is the file the
+collection reads before it cuts anything. What you file is stored with
+its stem uppercased either way, so the terminal and the shelf agree.
+
+`CUT.md` says what a number cannot: the beat vocabulary, what gets a
 caption and what never does, hold lengths, the title/end convention, the
 length band, what to skip, and the decisions the human corrected INTO the
-seed (read from the differ). `brand.md`: typography, palette, background,
+seed (read from the differ). `BRAND.md`: typography, palette, background,
 music, the voice of any text. Later members: pull the folder, digest, plan
-`--style` from the seed, cut against `cut.md`, push `--folder`; a
+`--style` from the seed, cut against `CUT.md`, push `--folder`; a
 correction that recurs across two members (or one the human states for all
 of them) is appended under `## Agent notes`, dated, and the rule above it
 is rewritten to match (`vos recipe push <file> --asset <id>` replaces in

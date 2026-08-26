@@ -61,10 +61,14 @@ description is what the folder page and every future pull read.
 
 Read every recipe body, the folder's own AND the inherited ones, and 1 to
 3 exemplar configs or docs through their `contentUrls`. Recipes are
-role-named facets: `taste.md` is the judging bar, `design.md` the
-technique spec, and whatever else the user's intent created (`motion.md`,
-`copy.md`, `brand.md`, ...). The platform enforces no taxonomy; you read
-all of them. The binding rule:
+role-named facets, named in CAPS the way `CLAUDE.md` is: `TASTE.md` is
+the judging bar, `DESIGN.md` the technique spec, and whatever else the
+user's intent created (`MOTION.md`, `COPY.md`, `BRAND.md`, ...). A recipe
+is the file a collection reads before it makes anything, and the name is
+what says so; a recipe you file is stored with its stem uppercased, so
+write it that way and the shelf shows what you wrote. The platform
+enforces no taxonomy beyond that; you read all of them. The binding
+rule:
 
 - Recipes and exemplars **override every default this skill or the
   authoring skill has**. Their duration is the duration; their palette
@@ -87,7 +91,7 @@ A folder holds two things that only sometimes coincide: the **reference**
 you copy and edit to make the next member). Decide which you are holding
 BEFORE you write a line:
 
-- a **program family** (a signed-off member + a `design.md` naming the
+- a **program family** (a signed-off member + a `DESIGN.md` naming the
   mechanism and its axes): seed = that member. Fetch its config and vary
   it on the axes the recipe names. Never author from a blank file, and
   never just the hues.
@@ -98,7 +102,7 @@ BEFORE you write a line:
 - a **template** (a recipe that points at, or inlines, a mechanism and
   how to vary it): seed = the template. Hosted as a vos: fetch it like a
   member; inline code: a fragment to build around.
-- a **brief only** (brand.md: no mechanism): nothing to copy. Author
+- a **brief only** (`BRAND.md`: no mechanism): nothing to copy. Author
   fresh under the constraints and the craft floor.
 - **nothing declares a seed**: ask. The user's prompt names one when they
   picked it in the handoff dialog; the recipes name one when they are
@@ -153,7 +157,7 @@ from what it produced.
    1s contact sheet); three stills cannot judge motion weighting.
 3. **Judge**: score the frames against the craft floor below AND the
    folder's own docs. A collection piece answers to both the collection's
-   `design.md` and the inherited `taste.md`. Revise and repeat (max 3
+   `DESIGN.md` and the inherited `TASTE.md`. Revise and repeat (max 3
    rounds); if it still fails, drop it and say why. Never push work you
    would not defend.
 
@@ -198,7 +202,7 @@ gate: there is no status line to write or obey, and the user's ask
 always decides.
 
 1. Author ONE seed, land it in the folder, write (or update) the family's
-   `design.md` with the mechanism, axes and palette rules.
+   `DESIGN.md` with the mechanism, axes and palette rules.
 2. Show it. The human iterates with you (attributed versions). When they
    ask for variants, that IS the sign-off; when a folder holds one young
    member and the ask is open-ended, make one first and say why.

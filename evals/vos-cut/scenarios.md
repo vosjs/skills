@@ -5,7 +5,7 @@ directory, skill installed via `npx skills add vosjs/skills`,
 `npm i -D @vosjs/cli @vosso/vos-plugin`, a Chromium, a content key in
 `VOS_API_KEY` (scoped test account) whose shelf holds one hosted take
 (60-120s, recorded with the extension, a cursor track) and one folder with
-a signed-off take, a `cut.md` and a `brand.md`. Record runs in `results/`
+a signed-off take, a `CUT.md` and a `BRAND.md`. Record runs in `results/`
 plus a no-skill baseline note.
 
 ## S1: cut a take with no ask
@@ -64,7 +64,7 @@ videos folder."
 - the folder was pulled and every `.md` (own and inherited) was read
 - `vos plan <take> --style <seed>` ran before the cut; the member's style
   fields equal the seed's; no recipe number was retyped into the doc
-- the cut follows `cut.md`'s beat list and text rule (captions per beat at
+- the cut follows `CUT.md`'s beat list and text rule (captions per beat at
   the recipe's cadence, boxed where the recipe says)
 - pushed `--folder <slug>` with `--label`/`--note`
 

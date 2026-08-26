@@ -5,15 +5,15 @@
     "url": "https://github.com/vosjs"
   },
   "metadata": {
-    "description": "Agent skills for vos: product demo videos from URLs, vos animation program authoring.",
-    "version": "0.1.0"
+    "description": "Agent skills for vos: product demo videos from URLs, cutting your own screen recordings, vos animation program authoring.",
+    "version": "0.2.0"
   },
   "plugins": [
     {
       "name": "vos-skills",
       "source": "./",
-      "description": "Product demo videos from a URL (vos CLI take pipeline) and vos animation program authoring (VosConfigJson). Deterministic renders, JSON-editable documents.",
-      "version": "0.1.0",
+      "description": "Product demo videos from a URL (vos CLI take pipeline), cutting your own screen recordings from their cursor evidence (vos-cut), and vos animation program authoring (VosConfigJson). Deterministic renders, JSON-editable documents.",
+      "version": "0.2.0",
       "author": { "name": "vosjs", "url": "https://github.com/vosjs" },
       "homepage": "https://vos.so/agents",
       "repository": "https://github.com/vosjs/skills",

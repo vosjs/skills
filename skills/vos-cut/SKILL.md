@@ -1,6 +1,6 @@
 ---
 name: vos-cut
-description: Cut a screen recording (a vosso take) into a product video the way an editor would, from its evidence, with the vos CLI. Read the take's digest (the moments the cursor track says mattered, with a footage frame and a crop each), narrate it into beats, edit doc.json by exception over the planners, verify with stills, push an attributed version to vos.so, and iterate with the human through the version chain. Use when asked to edit or cut a recording, make a product video from a take, cut it like the last one, or produce a series of videos in one style from several recordings.
+description: Cut a screen recording (a vosso take) into the product video it was recorded for, from its evidence, with the vos CLI — read the take's digest (the moments the cursor track says mattered, each with a footage frame and a crop), narrate beats, edit doc.json by exception over the planners, verify with stills, and push an attributed version the human fine-tunes at vos.so; every edit is a data patch, so a re-cut never re-records. Use when asked to edit or cut a recording, make a product video or what's-new clip from a take, cut it like the last one, or cut a series of recordings in one style.
 license: MIT
 ---
 

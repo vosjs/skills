@@ -1,6 +1,6 @@
 ---
 name: vos-create
-description: Create vos animation programs in the user's own style with the vos CLI and the vos.so folder API. Resolve their folder, read every recipe (.md) and exemplar in it, author VosConfigJson work that follows them, check and render and judge locally, then push into that folder as attributed private versions. Use when asked to make a vos "like my X folder" or "in my usual style", to build or extend a collection, or to spread a signed-off seed into variants.
+description: Create vos programs in the user's own style — pull their vos.so folder, read every recipe (.md) and exemplar in it, author VosConfigJson that follows them, validate + render + judge headlessly, and push into that folder as attributed versions the human edits in the studio. Use when asked to make a vos “like my X folder” / “in my usual style”, to build or extend a collection, or to spread a signed-off seed into variants.
 license: MIT
 ---
 

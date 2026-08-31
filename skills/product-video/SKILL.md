@@ -1,6 +1,6 @@
 ---
 name: product-video
-description: Record and produce a shippable product demo video of a website, app, or feature with the vos CLI. The agent drives the browser from an actions.json script, the recording auto-plans zooms, and every editing decision lives in doc.json, so you edit JSON and re-render instead of re-recording. Output is real footage with auto-zoom, deterministic renders, and exact-size stills from the same take. Use when asked to make a product video, demo video, screen recording of a URL or feature, marketing clip, or launch assets such as store screenshots, tiles, and promo stills.
+description: Record and produce the demo video of a website, app, or feature with the vos CLI — the agent scripts the click path (actions.json), the recording auto-plans zooms, and every editing decision is data in doc.json, so fixes are edits and re-renders, never re-recordings. Renders are deterministic; export is free up to 4K with no watermark. Use when asked to make a product video, demo video, screen recording of a URL or feature, or a marketing clip. A whole release's asset set (store listing, Product Hunt gallery, social cuts) is the launch-kit skill, which records through this one.
 license: MIT
 ---
 
@@ -51,6 +51,10 @@ Per-channel dimensions and byte budgets: `references/destinations.md`.
 1. **Explore the target page** with your own tools (fetch HTML / Playwright).
    Identify the 3–6 moments that tell ONE story. Collect STABLE selectors
    (`a[href='…']`, ids, roles — not nth-child chains).
+   **Stage the content like a set**: the script must leave the product in
+   the state a proud screenshot would show — labels typed, real-looking
+   data, the feature mid-story. An empty canvas records fast and demos
+   nothing, and no downstream composition rescues it.
 
 2. **Write `actions.json`**:
    ```json
@@ -133,22 +137,22 @@ Per-channel dimensions and byte budgets: `references/destinations.md`.
 
 ## Launch kit (one take → every store asset)
 
-From the SAME take that makes the video:
-- Screenshots: `vos frames take --frame <t> --size 1280x800` per beat
-  (Chrome Web Store wants ≤5 at 1280×800; pick apex times where each feature
-  is composed).
-- Tiles/banners: `--size 440x280` / `--size 1400x560` from suitably-framed
-  moments (tiles need the subject centered — add a dedicated zoom span if
-  needed; it costs one draft render to check).
-- Promo video: the mp4 render, with `doc.audio` music if the destination
-  plays sound.
+The `launch-kit` skill owns this destination: it establishes the release,
+loops every channel against `channel-specs.json`, verifies each artifact
+against its spec, writes the `kit.json` manifest and pushes labelled for
+the release. The mechanics it loops are this skill's:
+`vos frames take --frame <t> --size WxH` per still spec, the mp4 render for
+video. Follow it when the ask is a release, not one video.
 
 ## Gotchas
 
 - Render time ≈ 1.5× real-time at 1080p (a 12.5s take ≈ 19s; ~5s fixed
   startup); `--parallel N` pays off on takes ≳30s (ignored when audio rides);
   2K ≈ 2× per-frame cost. Recording is always real-time.
-- Footage resolution = viewport size — decide 2K at RECORD time.
+- Footage resolution = viewport size — decide 2K at RECORD time, from the
+  DESTINATION's specs (a 720p take cannot honestly fill a 1080p video
+  spec). Coordinate steps (`x`/`y`/`drag`) are VIEWPORT pixels: a viewport
+  change means scaling every coordinate; selectors survive.
 - `vos plan take` regenerates only `source:"auto"` spans; manual spans survive.
 - Take dirs: `frames/` is a deletable encode intermediate (~1GB at 2K);
   `recording.webm` is the re-render source — keep it.

@@ -17,9 +17,16 @@ existing tuned cut (not the suite's specified 60–120 s extension take).
   cut removed the zoom (speed 1.6x rides under the drags instead) and
   removed the speed span entirely, and the note names the stretch as
   playback — the digest itself marks scene changes inside the "idle" gap.
-- **S3 NOT RUN** — the protected-node window derives from STUDIO-origin
-  versions only, so the fixture requires a real human edit in the studio;
-  no credential this run holds can fake one. One human gesture arms it.
+- **S3 RUN, PASS (2026-09-01, armed by a real studio edit)** — the human
+  raised zoom z1's level in the studio (the checkpoint minted v5,
+  origin studio). `vos pull` ran FIRST and the differ said it in one line
+  ("zoom z1: level 1.8→2.2, source auto→manual"; protected: [z1]). The
+  asked edit ("snappier") landed as ONE manual speed span over the drawing
+  stretch — the changelog for the push shows exactly that and nothing
+  else; z1 stayed at the human's value, no `--override` was passed, and
+  the push carried the new base with no stale_base loop. Tooling note: a
+  transcript-parsing hiccup double-pushed, and the differ stamped the
+  duplicate "no changes" — the chain records it honestly.
 - **S4 RUN, PASS (2026-09-01)** — fixture folder built (CUT.md + BRAND.md
   + a signed-off seed take); the folder was pulled and every recipe read;
   `vos plan --style <seed>` carried the seed's style; the cut follows

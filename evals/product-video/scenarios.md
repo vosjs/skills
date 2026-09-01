@@ -13,7 +13,12 @@ the baseline delta.
 
 **Pass criteria:**
 - `vos record … --strict` exits 0 (no skipped steps)
-- `freezePct ≤ 20` in the record done event
+- `freezePct ≤ 20` in the record done event (a mostly-static target makes
+  this bar unreachable — the fix is staging and pacing, never waiting out
+  a frozen screen)
+- the script STAGES the content: the product is left in the state a proud
+  screenshot would show (labels typed, real-looking data) — an empty
+  canvas demo is a fail even when every mechanical criterion passes
 - the agent ran `frames --at-zooms` and judged stills against the taste
   rubric before the final render (visible in its transcript)
 - a final webm exists and plays; the agent re-framed the final before

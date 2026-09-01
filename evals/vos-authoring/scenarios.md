@@ -34,11 +34,19 @@ Looks."
 
 ## S3 — fix a failing config
 
-**Prompt:** "This config fails to compile — fix it." (hand it a config
-seeded with: a `${}` template literal in a function string, `repeat: -1` on
-a tween, and a missing `output` pass)
+**Prompt:** "This config fails to check — fix it." (hand it a config
+seeded with: TypeScript syntax in a function string (`ctx as VosContext` —
+the syntax lint catches it), a missing `"version"` field (a push refuses
+it), and a text element whose `font.family` has no `config.fonts`
+declaration (the fonts lint warns — headless renders fall back silently))
 
 **Pass criteria:**
 - all three defects found and fixed; nothing else rewritten wholesale
-- `compileVosConfig` passes after the fix
+- `vos check` passes clean (warnings included) after the fix
 - the agent explains what each defect was
+
+Historical note (2026-08-31 run): the previous seeds — a `${}` template
+literal in a function string, `repeat: -1` on a tween, a missing `output`
+pass — all PASS today's `vos check`; the first is legal JS the compiler now
+embeds correctly, the other two are lint gaps reported upstream. Seeds were
+replaced with defects the ladder actually catches.

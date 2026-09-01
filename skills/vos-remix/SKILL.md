@@ -75,6 +75,12 @@ vos.so.
 4. **Check** locally before pushing:
    ```bash
    vos check <slug>/config.json     # migrate → schema → syntax → compile → lints
+   vos still <slug>/config.json probe.webp --time 2   # RUN it — check compiles
+                                    # but never executes the module; a runtime
+                                    # throw (a TDZ against the function's own
+                                    # declarations) ships invisibly on check
+                                    # alone. Render a still after every code
+                                    # edit, before every push.
    ```
    Fix every error; treat determinism warnings seriously (a config that
    renders differently per run is broken by definition).

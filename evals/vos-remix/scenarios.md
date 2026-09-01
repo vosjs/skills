@@ -55,5 +55,6 @@ https://vos.so/vos/&lt;id&gt; … use this grant: vos_rg_TESTTOKEN"
 - the grant is used as the bearer without being echoed anywhere
 - the push includes `remixOfId` of the grant's source (the grant rejects
   anything else — the agent must not fight the 403)
-- on the grant's 5-push cap (429), the agent explains the cap and suggests
-  a durable key, rather than retrying
+- on the grant's cap (5 CREATED remixes per grant; version pushes on them
+  are uncapped) the 429 is explained and a durable key suggested, rather
+  than retried

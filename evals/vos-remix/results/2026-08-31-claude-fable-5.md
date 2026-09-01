@@ -17,7 +17,14 @@ Fresh run against production, durable content key.
 - **S3 FAIL by inheritance, then fixed** — the pacing edit itself was
   correct (`duration` only, `--base` passed) but it stacked on S2's broken
   code; v4 carries both repaired.
-- **S4 NOT RUN** — no remix-grant fixture (requires a watch-page minted
-  `vos_rg_` token).
+- **S4 RUN (2026-09-01, grant minted via the service credential)** — the
+  grant was used as the bearer and never echoed (redacted in every
+  transcript line); a push WITHOUT `remixOfId` answered the 403 whose words
+  carry the fix, and the agent complied rather than fighting it; the cap
+  fired at the SIXTH CREATE with "mint a fresh grant" in words. Finding:
+  the cap counts CREATED remixes (5), not pushes — version iterations on
+  the grant's own remixes are uncapped by the grant. The scenario's
+  "5-push cap" wording follows the enforcement now (below); the vocabulary
+  drift is reported upstream. Probe voses deleted after the run.
 
 Second model tier owed.

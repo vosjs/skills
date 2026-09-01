@@ -1,6 +1,6 @@
 ---
 name: vos-remix
-description: Remix a vos animation program from the vos.so gallery with the vos CLI or HTTP API. Fetch a program's config, edit its declared knobs or code locally, validate with vos check, push a private copy back with lineage, and hand the user watch and studio links. Use for branded template videos, customizing a gallery animation, agent-authored motion graphics, swapping content into an existing animation program, or iterating a vos with new versions. Works with a durable API key or the ephemeral remix grant from a watch page prompt.
+description: Remix a vos.so gallery program into your own — fetch its config, edit the declared knobs or code locally, validate with vos check, and push a private copy back with lineage that iterates as versions. Carries the params/Looks doctrine and the GLB 3D-showcase recipe. Use when asked to remix, customize or personalize a gallery animation, swap a 3D model into a showcase, or iterate a fetched program as versions.
 license: MIT
 ---
 

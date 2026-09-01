@@ -1,6 +1,6 @@
 ---
 name: vos-authoring
-description: Author vos animation programs (VosConfigJson) from scratch or debug existing ones. Declarative configs that compile into deterministic Three.js + GSAP-dialect animations via the open source vos engine (@vosjs/core). Covers the schema, dialect rules, 2D overlay elements, shaders, params and presets knobs for remixable programs, and local validation with compileVosConfig. Use when asked to write a vos animation program, create a VosConfigJson, make a programmatic motion graphic or logo animation, or fix a config that fails to compile or lint.
+description: Author a vos animation program (VosConfigJson) from scratch or debug one — declarative configs compiling into deterministic Three.js + GSAP-dialect animations on the MIT vos engine (@vosjs/core), validated locally with compileVosConfig. Covers the schema, dialect rules, 2D overlay elements, shaders, and params/presets knobs. Use when asked to write a vos animation program, create a VosConfigJson, make a programmatic motion graphic or logo animation, or fix a config that fails to compile or lint.
 license: MIT
 ---
 

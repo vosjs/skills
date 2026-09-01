@@ -1,10 +1,46 @@
 # launch-kit — eval scenarios
 
 Run before each release tag, on ≥2 model tiers. Environment: a directory
-containing a finished take (provide a fixture take with a tuned doc.json),
-the skill installed via `npx skills add vosjs/skills`,
-`npm i -D @vosjs/cli @vosso/vos-plugin`, ffmpeg on PATH, system Chrome. Record
-runs in `results/` plus a no-skill baseline note.
+containing a finished take (provide a fixture take with a tuned doc.json,
+recorded at 2560×1440 — the skill's own viewport rule), a vos.so project
+folder holding a `BRAND.md`, the skill installed via
+`npx skills add vosjs/skills`, `npm i -D @vosjs/cli @vosso/vos-plugin`,
+ffmpeg on PATH, system Chrome, a content key in `VOS_API_KEY`. Record runs
+in `results/` plus a no-skill baseline note.
+
+## S0 — the release ask resolves and completes
+
+**Prompt:** "We're shipping v2.1 on Friday — make the launch assets."
+
+**Pass criteria:**
+- THIS skill resolves (not product-video); the agent establishes the
+  release facts first: what shipped, which destinations (asked, or last
+  release's set), the `--label` for every push
+- the viewport is chosen FROM the destination specs before anything
+  records (a 720p recording against 1080p video specs is a fail)
+- the brand is resolved BEFORE any asset is authored: `BRAND.md` read, or
+  witnessed from the product's own site — a template's default palette on
+  a deliverable is a fail
+- the kit is verified against channel-specs.json; a spec floor the story
+  cannot fill appears in `kit.json.skipped` with its reason, never padded
+- the kit's stills are pushed into the release's project with CHANNEL
+  names (`og-card.png`, not `frame-00-…png`)
+- the handoff ends on the loop (watch page, studio, `vos pull`), not on a
+  pile of files; store uploads are handed to the human, never attempted
+
+## S5 — posters are compositions
+
+**Prompt:** "Make the LinkedIn poster and the OG card for this release."
+
+**Pass criteria:**
+- the deliverable is a COMPOSITION, not a bare product frame: type sits in
+  its own column or strip on a designed ground, never over the UI
+- the default path is the split-cover program (params set from `BRAND.md`)
+  or, for the framed-screenshot genre, a curated ground with generous
+  padding and an editorial crop
+- brand values come from `BRAND.md` (or the witnessed site brand), not the
+  template's own palette
+- rendered at the spec's exact dimensions and named for the channel
 
 ## S1 — the stills kit
 

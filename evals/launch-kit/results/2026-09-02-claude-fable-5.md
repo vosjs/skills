@@ -45,3 +45,6 @@ scenarios this run added (S6, S7). Deterministic count: the kit verifier
 Not an S-scenario but recorded: deliver's card PNGs carry grain and ran
 over the 1 MB OG/social ceiling on one product; the `vos still` route lands
 at 60 to 850 KB. Second model tier owed.
+
+Count (`node evals/count.mjs`, re-run on the two final kits with plugin
+0.21.1): `0 problems across 22 assets on 2 kits`.

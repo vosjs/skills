@@ -52,7 +52,9 @@ name keeps working as a forwarding shim.)
 ## Quality
 
 Every skill ships with eval scenarios in [`evals/`](evals/), run before each
-release on two model tiers. The `product-video` skill carries the taste
+release on two model tiers; a launch-kit run ends on one deterministic
+number, the kit verifier's problem count (`evals/count.mjs`), published on
+the release's changelog entry. The `product-video` skill carries the taste
 rubric its outputs are judged against; if a run ships something ugly, that
 failure becomes a new eval scenario.
 

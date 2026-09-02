@@ -63,14 +63,22 @@ Per-channel dimensions and byte budgets: `references/destinations.md`.
    command rides beside its result, then convert:
    ```bash
    ab() { agent-browser "$@" --json | node -e 'let s="";process.stdin.on("data",d=>s+=d).on("end",()=>{const r=JSON.parse(s);process.stdout.write(JSON.stringify({command:process.argv.slice(1),...r})+"\n")})' -- "$@" >> steps.jsonl; }
-   ab open https://target.example; ab snapshot -i -u; ab click @e27; ab wait 800
+   ab open https://target.example; ab snapshot -i -u; ab click @e27
+   ab wait 800; ab snapshot -i          # the page changed: refs renumbered
+   ab fill @e2 query; ab press Enter
    vos actions from-agent-browser steps.jsonl --out actions.json
    ```
    (a whole path run as one `agent-browser batch … --json > steps.jsonl`
-   already has that shape). Refs resolve through the last `snapshot -i`
-   before them; `-u` gives links their href. Whatever the recorder cannot
-   follow (a shortcut key, a drag, a second `open`) is NAMED in the output,
-   never dropped: read the notes, write those steps by hand, then record.
+   already has that shape). The log is `steps.jsonl` in the directory you
+   stand in, so walk from one directory. Refs resolve through the last
+   `snapshot -i` before them, and they RENUMBER after a navigation and
+   again inside a dialog: re-snapshot after anything that changes the page
+   and read the refs before you name one (`-u` gives links their href).
+   Click the control, do not press its shortcut: ⌘K opens the dialog for a
+   human, but a keystroke is the one step the recorder cannot replay.
+   Whatever it cannot follow (a shortcut key, a drag, a second `open`) is
+   NAMED in the output, never dropped: read the notes, write those steps by
+   hand, then record.
 
 2. **Write `actions.json`**:
    ```json

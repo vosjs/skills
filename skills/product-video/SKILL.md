@@ -22,7 +22,7 @@ npm i -D @vosjs/cli @vosso/vos-plugin
 One command, two packages: `@vosjs/cli` is the open source (MIT) `vos`
 binary and engine verbs; `@vosso/vos-plugin` adds the take pipeline used
 here (record / plan / frames / render on screen recordings) plus the vos.so
-platform verbs — free to use, proprietary license. Requirements:
+platform verbs, MIT as well. Requirements:
 
 - **A Chromium**: system Chrome is found automatically; otherwise
   `npx playwright install chromium` or point `VOS_BROWSER_PATH` at one.

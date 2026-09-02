@@ -2,7 +2,7 @@
 
 Run before each release tag, on ≥2 model tiers. Environment for every
 scenario: a clean directory outside any vos checkout, the skill installed via
-`npx skills add vosjs/skills`, the CLI via `npm i -D @vosjs/cli @vosso/vos-plugin`,
+`npx skills add vosjs/skills`, the CLI via `npm i -D @vosjs/cli`,
 network available, a Chromium present. Record each run in `results/` (model,
 date, pass/fail, notes). Also run each prompt once WITHOUT the skill and note
 the baseline delta.

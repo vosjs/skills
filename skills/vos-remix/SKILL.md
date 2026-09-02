@@ -15,7 +15,7 @@ compiles, and renders a preview.
 ## Setup
 
 ```bash
-npm i -D @vosjs/cli @vosso/vos-plugin   # the fetch/check/push/pull loop
+npm i -D @vosjs/cli   # the fetch/check/push/pull loop
 ```
 
 No browser needed for this loop (rendering previews happens on the

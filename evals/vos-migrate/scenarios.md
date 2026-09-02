@@ -4,7 +4,7 @@ Run before each release tag, on ≥2 model tiers. Environment: a clean
 directory holding one foreign screen-demo file (a 1080p H.264 mp4 with no
 vosso lineage — a real Loom/Screen Studio export when available), the skill
 installed via `npx skills add vosjs/skills`,
-`npm i -D @vosjs/cli @vosso/vos-plugin`, ffmpeg on PATH, a content key.
+`npm i -D @vosjs/cli`, ffmpeg on PATH, a content key.
 Record runs in `results/` plus a no-skill baseline note.
 
 ## S1 — the full migration

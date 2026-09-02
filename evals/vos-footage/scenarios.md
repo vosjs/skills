@@ -2,7 +2,7 @@
 
 Run before each release tag, on ≥2 model tiers. Environment: clean
 directory, the skill installed via `npx skills add vosjs/skills`,
-`npm i -D @vosjs/cli @vosso/vos-plugin`, a content key, network, a Chromium.
+`npm i -D @vosjs/cli`, a content key, network, a Chromium.
 Record runs in `results/` plus a no-skill baseline note.
 
 ## S1 — footage for a composition

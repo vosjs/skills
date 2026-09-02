@@ -2,7 +2,7 @@
 
 Run before each release tag, on ≥2 model tiers. Environment: clean
 directory, skill installed via `npx skills add vosjs/skills`,
-`npm i -D @vosjs/cli @vosso/vos-plugin`, a Chromium, a content key in
+`npm i -D @vosjs/cli`, a Chromium, a content key in
 `VOS_API_KEY` (scoped test account) whose shelf holds one hosted take
 (60-120s, recorded with the extension, a cursor track) and one folder with
 a signed-off take, a `CUT.md` and a `BRAND.md`. Record runs in `results/`

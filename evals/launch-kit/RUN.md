@@ -17,7 +17,7 @@ one; what changes is the skill, the CLI and the model.
 - A vos.so project the pushes land in, holding a `BRAND.md`, or none:
   S0 requires the agent to witness the brand from the product's site
   (`vos brand <url>`), and whether it did is a finding either way.
-- In the run directory: `npm i -D @vosjs/cli @vosso/vos-plugin`
+- In the run directory: `npm i -D @vosjs/cli`
   (plugin ≥ 0.20.0, the version `vos validate <kit.json>` arrived in),
   ffmpeg on PATH, system Chrome, a content key in `VOS_API_KEY`. Record
   the two package versions in the results file.

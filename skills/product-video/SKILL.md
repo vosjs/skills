@@ -16,13 +16,14 @@ its quality loop and judge stills multimodally.
 ## Setup
 
 ```bash
-npm i -D @vosjs/cli @vosso/vos-plugin
+npm i -D @vosjs/cli
 ```
 
-One command, two packages: `@vosjs/cli` is the open source (MIT) `vos`
-binary and engine verbs; `@vosso/vos-plugin` adds the take pipeline used
-here (record / plan / frames / render on screen recordings) plus the vos.so
-platform verbs, MIT as well. Requirements:
+One command, one package: `@vosjs/cli` is the open source (MIT) `vos`
+binary with the engine verbs, the take pipeline used here (record / plan /
+frames / render on screen recordings) and the vos.so platform verbs. (Until
+0.9 the take pipeline shipped separately as `@vosso/vos-plugin`; a project
+that still lists it can drop it.) Requirements:
 
 - **A Chromium**: system Chrome is found automatically; otherwise
   `npx playwright install chromium` or point `VOS_BROWSER_PATH` at one.
@@ -103,7 +104,7 @@ Per-channel dimensions and byte budgets: `references/destinations.md`.
    record+render verb — fine for a quick first pass, but THIS skill's loop
    reviews frames before rendering, so prefer the separate verbs here.)
 
-4. **Tune `doc.json`** (JSON Schema ships in the `@vosso/vos-plugin` npm package:
+4. **Tune `doc.json`** (JSON Schema ships in the `@vosjs/cli` npm package:
    `schema/doc.schema.json`):
    - `zoom`: `[{in, out, level, cx, cy, source}]`, SOURCE seconds; levels
      1.4–2.8; `cx/cy` NORMALIZED [0..1] (0.5,0.5 = center) — NOT pixels; set

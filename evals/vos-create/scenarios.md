@@ -2,7 +2,7 @@
 
 Run before each release tag, on ≥2 model tiers. Environment: clean
 directory, skill installed via `npx skills add vosjs/skills`,
-`npm i -D @vosjs/cli @vosso/vos-plugin`, a content key in `VOS_API_KEY`
+`npm i -D @vosjs/cli`, a content key in `VOS_API_KEY`
 (scoped test account) whose shelf holds one folder with a `DESIGN.md`, a
 `TASTE.md` and one signed-off member. Record runs in `results/` plus a
 no-skill baseline note.

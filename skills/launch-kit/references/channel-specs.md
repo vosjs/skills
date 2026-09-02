@@ -1,6 +1,6 @@
 # Channel specs — readable mirror
 
-Source of truth: `schema/channel-specs.json` in the `@vosso/vos-plugin` npm
+Source of truth: `schema/channel-specs.json` in the `@vosjs/cli` npm
 package (loop over the JSON, don't hand-type from this table). Verified
 against official platform docs 2026-08-04 — platform specs drift, so
 re-verify quarterly against the channels' current docs.

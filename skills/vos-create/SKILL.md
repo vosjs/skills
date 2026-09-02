@@ -21,7 +21,7 @@ contents; the shelf is the record.
 ## Setup
 
 ```bash
-npm i -D @vosjs/cli @vosso/vos-plugin   # folder, fetch, check, still, render, push
+npm i -D @vosjs/cli   # folder, fetch, check, still, render, push
 ```
 
 Credentials, in this order, never printed: `VOS_API_KEY`, then the first

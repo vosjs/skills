@@ -20,7 +20,7 @@ in the note and stop.
 ## Setup
 
 ```bash
-npm i -D @vosjs/cli @vosso/vos-plugin   # fetch, digest, plan, frames, render, push, pull
+npm i -D @vosjs/cli   # fetch, digest, plan, frames, render, push, pull
 ```
 
 Credentials, in this order, never printed: `VOS_API_KEY`, then the first

@@ -4,7 +4,7 @@ Run before each release tag, on ≥2 model tiers. Environment: a directory
 containing a finished take (provide a fixture take with a tuned doc.json,
 recorded at 2560×1440 — the skill's own viewport rule), a vos.so project
 folder holding a `BRAND.md`, the skill installed via
-`npx skills add vosjs/skills`, `npm i -D @vosjs/cli @vosso/vos-plugin`,
+`npx skills add vosjs/skills`, `npm i -D @vosjs/cli`,
 ffmpeg on PATH, system Chrome, a content key in `VOS_API_KEY`. Record runs
 in `results/` plus a no-skill baseline note.
 

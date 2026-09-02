@@ -15,7 +15,7 @@ at every resolution up to 4K, no watermark; the engine is MIT.
 ## Setup
 
 ```bash
-npm i -D @vosjs/cli @vosso/vos-plugin    # the vos CLI (take pipeline included)
+npm i -D @vosjs/cli    # the vos CLI (take pipeline included)
 ```
 
 `ffmpeg` on PATH covers what the CLI does not emit (the PH hover-GIF,
@@ -175,7 +175,7 @@ video), never from intent:
 
 ```bash
 node -e '
-const specs = require("@vosso/vos-plugin/schema/channel-specs.json").specs
+const specs = require("./node_modules/@vosjs/cli/schema/channel-specs.json").specs
 const kit = require("./kit/kit.json")
 let bad = 0
 for (const a of kit.assets) {

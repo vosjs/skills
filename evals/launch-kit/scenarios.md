@@ -13,7 +13,9 @@ so a run's number is comparable with the last one. Every run records ONE
 deterministic count beside the judged pass/fail: the problems `vos
 validate <kit>/kit.json` reports across every kit the run produced (the
 verifier reads each asset's bytes against the channel specs; plugin
-≥0.20.0). A judged PASS with a non-zero count is a FAIL.
+≥0.20.0). A judged PASS with a non-zero count is a FAIL. The procedure
+for a tier, the blind A/B and the count script are in `RUN.md`; the count
+is `node evals/count.mjs <run dirs>`.
 
 ## S0 — the release ask resolves and completes
 

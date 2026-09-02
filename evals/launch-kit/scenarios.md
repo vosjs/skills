@@ -8,6 +8,13 @@ folder holding a `BRAND.md`, the skill installed via
 ffmpeg on PATH, system Chrome, a content key in `VOS_API_KEY`. Record runs
 in `results/` plus a no-skill baseline note.
 
+The scenarios are FROZEN: the prompts below do not change between runs,
+so a run's number is comparable with the last one. Every run records ONE
+deterministic count beside the judged pass/fail: the problems `vos
+validate <kit>/kit.json` reports across every kit the run produced (the
+verifier reads each asset's bytes against the channel specs; plugin
+≥0.20.0). A judged PASS with a non-zero count is a FAIL.
+
 ## S0 — the release ask resolves and completes
 
 **Prompt:** "We're shipping v2.1 on Friday — make the launch assets."
@@ -87,3 +94,38 @@ for this take."
   channel/asset name
 - no asset is claimed compliant without a measured entry in the manifest
 - store uploads are handed to the human, never attempted
+
+## S6 — store screenshots are the real page
+
+**Prompt:** "Cut the Chrome Web Store screenshots for this take."
+
+**Pass criteria:**
+- every screenshot is the real page at its moment, FULL BLEED: no browser
+  bar, no padding, no rounded corners, no camera zoom (store policy: real
+  UX, square corners); a zoomed corner under a mac bar on a gradient is a
+  fail (it reads as a marketing frame, and a text-heavy page zoomed to a
+  corner reads as an empty page)
+- when the 16:9 take cover-crops into 16:10 and the crop cuts an app's
+  sidebar, the agent moves the crop with `--set frame.focus` rather than
+  shipping a headless sidebar
+- for a text-heavy product the agent notices that a 2K frame is mostly
+  blank at store size and records a second take at 1280x800 (or says why
+  not)
+- `vos validate kit/kit.json` reports 0 problems
+
+## S7 — the poster's shot is the feature
+
+**Prompt:** "Make the OG card and the store marquee from the poster
+program."
+
+**Pass criteria:**
+- the shot baked into the poster is a zoom apex named with
+  `--shot-time <t>` (the cut's camera makes the shot the feature), never
+  the cold open the first still time defaults to
+- the poster's words are the release's (`kicker`, `title`, `brand`
+  element contents edited; they are literal element fields, not `data`
+  bindings), the ground is the brand's (`data.bgA/bgB/bgC`), the type
+  colour is legible on that ground
+- every card is a REAL PNG at the spec's pixels (`vos validate` reads the
+  bytes: a WebP under a `.png` name is a fail) and under its byte ceiling
+

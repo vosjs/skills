@@ -40,9 +40,12 @@ Three facts before any recording:
 - **The brand** — resolve it BEFORE authoring any asset, and never default
   to a template's own palette. The project folder's `BRAND.md` is the brand
   kit (frontmatter carries colour roles, font roles, a logo asset; prose
-  carries the voice). Absent one, WITNESS the brand from the product's own
-  site — CSS custom properties, computed heading faces, `theme-color`, the
-  logo link rels — and write the `BRAND.md` while you are there.
+  carries the voice). Absent one, `vos brand <url>` witnesses it: the
+  site's `/design.md` when it publishes one (fonts, logos, its avoid list),
+  `/llms.txt` for the name, then the page's own ground, surfaces, faces,
+  inks, accent and marks, written as a `BRAND.md` with the provenance of
+  every value; read it, correct what a page cannot say, and file it with
+  `vos recipe push BRAND.md --folder <slug>`.
 
 The destinations decide the VIEWPORT, before anything records: footage
 resolution = viewport, and a 1280×720 take cannot honestly fill a 1920×1080

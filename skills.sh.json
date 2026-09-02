@@ -1,0 +1,28 @@
+{
+  "$schema": "https://skills.sh/schemas/skills.sh.schema.json",
+  "groupings": [
+    {
+      "title": "The release's media",
+      "skills": [
+        "launch-kit",
+        "product-video",
+        "vos-migrate",
+        "vos-footage"
+      ]
+    },
+    {
+      "title": "Recordings",
+      "skills": [
+        "vos-cut"
+      ]
+    },
+    {
+      "title": "Programs",
+      "skills": [
+        "vos-create",
+        "vos-remix",
+        "vos-authoring"
+      ]
+    }
+  ]
+}

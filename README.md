@@ -7,6 +7,8 @@ demo, the store listing, the Product Hunt gallery, the social cuts, the OG
 card, kept current with every release. It can also author and remix vos
 animation programs.
 
+[![skills.sh](https://skills.sh/b/vosjs/skills)](https://skills.sh/vosjs/skills)
+
 ```bash
 npx skills add vosjs/skills
 ```

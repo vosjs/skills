@@ -1,0 +1,33 @@
+{
+  "name": "vos-skills",
+  "displayName": "vos: release media from the real product",
+  "description": "Agent skills for vos: your coding agent records the real product and ships the release's media from one take (demo, store listing, Product Hunt gallery, social cuts, OG card), cuts your own screen recordings from their cursor evidence, migrates existing demos into editable takes, and authors or remixes vos animation programs. Deterministic renders, JSON-editable documents.",
+  "version": "0.5.0",
+  "author": {
+    "name": "vosjs",
+    "url": "https://github.com/vosjs"
+  },
+  "homepage": "https://vos.so/agents",
+  "repository": "https://github.com/vosjs/skills",
+  "license": "MIT",
+  "keywords": [
+    "video",
+    "product-video",
+    "launch-kit",
+    "store-listing",
+    "screen-recording",
+    "animation",
+    "motion-graphics",
+    "vos"
+  ],
+  "skills": [
+    "./skills/launch-kit",
+    "./skills/product-video",
+    "./skills/vos-cut",
+    "./skills/vos-migrate",
+    "./skills/vos-footage",
+    "./skills/vos-create",
+    "./skills/vos-remix",
+    "./skills/vos-authoring"
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "name": "vos-skills",
+  "version": "0.5.0",
+  "description": "Agent skills for vos: your coding agent records the real product and ships the release's media from one take (demo, store listing, Product Hunt gallery, social cuts, OG card), cuts your own screen recordings from their cursor evidence, migrates existing demos into editable takes, and authors or remixes vos animation programs. Deterministic renders, JSON-editable documents.",
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "vos",
+    "shortDescription": "Record the real product and ship the release's media from one take.",
+    "longDescription": "Agent skills for vos: your coding agent records the real product and ships the release's media from one take (demo, store listing, Product Hunt gallery, social cuts, OG card), cuts your own screen recordings from their cursor evidence, migrates existing demos into editable takes, and authors or remixes vos animation programs. Deterministic renders, JSON-editable documents.",
+    "logo": "./assets/logo.png",
+    "logoDark": "./assets/logo-dark.png",
+    "category": "Developer tools",
+    "defaultPrompt": [
+      "Make the launch video for this release",
+      "Update the Chrome Web Store listing for the new version",
+      "Record a product demo of https://example.com",
+      "Cut this screen recording into a product video"
+    ],
+    "websiteURL": "https://vos.so/agents",
+    "privacyPolicyURL": "https://vos.so/privacy",
+    "termsOfServiceURL": "https://vos.so/privacy",
+    "supportURL": "https://github.com/vosjs/skills/issues",
+    "developerName": "vosso"
+  }
+}

@@ -40,6 +40,10 @@ publish. A Chromium is needed for `digest`, `frames` and `render`.
   moment. Keep, merge, drop or retime those; add only what a planner cannot
   know (which lone click deserves a beat, a caption, a speed-through that is
   boring but not idle). Every span you touch carries `"source": "manual"`.
+  A proposal you DROP goes into `rejected` (`[{id, lane, in, out}]`, the
+  lane and its source extent) so no re-plan, and no re-record carried by
+  `plan --reuse`, proposes that beat again; the studio writes it itself
+  when a human deletes an auto span.
 - **The doc's units, copied, never converted.** A moment's `focus` is a zoom
   span's `cx`/`cy`; its `rect` is what the zoom must contain. `source`
   extents are footage seconds (zoom/speed/tilt/segments); `output` extents

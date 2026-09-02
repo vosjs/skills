@@ -28,6 +28,11 @@ resolution = viewport; ask what size their timeline runs).
 vos record --actions actions.json --out take --strict --json
 ```
 
+Verified the feature with agent-browser first? Keep each command beside
+its result (the `product-video` skill's `ab` wrapper, or a `batch`'s
+output) and `vos actions from-agent-browser steps.jsonl` writes the
+`actions.json`; no second script, and what it could not follow is named.
+
 ## 2. Cut light, keep the camera
 
 Trim dead heads and tails in `doc.json` (`segments`); leave the planner's

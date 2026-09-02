@@ -1,6 +1,6 @@
 ---
 name: product-video
-description: Record and produce the demo video of a website, app, or feature with the vos CLI — the agent scripts the click path (actions.json), the recording auto-plans zooms, and every editing decision is data in doc.json, so fixes are edits and re-renders, never re-recordings. Renders are deterministic; export is free up to 4K with no watermark. Use when asked to make a product video, demo video, screen recording of a URL or feature, or a marketing clip. A whole release's asset set (store listing, Product Hunt gallery, social cuts) is the launch-kit skill, which records through this one.
+description: Record and produce the demo video of a website, app, or feature with the vos CLI — the agent scripts the click path (actions.json), the recording auto-plans zooms, and every editing decision is data in doc.json, so fixes are edits and re-renders, never re-recordings. Renders are deterministic; export is free up to 4K with no watermark. Use when asked to make a product video, demo video, screen recording of a URL or feature, or a marketing clip, or when a feature was verified in agent-browser and that walk should become a take. A whole release's asset set (store listing, Product Hunt gallery, social cuts) is the launch-kit skill, which records through this one.
 license: MIT
 ---
 
@@ -55,6 +55,21 @@ Per-channel dimensions and byte budgets: `references/destinations.md`.
    the state a proud screenshot would show — labels typed, real-looking
    data, the feature mid-story. An empty canvas records fast and demos
    nothing, and no downstream composition rescues it.
+
+   **Verified the feature with agent-browser already?** Keep that walk and
+   skip the second script. agent-browser's `--json` result does not say
+   what ran (`scroll` answers `{scrolled:true}`), so wrap each call so the
+   command rides beside its result, then convert:
+   ```bash
+   ab() { agent-browser "$@" --json | node -e 'let s="";process.stdin.on("data",d=>s+=d).on("end",()=>{const r=JSON.parse(s);process.stdout.write(JSON.stringify({command:process.argv.slice(1),...r})+"\n")})' -- "$@" >> steps.jsonl; }
+   ab open https://target.example; ab snapshot -i -u; ab click @e27; ab wait 800
+   vos actions from-agent-browser steps.jsonl --out actions.json
+   ```
+   (a whole path run as one `agent-browser batch … --json > steps.jsonl`
+   already has that shape). Refs resolve through the last `snapshot -i`
+   before them; `-u` gives links their href. Whatever the recorder cannot
+   follow (a shortcut key, a drag, a second `open`) is NAMED in the output,
+   never dropped: read the notes, write those steps by hand, then record.
 
 2. **Write `actions.json`**:
    ```json

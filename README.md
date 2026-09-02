@@ -31,9 +31,10 @@ add the repo as a plugin marketplace: `/plugin marketplace add vosjs/skills`.
 One CLI, two packages: `@vosjs/cli` is the MIT `vos` binary and the engine
 verbs (local, no account); `@vosso/vos-plugin` adds everything else — the
 take pipeline (record, plan, frames, render on screen recordings) and the
-vos.so platform verbs (fetch, push, pull, login). Both are free to use;
-`@vosso/vos-plugin` is proprietary, source-available. (It was previously
-published as `@vosso/cli`; that name keeps working as a forwarding shim.)
+vos.so platform verbs (fetch, push, pull, login). Both are MIT: everything
+that runs on your machine is open source, and vos.so, the hosted platform,
+is the product. (The plugin was previously published as `@vosso/cli`; that
+name keeps working as a forwarding shim.)
 
 ## Why these are different
 

@@ -46,8 +46,8 @@ vos render take clip.mp4  --frame none --set frame.padding=0 --format mp4
 `--frame none` drops the browser-bar chrome and `frame.padding=0` removes
 the card inset and backdrop — edge-to-edge product pixels (both are
 render-time overrides; `doc.json` is untouched). Match `--width/--height`
-to their composition. `--range` spot checks are silent by design; a
-sound-bearing clip trims `segments` and renders full-length.
+to their composition. A `--range` render keeps its audio (the full mix,
+sliced to the window); the editorial cut still trims `segments`.
 
 ## 4. The shelf is the record — push BEFORE the handoff
 

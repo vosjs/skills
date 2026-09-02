@@ -222,3 +222,23 @@ by data. Never spread before the seed is signed off.
   should exist; say so in your handoff.
 - Platform specs drift. The JSON carries a `verified` date; if it is more
   than a quarter old, spot-check the channel docs before shipping.
+
+
+## Avoid (the traps that shipped)
+
+- A 720p recording against a 1080p spec: the destinations pick the viewport
+  before anything records. Cost a full re-record once.
+- A template's own palette on a deliverable: resolve `BRAND.md` (or
+  witness the site) before any asset is authored.
+- The poster's shot at the cold open: name a zoom apex with `--shot-time`;
+  `--poster-time` is the poster's own clock, not the take's.
+- A store screenshot under the frame chrome or the camera zoom: the store
+  still is the real page, full bleed (deliver's default); for a text-heavy
+  product record a second take at 1280x800, a 2K frame is blank at store size.
+- A card that is WebP under a `.png` name: `vos still` writes WebP; convert,
+  then `vos validate <kit.json>` reads the bytes and says so.
+- Padding a spec floor: a 36 s story is a skipped 60 s demo, with its reason.
+- A hand-typed dimension: every size comes from `channel-specs.json`.
+- `frame-NN-…` names on the shelf: rename to channel names before pushing.
+- The save beat on a demo instance that disables writes: say so in
+  `skipped`, never fake the click.

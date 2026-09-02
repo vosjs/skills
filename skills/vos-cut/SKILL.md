@@ -218,3 +218,9 @@ never write a status line.
 - speed up playback, or zoom a canvas being dragged;
 - spread a series before its seed is signed off;
 - push without `--label` and `--note`.
+- open a zoom before the click it frames, or aim it at a `type` verb's
+  field centre (frame the text; start the span after the click);
+- leave the cold open frozen (a static page records as freeze-then-bang:
+  trim it, or speed the load);
+- end wide on an empty page: the last frame is the poster, so the closing
+  span holds the result and its proof.

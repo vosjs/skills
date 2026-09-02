@@ -157,3 +157,20 @@ video. Follow it when the ask is a release, not one video.
 - Take dirs: `frames/` is a deletable encode intermediate (~1GB at 2K);
   `recording.webm` is the re-render source — keep it.
 - More failure modes: `references/troubleshooting.md`.
+
+
+## Avoid (the traps that shipped)
+
+- A zoom that opens before the click it frames: `validate` names it ("points
+  beside what was clicked"); start the span after the click, or aim at it.
+- A focus point in pixels: `cx`/`cy` are fractions of the frame.
+- A `type` verb's field click as a zoom target: the field's centre is empty;
+  frame the text, and open the span after the click.
+- Routing the cursor through a hover-triggered menu between beats.
+- A first frame or a last frame that cannot stand alone as a poster.
+- A frozen opening: a static landing page records as freeze-then-bang;
+  trim it or speed it, the story opens near the money shot.
+- A store screenshot cut from the composed frame: real UX is the page, full
+  bleed (`deliver` does this; a text-heavy page also wants a store-size take).
+- A `.png` name on `vos still`: it writes WebP; convert, and `vos validate
+  <kit.json>` reads the bytes.

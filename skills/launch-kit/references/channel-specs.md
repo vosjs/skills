@@ -29,3 +29,23 @@ re-verify quarterly against the channels' current docs.
 | LinkedIn feed image | 1200×627 (or 1080×1350 vertical) |
 | OG card | 1200×630, <1MB, text in the center ~1080×600, explicit `twitter:card=summary_large_image` (og:image alone gets the small card) |
 | GitHub social preview | 1280×640, <1MB, key text ≥50px from every edge |
+
+## Composition (per image destination)
+
+The specs carry three more facts `vos deliver` and `vos validate --picture`
+read (loop over the JSON; this is the readable mirror):
+
+| Destination | Words | Safe rect (fractions) | Template |
+| --- | --- | --- | --- |
+| cws screenshot, producthunt gallery | none (the real page) | whole | (the take) |
+| cws small-promo-tile | none | whole | card-on-gradient |
+| cws marquee | allowed | 5% / 8% inset | split-cover |
+| og card | expected | 1080x600 centred | split-cover |
+| linkedin feed-image | expected | 5% / 8% inset | split-cover |
+| x feed-image | allowed | 5% / 8% inset | split-cover |
+| youtube thumbnail | expected | 5% / 8% inset | split-cover |
+| github social-preview | expected | 50 px from every edge | card-on-gradient |
+| producthunt thumbnail | none | 6% inset | card-on-gradient |
+| shorts / vertical cut | expected | 900x1160 centred | (the take, reframed) |
+| x feed-cut, youtube main-demo | allowed | 5% / 8% inset | (the take, entrance + end card) |
+| github readme-loop | none | | (the take, no motion) |

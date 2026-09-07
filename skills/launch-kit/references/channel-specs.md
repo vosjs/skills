@@ -33,19 +33,24 @@ re-verify quarterly against the channels' current docs.
 ## Composition (per image destination)
 
 The specs carry three more facts `vos deliver` and `vos validate --picture`
-read (loop over the JSON; this is the readable mirror):
+read (loop over the JSON; this is the readable mirror). A card renders from
+the poster document of its aspect class beside the take
+(`poster/<class>/doc.json`, or the document `LAUNCH.md`'s `poster` roles
+name); the class is read from the destination's pixels (wider than 1.15:1 is
+landscape, 0.87 to 1.15 square, narrower portrait, under 700 px on the long
+side a tile):
 
-| Destination | Words | Safe rect (fractions) | Template |
+| Destination | Words | Safe rect (fractions) | Renders from |
 | --- | --- | --- | --- |
-| cws screenshot, producthunt gallery | none (the real page) | whole | (the take) |
-| cws small-promo-tile | none | whole | card-on-gradient |
-| cws marquee | allowed | 5% / 8% inset | split-cover |
-| og card | expected | 1080x600 centred | split-cover |
-| linkedin feed-image | expected | 5% / 8% inset | split-cover |
-| x feed-image | allowed | 5% / 8% inset | split-cover |
-| youtube thumbnail | expected | 5% / 8% inset | split-cover |
-| github social-preview | expected | 50 px from every edge | card-on-gradient |
-| producthunt thumbnail | none | 6% inset | card-on-gradient |
-| shorts / vertical cut | expected | 900x1160 centred | (the take, reframed) |
-| x feed-cut, youtube main-demo | allowed | 5% / 8% inset | (the take, entrance + end card) |
-| github readme-loop | none | | (the take, no motion) |
+| cws screenshot, producthunt gallery | none (the real page) | whole | the take, full bleed |
+| cws small-promo-tile | none | whole | the tile poster |
+| cws marquee | allowed | 5% / 8% inset | the landscape poster |
+| og card | expected | 1080x600 centred | the landscape poster |
+| linkedin feed-image | expected | 5% / 8% inset | the landscape poster |
+| x feed-image | allowed | 5% / 8% inset | the landscape poster |
+| youtube thumbnail | expected | 5% / 8% inset | the landscape poster |
+| github social-preview | expected | 50 px from every edge | the landscape poster |
+| producthunt thumbnail | none | 6% inset | the tile poster |
+| shorts / vertical cut | expected | 900x1160 centred | the take, reframed |
+| x feed-cut, youtube main-demo | allowed | 5% / 8% inset | the take, with its planned entrance and end card |
+| github readme-loop | none | | the take, motion and sound dropped |

@@ -67,7 +67,8 @@ Five facts before any recording:
   kicker: "PRODUCT  V2.1"       # absent = the wordmark plus --release
   music: upbeat                 # a catalog slug or mood; none = silent
   entrance: tilt-in             # tilt-in | pull-out | rise | none
-  endCard: on                   # none switches it off
+  endCard: on                   # the official End card template; none switches it off; a title, vos id or doc.json names another
+  with: "Split cover, landscape@end"   # optional: any template laid at an anchor (@end | @start | @step:<id> | @<seconds>)
   captions: on                  # none switches the beat captions off
   poster: poster/landscape      # optional: the document every card renders from
   poster-tile: poster/tile      # optional: one class named on its own
@@ -132,13 +133,19 @@ media overlay clip or a backdrop in the document, never the other way round.
 ## 3. The posters and the motion, as documents
 
 **The cut moves by data.** A fresh `vos plan` proposes the cut's motion into
-`doc.json` from `LAUNCH.md`'s roles: an entrance, an end card (the headline,
-the release line and the wordmark rising in the brand's ink over the last
-frame's hold), a caption per step, a music bed and a click sound on every
-press when the take has no mic; every proposal carries a stable id (`bed`,
+`doc.json` from `LAUNCH.md`'s roles: the card's entrance, the END CARD (the
+official `End card` template on vos.so, laid at the end: the card recedes
+over a one-second freeze of its last frame, then the mark, the headline
+arriving word by word, the release line and the URL settle on the ground;
+its clips are stamped `from: endcard`), any template `with:` names at its
+anchor, a caption per step, a music bed and a click sound on every press
+when the take has no mic; every proposal carries a stable id (`bed`,
 `click-<n>`, `caption-<step>`). On an existing cut `--motion` re-proposes;
-a refresh never does, so a deleted end card stays deleted. Open the take in
-the studio and what you see is what the kit renders.
+a refresh never does, so a deleted end card stays deleted. A template is a
+plain take on a shelf whose clips carry stable ids; a ref is a title on the
+official shelf (`"End card"`, `"Split cover, square"`), a vos id, or a
+document on disk. Open the take in the studio and what you see is what the
+kit renders.
 
 ```bash
 vos plan take --motion --release v2.1
@@ -299,9 +306,11 @@ by data. Never spread before the seed is signed off.
   a check, and you should say so in the handoff.
 - Platform specs drift. The JSON carries a `verified` date; if it is more
   than a quarter old, spot-check the channel docs before shipping.
-- A layout is an exemplar on a shelf plus a recipe line, never a template
-  name: the official `Poster families` project holds the split cover in
-  four aspect classes today; a maker's own family is a project of their own
+- A layout is a document on a shelf plus a recipe line, never a name the
+  document learns: the official `Templates` project holds the split cover in
+  four aspect classes and the end card today (`vos plan take --style "Split
+  cover, landscape"` carries a layout; a poster's still is where its
+  trailing freeze begins); a maker's own family is a project of their own
   posters beside a `POSTER.md`. Applying one is `plan --style <vosId>`.
 
 ## Avoid (the traps that shipped)

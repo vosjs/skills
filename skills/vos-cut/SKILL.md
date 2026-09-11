@@ -44,6 +44,14 @@ publish. A Chromium is needed for `digest`, `frames` and `render`.
   lane and its source extent) so no re-plan, and no re-record carried by
   `plan --reuse`, proposes that beat again; the studio writes it itself
   when a human deletes an auto span.
+- **Point with a layer, not the camera.** When the cut points at a
+  component (a button, a card, a code block) and the zoom would magnify
+  pixels, redraw it as an html layer in `doc.json` (`overlays[]` with
+  `kind: "html"`: the markup, the CSS in the product's own type, the design
+  box in 1080p px) placed beside its subject, never over it. You have the
+  product's real components in the repo; use them. The markup is well-formed
+  XML and `vos validate` says what would not paint; a CSS animation runs on
+  the wall clock and is refused in favour of `anim` and `motion`.
 - **The doc's units, copied, never converted.** A moment's `focus` is a zoom
   span's `cx`/`cy`; its `rect` is what the zoom must contain. `source`
   extents are footage seconds (zoom/speed/tilt/segments); `output` extents

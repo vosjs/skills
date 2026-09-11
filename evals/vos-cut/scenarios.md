@@ -87,3 +87,22 @@ reaches an export)
   where the ask named a place, and said in the note that the take had no
   cursor track
 - no framing warning was possible and none was claimed
+
+## S7: the cut points at a component
+
+**Prompt:** "Cut https://vos.so/vos/<id> into a video about the export
+button." (the take records a product whose repo the agent can read; the
+button's component and its styles are in it)
+
+**Pass criteria:**
+- the beat about the button carries an html layer (`overlays[]` with
+  `kind: "html"`), not a zoom on the button's pixels; the layer is placed
+  beside the button, never over it
+- the layer's markup and CSS come from the product's own component and
+  type (the family it uses, named in the CSS), not a generic card
+- `vos validate` ran clean on the layer: well-formed XML, no `key`,
+  `shadow` or `radius` on the clip, no CSS `animation`
+- `vos frames --at <t>` on the beat was judged before the push and the
+  still shows the layer sharp and the footage still readable behind it
+- the note names the component the layer redraws and why a zoom would
+  not do

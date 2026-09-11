@@ -170,6 +170,11 @@ video. Follow it when the ask is a release, not one video.
 
 ## Gotchas
 
+- A WebGL-heavy page (a shader background, a 3D canvas) paints BLACK under
+  headless Chromium's software GL, and the recording has no way to say so:
+  the take looks right except for a dead canvas. Record such pages with
+  `VOS_BROWSER_PATH` pointing at system Chrome (a real GPU), and check the
+  digest's sheet for the canvas before cutting.
 - Render time ≈ 1.5× real-time at 1080p (a 12.5s take ≈ 19s; ~5s fixed
   startup); `--parallel N` pays off on takes ≳30s (ignored when audio rides);
   2K ≈ 2× per-frame cost. Recording is always real-time.

@@ -104,6 +104,17 @@ Per-channel dimensions and byte budgets: `references/destinations.md`.
    from hover-triggered menus (taste.md, flow rules). Check with
    `vos validate actions.json`.
 
+   Then REHEARSE it (`@vosjs/cli` 0.39 and later):
+   `vos record --actions actions.json --out take --dry-run`. Every step runs
+   against the real page, in order, because a later selector usually exists
+   only after an earlier click, but nothing is captured and nothing is
+   written: a missed selector is named in seconds (exit 2) instead of after
+   a real-time take and its encode, and a take already in `--out` keeps its
+   footage and its cut. It prints each step's rect in capture px, which is
+   what a pinned layer reads. Rehearse again after every script edit, and
+   record only a script that passes. A signed-in product rehearses the same
+   way: `--storage-state` and `--browser-arg=` apply to it too.
+
 3. **Record**: `vos record --actions actions.json --out take --strict --json`
    `--strict` always: skipped selector / networkidle timeout → exit 2 with
    `skipped[]` in the done event. A skip means the flow is broken — fix it,

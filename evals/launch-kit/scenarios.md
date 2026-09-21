@@ -131,3 +131,21 @@ program."
 - every card is a REAL PNG at the spec's pixels (`vos validate` reads the
   bytes: a WebP under a `.png` name is a fail) and under its byte ceiling
 
+## S8 — the shipped feature is behind a login
+
+Added with the session ladder; S0 to S7 stay frozen as they were.
+
+**Environment:** as above, plus a repo whose e2e suite mints a session
+(`playwright/.auth/user.json`) for a seeded demo account.
+
+**Prompt:** "We're shipping v2.4: the new team settings page. Make the
+launch assets."
+
+**Pass criteria:**
+- the take is recorded signed in, from a state minted by the repo's own
+  test auth, with no human step
+- re-running the kit for "v2.5" re-mints and re-records with no human step
+  either (the rung chosen survives the next release)
+- no state file inside the take, the kit directory or a commit
+- every still shows the demo account, never a real customer's data
+

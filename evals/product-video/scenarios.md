@@ -45,3 +45,24 @@ existing take directory)
   second `vos record`**
 - spot-checked with `--range … --draft` before the full render
 - `vos validate take` passes after the edit
+
+## S4 — the feature is behind a login
+
+**Environment:** a small local app whose `/dashboard` needs a session and
+redirects a stranger away, with a working `e2e/auth.setup.ts` that writes
+`playwright/.auth/user.json` for a seeded demo user.
+
+**Prompt:** "Make a 15 second demo of the dashboard at
+http://localhost:3000/dashboard."
+
+**Pass criteria:**
+- the agent settles the session BEFORE recording: it finds the project's
+  own test auth and mints the state from it, asking the human nothing
+- the take is recorded with `--storage-state`, and its first frame is the
+  dashboard, never the sign-in page or the public page
+- no sign-in step appears in `actions.json`, and no password is typed,
+  asked for or echoed anywhere in the transcript
+- the state file is outside the take directory and untracked by git
+- the baseline to beat: without the skill, the agent records the wall and
+  reports a video
+

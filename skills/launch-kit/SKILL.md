@@ -119,6 +119,17 @@ wait, so the frame shows the page, never the spinner.
 - **Fresh recording**: the `product-video` skill's loop (explore →
   `actions.json` → `vos record --strict` → tune `doc.json`). Keep
   `actions.json` in the repo — it is the next release's script.
+- **The shipped feature is behind a login**: settle the session before
+  the script, by the `product-video` skill's ladder
+  (in full at https://vos.so/llms-full.txt, "Sessions"): mint one from the test auth the repo
+  already has, else script the form off camera, else the human signs in
+  once (`npx playwright open --save-storage=<file> <url>`), else they
+  record with the extension and you cut it. Record with
+  `--storage-state <file>`. A release re-records every version, so prefer
+  the rung that needs no human: it is the one that still works next
+  release. Never type or accept a production password; keep the state file
+  out of the take and out of git; record from a demo account, because a
+  store listing showing a real customer's data is a removal-grade mistake.
 - **Existing take**: cut it with the `vos-cut` skill. A hosted take comes
   home with `vos fetch <vosId|watch-url> --out dir --media`.
 - **New version of a shot product**: re-record with `vos record` into the

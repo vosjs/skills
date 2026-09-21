@@ -1,6 +1,6 @@
 ---
 name: product-video
-description: Record and produce the demo video of a website, app, or feature with the vos CLI — the agent scripts the click path (actions.json), the recording auto-plans zooms, and every editing decision is data in doc.json, so fixes are edits and re-renders, never re-recordings. Renders are deterministic; export is free up to 4K with no watermark. Use when asked to make a product video, demo video, screen recording of a URL or feature, or a marketing clip, or when a feature was verified in agent-browser and that walk should become a take. A whole release's asset set (store listing, Product Hunt gallery, social cuts) is the launch-kit skill, which records through this one.
+description: Record and produce the demo video of a website, app, or feature with the vos CLI — the agent scripts the click path (actions.json), the recording auto-plans zooms, and every editing decision is data in doc.json, so fixes are edits and re-renders, never re-recordings. Renders are deterministic; export is free up to 4K with no watermark. Use when asked to make a product video, demo video, screen recording of a URL or feature, or a marketing clip, including a product behind a login (the session ladder: mint one from the project's own test auth before asking anyone), or when a feature was verified in agent-browser and that walk should become a take. A whole release's asset set (store listing, Product Hunt gallery, social cuts) is the launch-kit skill, which records through this one.
 license: MIT
 ---
 
@@ -56,6 +56,21 @@ Per-channel dimensions and byte budgets: `references/destinations.md`.
    the state a proud screenshot would show — labels typed, real-looking
    data, the feature mid-story. An empty canvas records fast and demos
    nothing, and no downstream composition rescues it.
+
+   **Behind a login? Settle the session before the script.** A recorder
+   with no session records the wall (the sign-in page, or the public page
+   the site sends a stranger to) and the only symptom is a skipped
+   selector. Walk the ladder in `references/sessions.md` top to bottom and
+   stop at the first rung that holds: no wall (a demo mode, a local server
+   with auth off) → MINT a session from the test auth the project already
+   has (`playwright/.auth`, an `auth.setup.ts`, a seed script: look before
+   you ask anyone anything) → script the form off camera with Playwright →
+   the human signs in once (`npx playwright open --save-storage=<file>
+   <url>`) → the human records with the extension and you cut it. Every
+   rung but the last ends in a state file for `--storage-state`. Never
+   type or accept a production password, keep the state file out of the
+   take directory and out of git, and record from a demo account: what the
+   account shows ships in the video.
 
    **Verified the feature with agent-browser already?** Keep that walk and
    skip the second script. agent-browser's `--json` result does not say
@@ -196,6 +211,9 @@ video. Follow it when the ask is a release, not one video.
 - `vos plan take` regenerates only `source:"auto"` spans; manual spans survive.
 - Take dirs: `frames/` is a deletable encode intermediate (~1GB at 2K);
   `recording.webm` is the re-render source — keep it.
+- A take that opens on the wrong page, with its first selector skipped,
+  is usually a missing or expired session, not a broken script: re-walk
+  `references/sessions.md` before touching `actions.json`.
 - More failure modes: `references/troubleshooting.md`.
 
 
@@ -212,5 +230,9 @@ video. Follow it when the ask is a release, not one video.
   trim it or speed it, the story opens near the money shot.
 - A store screenshot cut from the composed frame: real UX is the page, full
   bleed (`deliver` does this; a text-heavy page also wants a store-size take).
+- A sign-in scripted in `actions.json`: every step there is in the footage
+  and a typed value is logged. Sign in off camera (`references/sessions.md`).
+- A real customer's account on screen: addresses, names and keys ship in
+  the video. Record from a demo or seeded account.
 - A `.png` name on `vos still`: it writes WebP; convert, and `vos validate
   <kit.json>` reads the bytes.

@@ -28,8 +28,11 @@ signs in with no human. Look before you ask anyone anything:
 - a seed script, a test-only sign-in route, a session table plus a signing
   secret in the dev env
 
-Run what is there. The artifact is a Playwright storage state, which is
-exactly what `--storage-state` takes:
+Run what is there, WITH THE APP ALREADY RUNNING: a project's auth setup
+signs in through the real page, so it needs the server up first (usually
+`npx playwright test --project=setup`, or whatever the repo's README names).
+The artifact is a Playwright storage state, which is exactly what
+`--storage-state` takes:
 
 ```bash
 vos record --actions actions.json --out take --storage-state "$STATE" --dry-run
@@ -47,14 +50,21 @@ A local or self-hosted instance where you can create the account, or a
 seeded user whose password is in an env var. Sign in with a few lines of
 Playwright, save the state, record with it:
 
+`playwright` is already installed: it arrives with `@vosjs/cli`, so no
+second install. Two things about the script below. Launch the SYSTEM Chrome
+(`channel: 'chrome'`): `npm i` does not download Playwright's own Chromium.
+And run it from INSIDE the project (a dotfile you delete afterwards is
+fine), because `import 'playwright'` resolves from the script's own
+location; only the STATE FILE has to live outside the repo.
+
 ```js
 import { chromium } from 'playwright'
-const browser = await chromium.launch()
+const browser = await chromium.launch({ channel: 'chrome' })
 const context = await browser.newContext()
 const page = await context.newPage()
 await page.goto('http://localhost:3000/login')
 await page.fill('input[name=email]', 'demo@acme.test')
-await page.fill('input[name=password]', process.env.DEMO_PASSWORD)
+await page.fill('input[name=password]', process.env.DEMO_PASSWORD) // or, for an account you are creating, a random throwaway you never print
 await page.click('button[type=submit]')
 await page.waitForURL('**/dashboard')
 await context.storageState({ path: process.env.STATE })
@@ -69,11 +79,27 @@ footage, and a typed value is logged.
 A production app behind an emailed code, SSO, a passkey or a CAPTCHA:
 
 ```bash
-npx playwright open --save-storage="$STATE" https://app.example.com
+npx playwright open --channel chrome --save-storage="$STATE" https://app.example.com
 ```
 
 Tell the human one sentence: a browser window opened, sign in and close it.
-The state is written when the window closes. Google sign-in usually refuses
+The state is written when the window closes, and ONLY then: the command
+returns to their prompt at that moment, which is how they know it worked.
+Say that, because "I signed in" and "the session is saved" are different
+things and a person will reasonably report the first. Before you use the
+file, check it exists; if it does not, the window is still open. `--channel chrome` uses the
+system Chrome; without it the command wants Playwright's own Chromium,
+which is usually not installed.
+
+**The human is not there right now?** Do not open a window nobody will see
+and do not block on it. Get everything else ready (the script written and
+validated, a rehearsal that exits 4 to prove the wall is the only thing
+left), then STOP and leave the ask in the words you would say: the one
+command above, "sign in with a demo account and close the window", and a
+script that finishes the job from the state file with no further help from
+you. Ask, in the same note, whether there is a faster way in you cannot see
+(a seeded account, a test sign-in route): that turns the next re-record
+into rung 1. Google sign-in usually refuses
 an automated browser ("this browser or app may not be secure"). When it
 does, go to rung 4; do not fight it.
 
@@ -93,8 +119,16 @@ the six beats, record them and I will cut it" is the honest best thing.
   directory and outside git: a temp dir, or the gitignored path the project
   already uses. `vos push` uploads the recording and `doc.json`, never a
   state file, and nothing about a session ever goes to vos.so.
+- **Delete the state file when the video is done**, unless the project
+  keeps one on purpose (a gitignored `playwright/.auth`). It is cheap to
+  mint again and it is a live credential for as long as it sits there.
 - **A session expires.** When a re-record that worked last week skips its
   first selector, re-walk the ladder before touching the script.
+- **A person signing in will use their REAL account**, whatever you asked
+  for: it is the one they have. So after recording from a human's session,
+  look at a frame before you hand anything over, and name what you see (an
+  email address in the header, the last four of a card, a customer's name).
+  Offer the re-record from a demo account; do not decide for them.
 - **What the account shows ships in the video.** Use a demo or seeded
   account, never a real customer's. Before you push, look at a frame for
   email addresses, names, keys and card numbers, and re-record from an

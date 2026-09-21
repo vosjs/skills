@@ -8,6 +8,25 @@
 | 1 | error | read stderr; `--json` puts the message in the done event |
 | 2 | usage error, or `--strict` failure | see below |
 | 3 | no browser | `npx playwright install chromium`, or set `VOS_BROWSER_PATH` to a Chrome/Chromium binary |
+| 4 | the recorder met a sign-in instead of the page (`@vosjs/cli` 0.41 and later) | it needs a SESSION, not a new script: walk `sessions.md`, then pass `--storage-state <file>`. Nothing was recorded and nothing was cleared. `--allow-wall` only when the sign-in page IS the take |
+
+## The wall (exit 4)
+
+`vos record`, `create` and `--dry-run` check where the first navigation
+landed before a frame is captured. Refused always: a 401 or 403, a redirect
+to an identity provider or a sign-in path, a sign-in form rendered in place.
+Refused under `--strict` and in a rehearsal, warned otherwise: a redirect
+somewhere else with no sign-in in sight, which is what a site that shows
+strangers its marketing page looks like.
+
+- Do not touch `actions.json`. The script is fine; the browser is a
+  stranger. One `curl -sI <url>` before you script tells you the same thing
+  sooner: a 30x away from the page you asked for is a wall.
+- A re-record that worked last week and exits 4 today is an EXPIRED session.
+  Mint it again; the old footage is still there, the refusal clears nothing.
+- A digest that prints `WALL` is footage recorded past a wall
+  (`--allow-wall`, or a redirect without `--strict`): it may be the wrong
+  page. Re-record with a session before cutting it.
 
 ## Strict-mode failures (exit 2)
 

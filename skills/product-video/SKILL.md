@@ -34,7 +34,9 @@ that still lists it can drop it.) Requirements:
 
 Conventions: logs → stderr, results → stdout; `--json` streams NDJSON ending
 with `{"event":"done",…}`; exit codes 0 ok / 1 error / 2 usage or strict
-failure / 3 no browser.
+failure / 3 no browser / 4 the recorder met a sign-in instead of the page
+(a missing or expired SESSION, never a script bug: `references/sessions.md`).
+`vos <verb> --help` prints that verb's flags (`@vosjs/cli` 0.41.1 and later).
 
 ## Step 0 — pick the destination (it decides everything)
 
@@ -112,6 +114,9 @@ Per-channel dimensions and byte budgets: `references/destinations.md`.
    }
    ```
    Verbs: `wait` `hover` `click` `type` `scroll` `move` `drag`
+   (`type` = `{do:'type', selector, text, delayMs?, ms?, focus?}`: it clicks
+   the field, then types `text`; `focus:false` types into what is already
+   focused, for a submitting Enter)
    (drag = real edits: `{do:'drag', selector|x,y, tx, ty, ms}` — slide a range
    input, drag a canvas element, move a timeline clip). Pacing IS the zoom
    plan: open `wait ≥700ms`; hover what matters 700–900ms (dwells become
@@ -211,6 +216,13 @@ video. Follow it when the ask is a release, not one video.
 - `vos plan take` regenerates only `source:"auto"` spans; manual spans survive.
 - Take dirs: `frames/` is a deletable encode intermediate (~1GB at 2K);
   `recording.webm` is the re-render source — keep it.
+- A take of a local app prints `localhost/…` in the browser bar. Set
+  `frame.browserBar.url` to the real address, or `frame.browserBar.showUrl`
+  to `false`, in `doc.json`; it is data, so no re-record.
+- Started the app yourself to record it? Stop THAT process, by the PID you
+  saved or by its port (`lsof -ti :3000 -sTCP:LISTEN | xargs kill`). Never
+  `pkill -f "node server.js"` or any kill by pattern: it takes down every
+  matching process on the machine, the maker's other work included.
 - A take that opens on the wrong page, with its first selector skipped,
   is usually a missing or expired session, not a broken script: re-walk
   `references/sessions.md` before touching `actions.json`.

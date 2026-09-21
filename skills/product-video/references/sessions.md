@@ -83,7 +83,11 @@ npx playwright open --channel chrome --save-storage="$STATE" https://app.example
 ```
 
 Tell the human one sentence: a browser window opened, sign in and close it.
-The state is written when the window closes. `--channel chrome` uses the
+The state is written when the window closes, and ONLY then: the command
+returns to their prompt at that moment, which is how they know it worked.
+Say that, because "I signed in" and "the session is saved" are different
+things and a person will reasonably report the first. Before you use the
+file, check it exists; if it does not, the window is still open. `--channel chrome` uses the
 system Chrome; without it the command wants Playwright's own Chromium,
 which is usually not installed.
 
@@ -120,6 +124,11 @@ the six beats, record them and I will cut it" is the honest best thing.
   mint again and it is a live credential for as long as it sits there.
 - **A session expires.** When a re-record that worked last week skips its
   first selector, re-walk the ladder before touching the script.
+- **A person signing in will use their REAL account**, whatever you asked
+  for: it is the one they have. So after recording from a human's session,
+  look at a frame before you hand anything over, and name what you see (an
+  email address in the header, the last four of a card, a customer's name).
+  Offer the re-record from a demo account; do not decide for them.
 - **What the account shows ships in the video.** Use a demo or seeded
   account, never a real customer's. Before you push, look at a frame for
   email addresses, names, keys and card numbers, and re-record from an

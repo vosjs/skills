@@ -55,6 +55,18 @@ misses, both now in the skill: it stopped its server with
 `pkill -f "node server.js"`, which also killed an unrelated process on the
 machine (it said so itself), and it left the state file behind.
 
+**The human half of the hosted-app run**, done for real afterwards: the
+maker ran the one command, signed in, and the agent's `finish.sh` recorded
+an 8 s video of the signed-in billing page after ONE selector fix the
+handoff had predicted (exit 2 in the rehearsal, a guessed `table` that the
+page does not have). Two things only a real person could show. They said
+"done" with the sign-in window still open, so no state file existed:
+nothing told them the command returning is what "saved" looks like. And
+they signed in as themselves, not as the demo account the handoff asked
+for, so their real email address and a card's last four are in the footage.
+Both are in `sessions.md` now; the second is the case an exposure check in
+the recorder would catch and prose cannot.
+
 Caveats. In the first three runs the agents were pointed at the skill file
 rather than triggering it, and the harness gave them the author's own
 project instructions, which mention the session ladder; the clean re-run

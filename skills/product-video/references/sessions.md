@@ -115,6 +115,9 @@ the six beats, record them and I will cut it" is the honest best thing.
   directory and outside git: a temp dir, or the gitignored path the project
   already uses. `vos push` uploads the recording and `doc.json`, never a
   state file, and nothing about a session ever goes to vos.so.
+- **Delete the state file when the video is done**, unless the project
+  keeps one on purpose (a gitignored `playwright/.auth`). It is cheap to
+  mint again and it is a live credential for as long as it sits there.
 - **A session expires.** When a re-record that worked last week skips its
   first selector, re-walk the ladder before touching the script.
 - **What the account shows ships in the video.** Use a demo or seeded

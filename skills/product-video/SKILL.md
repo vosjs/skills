@@ -219,6 +219,10 @@ video. Follow it when the ask is a release, not one video.
 - A take of a local app prints `localhost/…` in the browser bar. Set
   `frame.browserBar.url` to the real address, or `frame.browserBar.showUrl`
   to `false`, in `doc.json`; it is data, so no re-record.
+- Started the app yourself to record it? Stop THAT process, by the PID you
+  saved or by its port (`lsof -ti :3000 -sTCP:LISTEN | xargs kill`). Never
+  `pkill -f "node server.js"` or any kill by pattern: it takes down every
+  matching process on the machine, the maker's other work included.
 - A take that opens on the wrong page, with its first selector skipped,
   is usually a missing or expired session, not a broken script: re-walk
   `references/sessions.md` before touching `actions.json`.

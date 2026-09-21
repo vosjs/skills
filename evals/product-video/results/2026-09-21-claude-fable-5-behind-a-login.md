@@ -43,8 +43,20 @@ against a 20 % budget (the budget measures the raw capture, the composed
 video still moves); the planner made 7 zoom spans for a 15 s take; a
 1280 px take is planned as 1080p mp4 and `validate` then warns about it.
 
-Caveats. The agents were pointed at the skill file rather than triggering
-it, so discovery is untested. And the run was not fully blind: the harness
-gave the agents the author's own project instructions, which mention the
-session ladder. A clean re-run from a directory with no such context is
-owed, as is a second model tier and the no-skill baseline.
+**The clean re-run** (same day, the fixed skills): a separate headless
+process started from the app's own directory with project settings only, so
+no outside instructions and no pointer at the skill. Same ask as the open
+sign-up app. PASS: its first act was invoking `product-video` on its own
+(discovery works), it saw `/app` 302 to `/`, signed up a throwaway account
+with `curl` and a random password, built the storage state from the cookie
+by hand (`chmod 600`, outside the repo), recorded, and left a 13.3 s
+signed-in video with only `out/` new in the repo. 21 turns, 147 s. Two
+misses, both now in the skill: it stopped its server with
+`pkill -f "node server.js"`, which also killed an unrelated process on the
+machine (it said so itself), and it left the state file behind.
+
+Caveats. In the first three runs the agents were pointed at the skill file
+rather than triggering it, and the harness gave them the author's own
+project instructions, which mention the session ladder; the clean re-run
+above has neither problem, and it is one scenario of the three. Fixtures,
+not real products. A second model tier and the no-skill baseline are owed.

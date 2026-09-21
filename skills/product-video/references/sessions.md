@@ -28,8 +28,11 @@ signs in with no human. Look before you ask anyone anything:
 - a seed script, a test-only sign-in route, a session table plus a signing
   secret in the dev env
 
-Run what is there. The artifact is a Playwright storage state, which is
-exactly what `--storage-state` takes:
+Run what is there, WITH THE APP ALREADY RUNNING: a project's auth setup
+signs in through the real page, so it needs the server up first (usually
+`npx playwright test --project=setup`, or whatever the repo's README names).
+The artifact is a Playwright storage state, which is exactly what
+`--storage-state` takes:
 
 ```bash
 vos record --actions actions.json --out take --storage-state "$STATE" --dry-run
@@ -47,14 +50,21 @@ A local or self-hosted instance where you can create the account, or a
 seeded user whose password is in an env var. Sign in with a few lines of
 Playwright, save the state, record with it:
 
+`playwright` is already installed: it arrives with `@vosjs/cli`, so no
+second install. Two things about the script below. Launch the SYSTEM Chrome
+(`channel: 'chrome'`): `npm i` does not download Playwright's own Chromium.
+And run it from INSIDE the project (a dotfile you delete afterwards is
+fine), because `import 'playwright'` resolves from the script's own
+location; only the STATE FILE has to live outside the repo.
+
 ```js
 import { chromium } from 'playwright'
-const browser = await chromium.launch()
+const browser = await chromium.launch({ channel: 'chrome' })
 const context = await browser.newContext()
 const page = await context.newPage()
 await page.goto('http://localhost:3000/login')
 await page.fill('input[name=email]', 'demo@acme.test')
-await page.fill('input[name=password]', process.env.DEMO_PASSWORD)
+await page.fill('input[name=password]', process.env.DEMO_PASSWORD) // or, for an account you are creating, a random throwaway you never print
 await page.click('button[type=submit]')
 await page.waitForURL('**/dashboard')
 await context.storageState({ path: process.env.STATE })
@@ -69,11 +79,23 @@ footage, and a typed value is logged.
 A production app behind an emailed code, SSO, a passkey or a CAPTCHA:
 
 ```bash
-npx playwright open --save-storage="$STATE" https://app.example.com
+npx playwright open --channel chrome --save-storage="$STATE" https://app.example.com
 ```
 
 Tell the human one sentence: a browser window opened, sign in and close it.
-The state is written when the window closes. Google sign-in usually refuses
+The state is written when the window closes. `--channel chrome` uses the
+system Chrome; without it the command wants Playwright's own Chromium,
+which is usually not installed.
+
+**The human is not there right now?** Do not open a window nobody will see
+and do not block on it. Get everything else ready (the script written and
+validated, a rehearsal that exits 4 to prove the wall is the only thing
+left), then STOP and leave the ask in the words you would say: the one
+command above, "sign in with a demo account and close the window", and a
+script that finishes the job from the state file with no further help from
+you. Ask, in the same note, whether there is a faster way in you cannot see
+(a seeded account, a test sign-in route): that turns the next re-record
+into rung 1. Google sign-in usually refuses
 an automated browser ("this browser or app may not be secure"). When it
 does, go to rung 4; do not fight it.
 

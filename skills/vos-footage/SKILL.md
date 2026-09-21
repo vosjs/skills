@@ -71,7 +71,12 @@ vos push take --label "footage handoff" --note "<what it shows; which compositio
 ```
 
 The take goes to the maker's shelf first, so the clip is never the only
-copy of the work. Keep the label's first words `footage handoff` — it is
+copy of the work. Two cases where you ASK before pushing instead: there is
+no vos.so credential (`vos login` needs the human), or the footage shows a
+signed-in, staging or internal screen. A push uploads the recording to a
+third party, and whether that is acceptable for this screen is the maker's
+call, not yours. Hand over the clip, say the take is local, and offer the
+push. Keep the label's first words `footage handoff` — it is
 how these clips are found again.
 
 ## 5. The handoff line (always, verbatim shape)

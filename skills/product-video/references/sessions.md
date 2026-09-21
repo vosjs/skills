@@ -125,10 +125,34 @@ the six beats, record them and I will cut it" is the honest best thing.
 - **A session expires.** When a re-record that worked last week skips its
   first selector, re-walk the ladder before touching the script.
 - **A person signing in will use their REAL account**, whatever you asked
-  for: it is the one they have. So after recording from a human's session,
-  look at a frame before you hand anything over, and name what you see (an
-  email address in the header, the last four of a card, a customer's name).
-  Offer the re-record from a demo account; do not decide for them.
+  for: it is the one they have. The recorder looks for you (`@vosjs/cli`
+  0.42 and later): the rehearsal ends with `EXPOSED in the frame`, naming
+  the KIND and the place of what it saw (an email address, something shaped
+  like a key, a card number or its visible tail; addresses on `example.com`
+  or a `.test` domain are demo data and are not reported). Read that list
+  BEFORE you record. It also lands in the done event's `exposures`, in
+  `vos validate <take>` and in the digest.
+- **Hide it before the camera rolls, with `mask` in `actions.json`.** The
+  selector in each report reaches that element and no other, so paste it:
+  ```json
+  "mask": [
+    { "selector": "nav > span", "as": "text", "text": "jane@acme.test" },
+    { "selector": ".card-number" }
+  ]
+  ```
+  `as: "text"` swaps the words, which reads as a product where a blur reads
+  as a redaction; the default blurs. It is applied before the first frame
+  and re-applied after every navigation and re-render, so the real value is
+  never in the recording. Use `text` for IDENTIFIERS only (an email, a
+  name, an account id). NEVER substitute product copy or a number: the
+  video stays true to the product, and that judgment is yours, no check
+  makes it for you. Rehearse again: the list should be empty, and a mask
+  that reached nothing fails the rehearsal by name.
+- A recording a HUMAN made (the last rung) has no mask: the scan needs the
+  page. Look at the frames yourself and say what they show.
+- The list is a floor, not a verdict. It reads text: a face, a logo, a
+  customer's name in a table, a private chart are yours to notice. Offer
+  the re-record from a demo account; do not decide for them.
 - **What the account shows ships in the video.** Use a demo or seeded
   account, never a real customer's. Before you push, look at a frame for
   email addresses, names, keys and card numbers, and re-record from an

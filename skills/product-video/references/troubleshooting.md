@@ -28,6 +28,16 @@ strangers its marketing page looks like.
   (`--allow-wall`, or a redirect without `--strict`): it may be the wrong
   page. Re-record with a session before cutting it.
 
+## `EXPOSED in the frame`
+
+Not an error: the take recorded. The recorder read the visible text after
+each step and saw something shaped like an email address, a key or a card.
+It reports the kind and the place, never the string. Fix it in the script
+(`mask`, or a demo account) and re-record; a blur added afterwards in
+`doc.json` still leaves the real value in `recording.webm`, which is what
+`vos push` uploads. `MASK hid nothing: <selector>` (exit 2) means the
+selector matched no element, so whatever it was for may be showing.
+
 ## Strict-mode failures (exit 2)
 
 `vos record --strict` exits 2 when a selector was skipped or a navigation

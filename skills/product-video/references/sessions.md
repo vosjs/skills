@@ -110,29 +110,47 @@ await browser.close()
 A production app behind an emailed code, SSO, a passkey or a CAPTCHA:
 
 ```bash
-npx playwright open --channel chrome --save-storage="$STATE" https://app.example.com
+vos session open https://app.example.com --name acme
 ```
 
-Tell the human one sentence: a browser window opened, sign in and close it.
-The state is written when the window closes, and ONLY then: the command
-returns to their prompt at that moment, which is how they know it worked.
-Say that, because "I signed in" and "the session is saved" are different
-things and a person will reasonably report the first. Before you use the
-file, check it exists; if it does not, the window is still open. `--channel chrome` uses the
-system Chrome; without it the command wants Playwright's own Chromium,
-which is usually not installed.
+A plain Chrome window opens on a profile vos owns (`@vosjs/cli` 0.45 and
+later). Tell the human one sentence: a browser window opened, sign in with
+a demo account and close it. The command returns when the window closes,
+and that is the moment the session is saved; "I signed in" and "the
+session is saved" are different things, and a person reports the first.
+It then prints what the session holds as counts and dates, never a value.
+Then:
+
+```bash
+vos session check acme --url https://app.example.com/dashboard   # still opens signed in? exit 0, or 4
+vos record --actions actions.json --out take --session acme --dry-run
+vos record --actions actions.json --out take --session acme --strict --json
+```
+
+`--session` and `--storage-state` are two doors to one take; pass one.
+No file to mint, nothing in the take, nothing to delete: the profile lives
+under `~/.config/vos/sessions/` and `vos push` refuses a take that holds a
+state file. A re-record that exits 4 is the session expired: `vos session
+check` says so and prints the `open` command to run again.
+
+Google sign-in refuses an automated browser, which is why `open` is a
+plain window: it goes through there. If the person cannot be at the
+keyboard now, go to rung 4; do not wait on a window nobody will close.
+
+On an older CLI: `npx playwright open --channel chrome
+--save-storage="$STATE" <url>` writes a state file when the window closes,
+for `--storage-state`. `--channel chrome` uses the system Chrome; without
+it the command wants Playwright's own Chromium, which is usually not
+installed.
 
 **The human is not there right now?** Do not open a window nobody will see
 and do not block on it. Get everything else ready (the script written and
 validated, a rehearsal that exits 4 to prove the wall is the only thing
 left), then STOP and leave the ask in the words you would say: the one
-command above, "sign in with a demo account and close the window", and a
-script that finishes the job from the state file with no further help from
-you. Ask, in the same note, whether there is a faster way in you cannot see
-(a seeded account, a test sign-in route): that turns the next re-record
-into rung 1. Google sign-in usually refuses
-an automated browser ("this browser or app may not be secure"). When it
-does, go to rung 4; do not fight it.
+`vos session open` command, "sign in with a demo account and close the
+window", and the record command that follows. Ask, in the same note,
+whether there is a faster way in you cannot see (a seeded account, a test
+sign-in route): that turns the next re-record into rung 1.
 
 ## 4. The human records, you cut
 

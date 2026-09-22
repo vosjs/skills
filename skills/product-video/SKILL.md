@@ -133,7 +133,10 @@ Per-channel dimensions and byte budgets: `references/destinations.md`.
    footage and its cut. It prints each step's rect in capture px, which is
    what a pinned layer reads. Rehearse again after every script edit, and
    record only a script that passes. A signed-in product rehearses the same
-   way: `--storage-state` and `--browser-arg=` apply to it too.
+   way: `--storage-state` and `--browser-arg=` apply to it too, and the
+   rehearsal ends by listing what the frame EXPOSES (an address, a key, a
+   card). Hide those with `mask` before you record:
+   `references/sessions.md`.
 
 3. **Record**: `vos record --actions actions.json --out take --strict --json`
    `--strict` always: skipped selector / networkidle timeout → exit 2 with
@@ -245,6 +248,9 @@ video. Follow it when the ask is a release, not one video.
 - A sign-in scripted in `actions.json`: every step there is in the footage
   and a typed value is logged. Sign in off camera (`references/sessions.md`).
 - A real customer's account on screen: addresses, names and keys ship in
-  the video. Record from a demo or seeded account.
+  the video. Record from a demo or seeded account, read the rehearsal's
+  `EXPOSED` list, and `mask` what is left.
+- A `mask` with `as: "text"` over product copy or a number: that is no
+  longer a recording of the product.
 - A `.png` name on `vos still`: it writes WebP; convert, and `vos validate
   <kit.json>` reads the bytes.

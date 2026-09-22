@@ -14,7 +14,10 @@ into a chore someone has to show up for.
 ## 0. No wall
 
 A public page, a demo mode, a local dev server with auth off, a preview
-deployment. If the feature shows the same there, record there.
+deployment. If the feature shows the same there, record there. A preview
+behind a bypass header alone (Vercel's `x-vercel-protection-bypass`) is
+`vos record … --header x-vercel-protection-bypass=$TOKEN` (0.43 and later):
+the token comes from the shell, never from the script.
 
 ## 1. Mint, from the test auth the project already has
 
@@ -47,15 +50,46 @@ drops: save it with `context.storageState({ path, indexedDB: true })`
 ## 2. Script the form, off camera
 
 A local or self-hosted instance where you can create the account, or a
-seeded user whose password is in an env var. Sign in with a few lines of
-Playwright, save the state, record with it:
+seeded user whose password is in an env var. Put the sign-in in `setup`
+in `actions.json` (`@vosjs/cli` 0.43 and later): it runs after the first
+navigation and BEFORE a frame is captured, with no cursor, no frames and
+nothing in `meta.steps`, then the recorder opens `url` again and the take
+begins signed in. No state file, nothing to mint, nothing to delete.
 
-`playwright` is already installed: it arrives with `@vosjs/cli`, so no
-second install. Two things about the script below. Launch the SYSTEM Chrome
-(`channel: 'chrome'`): `npm i` does not download Playwright's own Chromium.
-And run it from INSIDE the project (a dotfile you delete afterwards is
-fine), because `import 'playwright'` resolves from the script's own
-location; only the STATE FILE has to live outside the repo.
+```json
+{
+  "url": "http://localhost:3000/dashboard",
+  "setup": [
+    { "do": "goto", "url": "http://localhost:3000/login" },
+    { "do": "type", "selector": "#email", "text": "demo@acme.test" },
+    { "do": "type", "selector": "#password", "text": { "env": "DEMO_PASSWORD" } },
+    { "do": "press", "key": "Enter", "ms": 800 }
+  ],
+  "steps": [ ... ]
+}
+```
+
+The password comes from the SHELL at run time (`{ "env": "NAME" }`) and is
+never logged or stored: the log names the field, never the value.
+`validate` refuses a literal typed into a password field, because
+`actions.json` is committed and pushed with the take. Export the variable
+in the shell that runs `vos record`; an unset one exits 2 in words. A
+setup selector that never appears fails the take before anything is
+recorded, so rehearse the setup with `--dry-run` like everything else. A
+wrong password runs the setup and then meets the wall (exit 4), which is
+the check working.
+
+The same field dismisses a cookie banner, a "choose your editor" modal or
+an onboarding tour off camera: a `click` on the dismiss, before the take.
+
+Never put the sign-in in `steps`: every step there is IN the footage, and
+a typed value is logged.
+
+On an older CLI, or for an account you are creating: a few lines of
+Playwright, then record with `--storage-state`. `playwright` is already
+installed (it arrives with `@vosjs/cli`), launch the SYSTEM Chrome
+(`channel: 'chrome'`), and run the script from INSIDE the project so the
+import resolves; only the STATE FILE lives outside the repo.
 
 ```js
 import { chromium } from 'playwright'
@@ -70,9 +104,6 @@ await page.waitForURL('**/dashboard')
 await context.storageState({ path: process.env.STATE })
 await browser.close()
 ```
-
-Never put the sign-in in `actions.json`. Every step there is IN the
-footage, and a typed value is logged.
 
 ## 3. The human signs in once
 

@@ -68,10 +68,11 @@ Per-channel dimensions and byte budgets: `references/destinations.md`.
    has (`playwright/.auth`, an `auth.setup.ts`, a seed script: look before
    you ask anyone anything) → sign in off camera with `setup` in
    `actions.json` (the password from `{ "env": "NAME" }`, never a literal) →
-   the human signs in once (`npx playwright open --save-storage=<file>
-   <url>`) → the human records with the extension from the shot list
+   the human signs in once (`vos session open <url> --name <app>`, then
+   `--session <app>` on record) → the human records with the extension from the shot list
    `vos actions script actions.json` prints, and you cut it. Every
-   rung but `setup` and the last ends in a state file for `--storage-state`. Never
+   rung ends in `setup`, a state file for `--storage-state`, or a named
+   session for `--session`. Never
    type or accept a production password, keep the state file out of the
    take directory and out of git, and record from a demo account: what the
    account shows ships in the video.

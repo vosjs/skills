@@ -123,7 +123,7 @@ wait, so the frame shows the page, never the spinner.
   the script, by the `product-video` skill's ladder
   (in full at https://vos.so/llms-full.txt, "Sessions"): mint one from the test auth the repo
   already has, else script the form off camera, else the human signs in
-  once (`npx playwright open --save-storage=<file> <url>`), else they
+  once (`vos session open <url> --name <app>`, then `--session <app>`), else they
   record with the extension and you cut it. Record with
   `--storage-state <file>`. A release re-records every version, so prefer
   the rung that needs no human: it is the one that still works next

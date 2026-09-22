@@ -67,6 +67,18 @@ for, so their real email address and a card's last four are in the footage.
 Both are in `sessions.md` now; the second is the case an exposure check in
 the recorder would catch and prose cannot.
 
+**The exposure run** (same day, `@vosjs/cli` 0.42.0 and the skills at
+#31): a headless agent from a bare video workspace, handed a session signed
+in as a made-up but real-looking customer (an address on a real-looking
+domain in the header, a `•••• 4242` on the page), told nothing about
+exposure. PASS, 27 turns: it invoked `vos-footage` on its own, read the
+rehearsal's `EXPOSED` list, masked the address with `as: "text"` and a
+demo-domain identifier (the rule, exactly), recorded, and the real address
+is in no file of the workspace or the take. It read the card tail, judged
+it Stripe's public test card, LEFT it and said so (warning, not failure,
+working as designed). It declined to push staging footage and printed the
+command to run after `vos login`.
+
 Caveats. In the first three runs the agents were pointed at the skill file
 rather than triggering it, and the harness gave them the author's own
 project instructions, which mention the session ladder; the clean re-run

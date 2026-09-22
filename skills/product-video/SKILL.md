@@ -66,10 +66,11 @@ Per-channel dimensions and byte budgets: `references/destinations.md`.
    stop at the first rung that holds: no wall (a demo mode, a local server
    with auth off) → MINT a session from the test auth the project already
    has (`playwright/.auth`, an `auth.setup.ts`, a seed script: look before
-   you ask anyone anything) → script the form off camera with Playwright →
+   you ask anyone anything) → sign in off camera with `setup` in
+   `actions.json` (the password from `{ "env": "NAME" }`, never a literal) →
    the human signs in once (`npx playwright open --save-storage=<file>
    <url>`) → the human records with the extension and you cut it. Every
-   rung but the last ends in a state file for `--storage-state`. Never
+   rung but `setup` and the last ends in a state file for `--storage-state`. Never
    type or accept a production password, keep the state file out of the
    take directory and out of git, and record from a demo account: what the
    account shows ships in the video.
@@ -245,8 +246,9 @@ video. Follow it when the ask is a release, not one video.
   trim it or speed it, the story opens near the money shot.
 - A store screenshot cut from the composed frame: real UX is the page, full
   bleed (`deliver` does this; a text-heavy page also wants a store-size take).
-- A sign-in scripted in `actions.json`: every step there is in the footage
-  and a typed value is logged. Sign in off camera (`references/sessions.md`).
+- A sign-in in `steps`: every step there is in the footage and a typed
+  value is logged. It goes in `setup`, with the password from the shell
+  (`references/sessions.md`).
 - A real customer's account on screen: addresses, names and keys ship in
   the video. Record from a demo or seeded account, read the rehearsal's
   `EXPOSED` list, and `mask` what is left.

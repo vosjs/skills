@@ -28,6 +28,15 @@ strangers its marketing page looks like.
   (`--allow-wall`, or a redirect without `--strict`): it may be the wrong
   page. Re-record with a session before cutting it.
 
+## `setup #N … the selector never appeared` (exit 2)
+
+The off-camera sign-in did not finish, so the take did not start. A
+selector in `setup` is checked the same way a step's is: rehearse with
+`--dry-run`. `the environment variable NAME is not set` means the shell
+that ran `vos record` did not export it; the value is never read from a
+file. A setup that ran and then met the wall (exit 4) signed in with the
+wrong credentials or into the wrong place.
+
 ## `EXPOSED in the frame`
 
 Not an error: the take recorded. The recorder read the visible text after

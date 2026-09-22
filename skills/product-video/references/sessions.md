@@ -136,11 +136,27 @@ does, go to rung 4; do not fight it.
 
 ## 4. The human records, you cut
 
-Hand them a shot list: the beats in order, one line each, about forty
-seconds, the viewport you want. They record it with the vosso extension in
-their own signed-in Chrome and save it; you `vos pull` it and cut it (the
-`vos-cut` skill). This is a rung, not a failure. "I cannot get in; here are
-the six beats, record them and I will cut it" is the honest best thing.
+Hand them the flow you worked out, as a shot list. Write `actions.json`
+as you would for any take, give the steps ids and captions a person could
+follow, then:
+
+```bash
+vos actions script actions.json
+```
+
+It prints the beats in plain words with the holds you asked for, the page
+to start on and about how long (`@vosjs/cli` 0.44 and later). Put that in
+your handoff with one sentence: record it with the vosso extension in your
+own signed-in browser, press the icon again to stop, and it lands on your
+shelf. When it does, `vos pull <vos-id> --out take --media` brings it down
+and you cut it (the `vos-cut` skill): the beats you wrote are the moments
+you will be looking for in the digest. This is a rung, not a failure. "I
+cannot get in; here is the shot list, record it and I will cut it" is the
+honest best thing, and the script survives for the day rung 1 or 2 opens.
+
+A recording a person made has no `mask` and no exposure list (the scan
+needs the page): look at the digest's frames yourself and say what they
+show, before anything is pushed further or handed over.
 
 ## Rules, at every rung
 

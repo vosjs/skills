@@ -69,7 +69,8 @@ Per-channel dimensions and byte budgets: `references/destinations.md`.
    you ask anyone anything) → sign in off camera with `setup` in
    `actions.json` (the password from `{ "env": "NAME" }`, never a literal) →
    the human signs in once (`npx playwright open --save-storage=<file>
-   <url>`) → the human records with the extension and you cut it. Every
+   <url>`) → the human records with the extension from the shot list
+   `vos actions script actions.json` prints, and you cut it. Every
    rung but `setup` and the last ends in a state file for `--storage-state`. Never
    type or accept a production password, keep the state file out of the
    take directory and out of git, and record from a demo account: what the

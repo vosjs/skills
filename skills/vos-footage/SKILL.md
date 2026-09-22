@@ -32,8 +32,8 @@ The product is behind a login? Settle the session BEFORE the script, by
 the `product-video` skill's ladder (in full at https://vos.so/llms-full.txt, "Sessions"): mint
 one from the test auth the project already has, else script the form off
 camera, else the human signs in once (`npx playwright open
---save-storage=<file> <url>`), else they record it with the extension and
-you cut it. Then `vos record … --storage-state <file>`. Never type or
+--save-storage=<file> <url>`), else they record it with the extension from
+the shot list `vos actions script actions.json` prints, and you cut it. Then `vos record … --storage-state <file>`. Never type or
 accept a production password, keep the state file out of the take and out
 of git, and record from a demo account: the footage goes into someone
 else's video, and whatever the account shows goes with it.

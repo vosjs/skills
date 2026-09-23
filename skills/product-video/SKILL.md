@@ -123,7 +123,10 @@ Per-channel dimensions and byte budgets: `references/destinations.md`.
    (drag = real edits: `{do:'drag', selector|x,y, tx, ty, ms}` — slide a range
    input, drag a canvas element, move a timeline clip). Pacing IS the zoom
    plan: open `wait ≥700ms`; hover what matters 700–900ms (dwells become
-   zooms); 1200–2000ms after navigations; end settled. Route the cursor away
+   zooms); a click's `ms` is READING time, held from the page's last change
+   (`@vosjs/cli` 0.47 and later; the recorder pays the settle itself), so
+   size it as a beat: about 1000ms after a navigation, 600ms after a
+   control, never padded for a slow page; end settled. Route the cursor away
    from hover-triggered menus (taste.md, flow rules). Check with
    `vos validate actions.json`.
 

@@ -81,14 +81,19 @@ A product video's baseline quality is SMOOTHNESS: the frame should always be
 alive, and nothing should change all-at-once unless it's a deliberate cut.
 The two enemies, both measurable:
 
-14. **Frozen footage.** The screencast only emits on visual change — a static
-    page records as freeze-then-bang. The recorder reports it: `freezes[]` +
-    `freezePct` in the record done event (warn ≥25%). Budget: **≤20%
-    frozen**, no single freeze >1.5s. Fixes, in order: choose flows where
-    something in frame ANIMATES (a playing preview, a live canvas, a
-    scroll); hover things that respond with motion (cards that play a
-    preview on hover are the best dwell targets); trim/speed-span what's
-    left (`segments` for dead heads/tails).
+14. **Dead time.** A still frame is not the defect: a page the viewer is
+    reading is content, and a workspace tour is mostly still. What is dead
+    is a still frame under a PARKED cursor past the beat it takes to read
+    what changed: about 1 s after a page changed, 0.6 s after a control
+    did. The record done event reports it per step as `dead` (`ms`, `pct`,
+    `steps[]` with how long each hold ran after its page settled and how
+    much of that was past the beat; `freezePct` stays as the plain fact of
+    stillness, `@vosjs/cli` 0.46 and later). Budget: **≤20% dead**, no
+    single dead hold >1.5s. The fix is the step's `ms`: a hold is what it
+    takes to read what changed, so cut the named steps to their beat. Then,
+    where a flow allows it, keep something alive in frame (a playing
+    preview, a live canvas, a scroll), and hover things that respond with
+    motion. Never choose a flow to make a stillness number smaller.
 15. **Full-frame bangs.** Instant UI re-layouts (filter clicks, page
     navigations) read as jump cuts — violent when zoomed. Budget: **≤1 bang
     per ~5s**, and let them happen WIDE (place zoom spans so the camera has

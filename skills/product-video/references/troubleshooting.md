@@ -60,16 +60,23 @@ never reached networkidle, with `skipped[]` in the `--json` done event.
 - Always pass `--strict`. The lenient default exits 0 over broken flows,
   which is how bad takes ship.
 
-## Freeze budget violations
+## Dead time
 
-The record done event reports `freezes[]` and `freezePct` (the screencast
-only emits frames on visual change, so a static page records as
-freeze-then-bang). Budget: ≤20% frozen, no single freeze >1.5s.
+The record done event reports `dead` (`@vosjs/cli` 0.46 and later): a
+still frame under a parked cursor past the beat it takes to read what
+changed, per step, with how long the hold ran after the page settled.
+`freezePct` beside it is the plain fact of stillness and is not a defect
+on its own (a page being read is content). Budget: ≤20% dead, no single
+dead hold >1.5s. The take-ready line names the steps.
 
-1. Pick flows where something in frame animates.
-2. Hover things that respond with motion — those dwells become zooms too.
+1. Cut the named steps' `ms` to their beat: about 1 s after a page
+   changed, 0.6 s after a control did.
+2. Where the flow allows, keep something alive in frame, and hover things
+   that respond with motion — those dwells become zooms too.
 3. Trim dead heads/tails with `segments`; compress slow stretches with
    `speed` spans.
+
+Never choose a flow to make `freezePct` smaller.
 
 ## Browser and environment
 

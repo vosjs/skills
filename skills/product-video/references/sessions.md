@@ -115,9 +115,11 @@ vos session open https://app.example.com --name acme
 
 A plain Chrome window opens on a profile vos owns (`@vosjs/cli` 0.45 and
 later). Tell the human one sentence: a browser window opened, sign in with
-a demo account and close it. The command returns when the window closes,
-and that is the moment the session is saved; "I signed in" and "the
-session is saved" are different things, and a person reports the first.
+a demo account and quit Chrome (⌘Q on a Mac; closing the window is not
+quitting, Chrome stays running and the command keeps waiting). The
+command returns when Chrome exits, and that is the moment the session is
+saved; "I signed in" and "the session is saved" are different things, and
+a person reports the first.
 It then prints what the session holds as counts and dates, never a value.
 Then:
 
@@ -147,8 +149,8 @@ installed.
 and do not block on it. Get everything else ready (the script written and
 validated, a rehearsal that exits 4 to prove the wall is the only thing
 left), then STOP and leave the ask in the words you would say: the one
-`vos session open` command, "sign in with a demo account and close the
-window", and the record command that follows. Ask, in the same note,
+`vos session open` command, "sign in with a demo account and quit
+Chrome", and the record command that follows. Ask, in the same note,
 whether there is a faster way in you cannot see (a seeded account, a test
 sign-in route): that turns the next re-record into rung 1.
 

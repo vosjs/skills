@@ -146,8 +146,11 @@ Per beat, against `plan` and the recipe:
 - **Text.** A caption per beat that has something to say, at a cadence (one
   every 5-10s, 2.5-4s each, never two at once), in the product's words and
   the video's intention; lower-third `y ≈ 0.82`; OUTPUT seconds; never over
-  the clicked control (validate warns). Give it a `box` when the ground under
-  it is light (an editor's timeline is), and judge every caption at its own
+  the clicked control (validate warns). The clip's shape is `{ "id", "kind":
+  "text", "text", "start", "duration", "transform": { "x": 0.5, "y": 0.82 } }`
+  (`start` and `duration`, never `in`/`out`, which are the source lanes').
+  Give it a `box` (`{ "color": "#111111" }`) when the ground under it is
+  light (an editor's timeline is), and judge every caption at its own
   instant. One caption per film is too sparse for a film that explains a
   flow; zero is right only when the recipe or the ask says no text.
 - **Style.** In a series, `vos plan --style <seed>` BEFORE you cut: it copies

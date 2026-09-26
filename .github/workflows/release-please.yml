@@ -9,6 +9,9 @@ jobs:
   release-please:
     runs-on: ubuntu-latest
     steps:
+      # Manifest mode: release-please-config.json names the type and the
+      # files whose version moves with version.txt (the plugin and
+      # marketplace manifests), and .release-please-manifest.json names the
+      # current version, so the first release after the switch bumps from
+      # 0.5.0 rather than bootstrapping at 1.0.0.
       - uses: googleapis/release-please-action@v4
-        with:
-          release-type: simple

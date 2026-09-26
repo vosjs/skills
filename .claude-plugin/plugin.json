@@ -1,7 +1,7 @@
 {
   "name": "vos-skills",
   "displayName": "vos: release media from the real product",
-  "description": "Agent skills for vos: your coding agent records the real product and ships the release's media from one take (demo, store listing, Product Hunt gallery, social cuts, OG card), cuts your own screen recordings from their cursor evidence, migrates existing demos into editable takes, and authors or remixes vos animation programs. Deterministic renders, JSON-editable documents.",
+  "description": "Agent skills for vos: your coding agent records the real product and ships the release's media from one take (demo, store listing, Product Hunt gallery, social cuts, OG card), cuts your own screen recordings from their cursor evidence, migrates existing demos into editable takes, and authors or remixes vos animation programs. Deterministic renders, JSON-editable documents. Plus /vos-skills:setup (npx vos setup, the doctor in words) and two quiet hooks: at session start, what the repo's media/ demo is and how to re-record it; at stop, when the session changed a file that demo touches.",
   "version": "0.5.0",
   "author": {
     "name": "vosjs",

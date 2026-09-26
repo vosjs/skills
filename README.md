@@ -14,8 +14,25 @@ npx skills add vosjs/skills
 ```
 
 Works with any agent that reads the [Agent Skills](https://agentskills.io)
-format (Claude Code, Cursor, Codex, and friends). Claude Code users can also
-add the repo as a plugin marketplace: `/plugin marketplace add vosjs/skills`.
+format (Claude Code, Cursor, Codex, and friends). One line does the whole
+setup on a machine that has nothing yet: hand your agent
+`Read https://vos.so/agent.md and do what it says.`, or run `npm i -D @vosjs/cli && npx vos setup`
+yourself.
+
+Claude Code users can add the repo as a plugin marketplace instead:
+`/plugin marketplace add vosjs/skills`, then `/plugin install vos-skills@vos-skills`.
+The plugin carries the eight skills plus:
+
+- `/vos-skills:setup`: runs `npx vos setup` and reports the doctor's verdict in words.
+- A `SessionStart` hook: in a repo whose `media/` carries a demo (`actions.json`,
+  the cut `doc.json`, the tracked `vos.json`), one line of context says what the
+  demo is, where it lives on vos.so, and the command pair that re-records it.
+- A `Stop` hook: when a session edited a file the demo's click script touches
+  (a selector's id, class, name or text, or a route naming the file), one line
+  says so and gives the re-record command. It never blocks; it is a cue.
+
+Both hooks are plain Node with no dependencies (`scripts/`), silent in a repo
+without `media/`, and held by `node --test evals/plugin`.
 
 ## The catalog
 

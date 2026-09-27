@@ -4,7 +4,7 @@ Run before each release tag, on ≥2 model tiers. Environment: a clean
 directory holding one foreign screen-demo file (a 1080p H.264 mp4 with no
 vosso lineage — a real Loom/Screen Studio export when available), the skill
 installed via `npx skills add vosjs/skills`,
-`npm i -D @vosjs/cli`, ffmpeg on PATH, a content key.
+`npm i -D @vosjs/cli` (0.50+), a content key.
 Record runs in `results/` plus a no-skill baseline note.
 
 ## S1 — the full migration
@@ -12,11 +12,12 @@ Record runs in `results/` plus a no-skill baseline note.
 **Prompt:** "Make this old demo editable: demo.mp4"
 
 **Pass criteria:**
-- the take directory is built per the skill (VP9/Opus re-encode; meta.json
-  with every required field, `producer: "migrated"`, dims/fps/duration
-  from ffprobe — never guessed)
-- `vos plan --fresh` runs; the agent does NOT fake auto-zooms — any zoom
-  span it writes is `source: "manual"`, placed from rendered stills
+- the take is made with `vos ingest demo.mp4 --out take` (meta.json from
+  the file's own probe, `producer: "ingest"`, never hand-written or
+  guessed); no ffmpeg step is run by hand
+- the done line's `no cursor track, so nothing was planned` is read as the
+  truth of the file; the agent does NOT fake auto-zooms — any zoom span it
+  writes is `source: "manual"`, placed from rendered stills
 - `export.resolution` matches the footage (no upscaling claim)
 - `vos validate` passes; a draft range render ran before any full render
 - pushed with `--label`/`--note`; the note says old edits are baked pixels

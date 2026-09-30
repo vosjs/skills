@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.7.0](https://github.com/vosjs/skills/compare/v0.6.1...v0.7.0) (2026-09-30)
+
+
+### Features
+
+* vos-port, bring a Remotion or HyperFrames video into vos as a program whose content is knobs ([#47](https://github.com/vosjs/skills/issues/47)) ([ed14e3a](https://github.com/vosjs/skills/commit/ed14e3a2d7c96b7f8c9b4931ea1f82fa4f66f6bd))
+
 ## [0.6.1](https://github.com/vosjs/skills/compare/v0.6.0...v0.6.1) (2026-09-30)
 
 

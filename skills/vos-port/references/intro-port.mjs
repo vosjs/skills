@@ -110,8 +110,8 @@ const config = {
     {
       id: 'subtitle',
       type: 'text',
-      // Sized by the full words (a monospaced face keeps every scramble
-      // frame the same width); onFrame then writes each frame's string.
+      // Bound to the full words: onFrame writes each frame's string, and a
+      // still capture, which misses onFrame's writes, shows these words.
       content: { $data: 'subtitle' },
       font: { family: 'JetBrains Mono', size: 26, weight: 500, color: { $data: 'paper' }, letterSpacing: 6 },
       position: 'center',

@@ -28,6 +28,7 @@
     "./skills/vos-footage",
     "./skills/vos-create",
     "./skills/vos-remix",
+    "./skills/vos-port",
     "./skills/vos-authoring"
   ]
 }

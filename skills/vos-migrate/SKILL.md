@@ -24,14 +24,17 @@ Two doors:
 ## 1. Make the take: one verb
 
 ```bash
-vos ingest demo.mp4 --out take            # vos 0.50+: probe, copy, meta.json, plan
+vos ingest demo.mp4 --as take --out take  # a screen demo: the card, its ground (vos 0.52+)
 vos ingest demo.mp4 --cursor trace.zip --out take   # with a trace recorded beside it
 ```
 
 `vos ingest` probes the file itself (dimensions, length, frame rate,
 audio, container), copies it into the take as `recording.<container>`
 (stream-copied into a seekable container, or as it is), writes `meta.json`
-from the probe with `producer: "ingest"`, and plans. Read the done line: a
+from the probe with `producer: "ingest"`, and plans. Without a trace and
+without `--as take`, a file opens as FINISHED footage (no card, no drawn
+cursor), which is right for a render from another tool and wrong for a
+screen demo, so a demo says `--as take`. Read the done line: a
 Loom/Screen Studio export is typically 1080p H.264 with the camera bubble
 and any edits BAKED IN, and they migrate as pixels, not as layers. Say so
 in the handoff: the migration makes the file editable from here on, it

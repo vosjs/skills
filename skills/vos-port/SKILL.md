@@ -72,10 +72,10 @@ shape every port takes: real functions, stringified into a `config.json`
   translateY }` in design pixels, never a `tl.set` on `props.x/y`, for any
   text whose content or colour changes live: every re-raster lays the
   element out again from its config and drops a tweened position.
-- **Size a live text by its longest content.** A text element's plane is
-  sized at boot; bind `content` to the full words (`{ "$data": "subtitle" }`)
-  and let `onFrame` write shorter strings of the same width (a monospaced
-  face), never start from `' '`.
+- **Bind a live text to its full words.** Text that `onFrame` writes each
+  frame (a scramble, a counter) starts as `{ "$data": "subtitle" }`, never
+  `' '`: a still capture (and so the vos.so thumbnail) misses what `onFrame`
+  writes, and then shows the bound words instead of nothing.
 - **Transform origin is the centre.** Remotion's `transformOrigin: 'right
   center'` with `scaleX` becomes a centre scale plus an `x` tween that keeps
   the right edge still: `{ scaleX: 0, x: x0 + (width / 2) * k }`.
@@ -139,9 +139,9 @@ stated approximation:
 | `@remotion/noise`, SVG `feTurbulence` | the painter |
 | a group transform (scale the whole scene) | no element groups: tween each element the same way |
 
-Also known, reported upstream, not yours to fix: element colours (text, svg,
-image) render lighter than authored. Compare against the source, name it,
-never darken colours by hand to compensate.
+Colours render as authored from `@vosjs/elements` 0.8.2 (older versions
+drew text, svg and image elements lighter): match the source's hex values
+exactly and never adjust a colour by eye.
 
 ## When not to port
 

@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.9.1](https://github.com/vosjs/skills/compare/v0.9.0...v0.9.1) (2026-09-30)
+
+
+### Bug Fixes
+
+* vos-port says text written in a frame is in that frame, a re-raster keeps a tweened offset, and how to set a hosted italic ([#55](https://github.com/vosjs/skills/issues/55)) ([3f0aba0](https://github.com/vosjs/skills/commit/3f0aba07bd54e1809ec068c4fad9f79d8569b085))
+
 ## [0.9.0](https://github.com/vosjs/skills/compare/v0.8.0...v0.9.0) (2026-09-30)
 
 

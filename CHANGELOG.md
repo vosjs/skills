@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.11.0](https://github.com/vosjs/skills/compare/v0.10.0...v0.11.0) (2026-09-30)
+
+
+### Features
+
+* vos-port's reference says where split units sit, how a stroke draws, and that onFrame wins over a binding ([#59](https://github.com/vosjs/skills/issues/59)) ([122b2e1](https://github.com/vosjs/skills/commit/122b2e1e05b2f2374a6fc0f649c4c1aabe3fbc54))
+
 ## [0.10.0](https://github.com/vosjs/skills/compare/v0.9.1...v0.10.0) (2026-09-30)
 
 

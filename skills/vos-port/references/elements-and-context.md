@@ -132,6 +132,26 @@ and `shadow.blur` are design pixels (a 1080-high frame). There is no
 `mask`, `clip`, `blend` or group field on any element: SKILL.md's
 "honest gaps" says what to do instead.
 
+**Where an element sits.** `position` places the element's BOX:
+
+- a preset (`'center'`, `'top-left'`, … `'bottom-right'`) sets the box
+  flush against the frame's edges or centre, with no margin;
+- `{ x: '10%', y: '20%' }` (strings) puts the box's TOP-LEFT corner at
+  that fraction of the frame, the same at every output size;
+- `{ x: 120, y: 80 }` (numbers) is RENDER pixels of that corner, never
+  scaled, so it moves when the output size changes: use a percentage or a
+  preset plus `transform` instead.
+
+Then `transform.translateX` / `translateY` (design px, y down) move it.
+`transform.scale`, `translateZ` and `rotation` / `rotateZ` (degrees,
+about the box's centre) apply to a whole element, and a `split` element
+takes only the translate. `anchor`, `transform.origin`, `scaleX`,
+`scaleY`, `rotateX`, `rotateY` and `perspective` are not read: the
+origin is always the box's centre. A config `rotation` is lost the first
+time a tween writes `props.scale*` or `props.rotation*` (the props start at
+rotation 0), so an element that is both tilted and animated takes its tilt
+as `props.rotation` in the timeline (a `tl.set` at 0), never in the config.
+
 A `stroke` is drawn UNDER the fill and centred on the outline, so around a
 filled word only its outer half shows. CSS `-webkit-text-stroke` paints
 over the fill, so a CSS stroke of N px is `stroke.width: 2N` around a
@@ -633,6 +653,18 @@ interface ContentResult {
 Author it as GSAP: `const tl = ctx.gsap.timeline({ paused: true })`, tweens
 on `el.props`, `tl.addLabel(name, t)` per scene, return `tl`. This is the
 whole surface the engine calls on it.
+
+**Staggers.** An array target (`el.segments`, a list of props) takes a
+`stagger` in two forms: a number, where target i starts `i × n` seconds
+in; or `{ each | amount, from }`, where `from` is an index, `'start'`,
+`'center'`, `'end'` or `'edges'`, distances are normalized so the
+farthest target sits at n − 1 (as GSAP does), and `amount` spreads that
+range over `amount` seconds. Outside the dialect, and not flagged by
+`vos check`: `grid` and `axis` are ignored (a 2-D grid staggers as one
+line in array order), `from: 'random'` and a stagger `ease` are not
+supported, and a function stagger starts every target at once. For a grid,
+compute each cell's delay in the build script (a row-major distance from the
+source's `from` cell) and place one tween per cell at its time.
 
 ```ts
 /**

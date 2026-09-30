@@ -72,13 +72,57 @@ shape every port takes: real functions, stringified into a `config.json`
   translateY }` in design pixels, never a `tl.set` on `props.x/y`, for any
   text whose content or colour changes live: every re-raster lays the
   element out again from its config and drops a tweened position.
-- **Bind a live text to its full words.** Text that `onFrame` writes each
-  frame (a scramble, a counter) starts as `{ "$data": "subtitle" }`, never
-  `' '`: a still capture (and so the vos.so thumbnail) misses what `onFrame`
-  writes, and then shows the bound words instead of nothing.
+- **Text that `onFrame` writes is missing from a still.** A scramble or a
+  counter written into `props.content` each frame shows in `vos render`
+  output (a frame late) and is BLANK in `vos still` and in the vos.so
+  thumbnail. Check it in a rendered frame, and set the program's cover
+  (`vos push --still <t>`, cli 0.53+) at a moment where that text is not the
+  point.
 - **Transform origin is the centre.** Remotion's `transformOrigin: 'right
   center'` with `scaleX` becomes a centre scale plus an `x` tween that keeps
   the right edge still: `{ scaleX: 0, x: x0 + (width / 2) * k }`.
+
+## Layering: where a painter goes (measured)
+
+A frame draws in this order, and a painter joins it at the place it names:
+
+1. **The 3D scene** (`ctx.scene`, `ctx.camera`) first, `scene.background`
+   under all of it. A ground or a 3D object lives here, under every element.
+2. **Then the elements**, one overlay scene per distinct element `zIndex`
+   (default 100), lowest first, depth cleared between them, all drawn with
+   `ctx.overlayCamera`: orthographic, in RENDER pixels, centred on the frame
+   (x right, y up in three.js terms).
+3. **Inside an overlay scene, later wins**: element *i* of `config.elements`
+   has `renderOrder = zIndex + i × 0.01` (a split unit adds `0.001` per
+   unit). Order elements in the array the way the source stacks them.
+
+A painter that must sit BETWEEN elements is a plane in `ctx.overlayScene`
+(the lowest-zIndex overlay scene, so keep every element at the default
+`zIndex`) with a `renderOrder` between its neighbours:
+
+```js
+// createContent: a painter over element 1 and under element 2
+const T = ctx.THREE
+const canvas = document.createElement('canvas')
+const tex = new T.CanvasTexture(canvas)
+tex.colorSpace = T.SRGBColorSpace // or every colour renders lighter
+const mesh = new T.Mesh(
+  new T.PlaneGeometry(1, 1),
+  new T.MeshBasicMaterial({ map: tex, transparent: true, depthTest: false, depthWrite: false }),
+)
+mesh.scale.set(ctx.resolution.width, ctx.resolution.height, 1) // full frame, render px
+mesh.renderOrder = 100 + 1 * 0.01 + 0.005
+mesh.frustumCulled = false
+ctx.overlayScene.add(mesh)
+// onFrame: paint `canvas` from ctx.time and ctx.data, then tex.needsUpdate = true
+```
+
+Keep the slot numbers in `data` beside the scene table (`layers: { card:
+100.015, grain: 100.995 }`), computed from element indices in the build
+script, so adding an element never silently reorders a painter. A painter
+over everything (grain, a vignette) takes the highest slot; a CSS blend mode
+is a custom `blending` on its material, stated in the push note as an
+approximation.
 
 ## The mapping
 

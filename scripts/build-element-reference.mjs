@@ -134,6 +134,12 @@ and \`shadow.blur\` are design pixels (a 1080-high frame). There is no
 \`mask\`, \`clip\`, \`blend\` or group field on any element: SKILL.md's
 "honest gaps" says what to do instead.
 
+A \`stroke\` is drawn UNDER the fill and centred on the outline, so around a
+filled word only its outer half shows. CSS \`-webkit-text-stroke\` paints
+over the fill, so a CSS stroke of N px is \`stroke.width: 2N\` around a
+filled word and \`stroke.width: N\` for an outline-only word
+(\`font.color: 'transparent'\`).
+
 ${block(core, [
   'DataRef',
   'BaseElement',
@@ -155,6 +161,14 @@ What \`createTimeline\` and \`onFrame\` animate: \`el.props\` (and
 from the frame centre with \`y\` down, and \`rotation\` is degrees
 counter-clockwise, unlike the config's design-pixel \`transform\`.
 
+A \`split\` element lays its units out as one block at the element's
+position: \`el.segments[i]\` starts at the CENTRE of unit i's ink, which
+sits \`lineStart + advanceBefore + width / 2\` from the block's centre
+(\`advanceBefore\` measured with \`letterSpacing\` and without kerning across
+unit boundaries, the line aligned by \`font.align\`). So a per-letter tween
+moves each letter FROM its laid-out place (\`from\`, or \`s.y + dy\`), never
+to a position computed by hand.
+
 Writing any of ${rasterProps.join(', ')} on a text element's \`props\`
 re-rasters it (the runtime's own list), so a scramble or a counter writes
 \`el.props.content\` in \`onFrame\` and a colour change sets \`el.props.color\`.
@@ -165,6 +179,13 @@ Every such write queues a re-raster, even of an unchanged value, so guard
 a per-frame write: \`if (el.props.content !== next) el.props.content = next\`.
 These writes do nothing on a \`split\` element (its units are structure):
 change a split element's words through its binding, never its props.
+
+When \`onFrame\` writes a bound element's text, \`onFrame\` wins: the write
+becomes the element's content, a data edit re-applies the bound value, and
+the next frame's write replaces it before anything draws (the frame flushes
+once, after \`onFrame\`). So derive the written string from \`ctx.data\`
+(a scramble resolves to \`ctx.data.subtitle\`), and the binding stays the
+words a person edits.
 
 A text raster never fails for being long: its density drops until the
 longest side fits the GPU's largest texture (${MAX_TEXTURE} px when the GPU does

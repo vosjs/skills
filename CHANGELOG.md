@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.10.0](https://github.com/vosjs/skills/compare/v0.9.1...v0.10.0) (2026-09-30)
+
+
+### Features
+
+* vos-port: knob schema, binding rules, raster ceiling; every visible word stays bound ([#57](https://github.com/vosjs/skills/issues/57)) ([48b092e](https://github.com/vosjs/skills/commit/48b092e1198507061831fe929d9b87eaaf449946))
+
 ## [0.9.1](https://github.com/vosjs/skills/compare/v0.9.0...v0.9.1) (2026-09-30)
 
 

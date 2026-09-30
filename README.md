@@ -87,3 +87,7 @@ failure becomes a new eval scenario.
 Issues and PRs welcome. Keep SKILL.md under 500 lines, references one level
 deep, and run `node scripts/check.mjs` before pushing. Skill text must match
 what the released CLI actually does; a claim the CLI can't honor is a bug.
+`skills/vos-port/references/elements-and-context.md` is generated from the
+published `@vosjs` declarations: after an engine release, run
+`node scripts/build-element-reference.mjs` (`--check` says whether it is
+stale) instead of editing it.

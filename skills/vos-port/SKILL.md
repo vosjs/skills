@@ -23,7 +23,11 @@ Two ways to get this wrong, both seen in real ports:
 Read `references/intro-port.mjs` first: the Remotion showreel's intro scene,
 ported by these rules and checked against Remotion's own render. It is the
 shape every port takes: real functions, stringified into a `config.json`
-(`node intro-port.mjs` writes one beside it).
+(`node intro-port.mjs` writes one beside it). Every field a config, an
+element, `ctx` and an ease accept is in `references/elements-and-context.md`,
+copied from the published declarations with the facts they leave out
+(which props re-raster, what `vos check` says about eases): read it there,
+not in `node_modules`.
 
 ## The rules (the port grammar)
 
@@ -128,6 +132,8 @@ approximation.
 
 - Remotion: `references/remotion.md`.
 - HyperFrames: `references/hyperframes.md`.
+- The target's types (elements, `ctx`, the timeline, eases):
+  `references/elements-and-context.md`.
 - A hand-rolled page (a single HTML file, its own canvas engine): read it as
   source with the same tables. What the page draws with DOM becomes
   elements; what it paints in a canvas is a painter, kept to the procedural

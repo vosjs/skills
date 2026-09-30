@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.12.0](https://github.com/vosjs/skills/compare/v0.11.0...v0.12.0) (2026-09-30)
+
+
+### Features
+
+* vos-port's reference says where an element sits and which staggers the dialect runs ([#61](https://github.com/vosjs/skills/issues/61)) ([abad96c](https://github.com/vosjs/skills/commit/abad96c66114b0e2043e253d76c15a92d3280c9e))
+
 ## [0.11.0](https://github.com/vosjs/skills/compare/v0.10.0...v0.11.0) (2026-09-30)
 
 

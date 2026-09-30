@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.9.0](https://github.com/vosjs/skills/compare/v0.8.0...v0.9.0) (2026-09-30)
+
+
+### Features
+
+* vos-port carries the element, context and ease declarations ([#53](https://github.com/vosjs/skills/issues/53)) ([8c556ce](https://github.com/vosjs/skills/commit/8c556ce3ed4d3f7f5cb9bb3d76765a900bfc9769))
+
 ## [0.8.0](https://github.com/vosjs/skills/compare/v0.7.1...v0.8.0) (2026-09-30)
 
 

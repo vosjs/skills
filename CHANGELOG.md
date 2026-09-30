@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.7.1](https://github.com/vosjs/skills/compare/v0.7.0...v0.7.1) (2026-09-30)
+
+
+### Bug Fixes
+
+* vos-port binds live text to its full words for the still's sake, and colours match the source exactly ([#49](https://github.com/vosjs/skills/issues/49)) ([8182d0c](https://github.com/vosjs/skills/commit/8182d0c4153eefb17f9196e70a113c6a73fb660d))
+
 ## [0.7.0](https://github.com/vosjs/skills/compare/v0.6.1...v0.7.0) (2026-09-30)
 
 

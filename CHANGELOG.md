@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.8.0](https://github.com/vosjs/skills/compare/v0.7.1...v0.8.0) (2026-09-30)
+
+
+### Features
+
+* vos-port says where a painter goes between elements, and that a still misses onFrame text ([#51](https://github.com/vosjs/skills/issues/51)) ([3a1dc01](https://github.com/vosjs/skills/commit/3a1dc01208d91d1ef7b9948cd4435f4c10c271bd))
+
 ## [0.7.1](https://github.com/vosjs/skills/compare/v0.7.0...v0.7.1) (2026-09-30)
 
 

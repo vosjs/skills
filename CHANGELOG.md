@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.13.0](https://github.com/vosjs/skills/compare/v0.12.0...v0.13.0) (2026-10-01)
+
+
+### Features
+
+* vos-port starts from vos port inventory and scaffold, and checks with vos compare ([#63](https://github.com/vosjs/skills/issues/63)) ([61ee57b](https://github.com/vosjs/skills/commit/61ee57b642cbc7bed0582ca7ad47eae4920c0a72))
+
 ## [0.12.0](https://github.com/vosjs/skills/compare/v0.11.0...v0.12.0) (2026-09-30)
 
 

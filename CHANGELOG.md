@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.14.0](https://github.com/vosjs/skills/compare/v0.13.0...v0.14.0) (2026-10-01)
+
+
+### Features
+
+* vos-port reads a Remotion project through vos port inventory ([#65](https://github.com/vosjs/skills/issues/65)) ([9d6697f](https://github.com/vosjs/skills/commit/9d6697f8f9c604d93c6438526b712aca94da315c))
+
 ## [0.13.0](https://github.com/vosjs/skills/compare/v0.12.0...v0.13.0) (2026-10-01)
 
 

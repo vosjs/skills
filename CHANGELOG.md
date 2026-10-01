@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.17.0](https://github.com/vosjs/skills/compare/v0.16.0...v0.17.0) (2026-10-01)
+
+
+### Features
+
+* **vos-authoring:** finish by pushing and giving the link ([#72](https://github.com/vosjs/skills/issues/72)) ([579a149](https://github.com/vosjs/skills/commit/579a1497d826c0d3cde5720e05e9e2bac1f1cd24))
+
 ## [0.16.0](https://github.com/vosjs/skills/compare/v0.15.0...v0.16.0) (2026-10-01)
 
 

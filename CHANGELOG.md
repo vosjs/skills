@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.16.0](https://github.com/vosjs/skills/compare/v0.15.0...v0.16.0) (2026-10-01)
+
+
+### Features
+
+* vos-port uses the painter starter for Remotion's spring and noise ([#70](https://github.com/vosjs/skills/issues/70)) ([0dfccb7](https://github.com/vosjs/skills/commit/0dfccb7f7b5ab68599a1cdbdffc220ad38fd9c08))
+
 ## [0.15.0](https://github.com/vosjs/skills/compare/v0.14.0...v0.15.0) (2026-10-01)
 
 

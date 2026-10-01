@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.15.0](https://github.com/vosjs/skills/compare/v0.14.0...v0.15.0) (2026-10-01)
+
+
+### Features
+
+* the element reference says a split element's props move the word ([#69](https://github.com/vosjs/skills/issues/69)) ([8257d0a](https://github.com/vosjs/skills/commit/8257d0a101c884e2f21a0b0e0e4eed7dc0bf515a))
+* **vos-authoring:** own render passes and depth of field that reads ([#67](https://github.com/vosjs/skills/issues/67)) ([285281f](https://github.com/vosjs/skills/commit/285281fcda00fb55d2d9b238b0e75b24fb999301))
+
 ## [0.14.0](https://github.com/vosjs/skills/compare/v0.13.0...v0.14.0) (2026-10-01)
 
 

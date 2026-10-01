@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.18.0](https://github.com/vosjs/skills/compare/v0.17.0...v0.18.0) (2026-10-01)
+
+
+### Features
+
+* vos-port puts a source's springs on the timeline with the spring() ease ([#74](https://github.com/vosjs/skills/issues/74)) ([9a3cc50](https://github.com/vosjs/skills/commit/9a3cc509f5f2448c491264f9b062e69f7b5c8bc6))
+
 ## [0.17.0](https://github.com/vosjs/skills/compare/v0.16.0...v0.17.0) (2026-10-01)
 
 

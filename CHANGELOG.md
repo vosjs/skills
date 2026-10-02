@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.20.0](https://github.com/vosjs/skills/compare/v0.19.0...v0.20.0) (2026-10-02)
+
+
+### Features
+
+* one rule for a program's own files in the 3D recipe, and the library verbs ([#78](https://github.com/vosjs/skills/issues/78)) ([3785f31](https://github.com/vosjs/skills/commit/3785f3115cdbe267f8964e86136a521fbeedd703))
+
 ## [0.19.0](https://github.com/vosjs/skills/compare/v0.18.0...v0.19.0) (2026-10-02)
 
 

@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.19.0](https://github.com/vosjs/skills/compare/v0.18.0...v0.19.0) (2026-10-02)
+
+
+### Features
+
+* a program's files are declared in config.assets, never typed into a function ([#76](https://github.com/vosjs/skills/issues/76)) ([efd80be](https://github.com/vosjs/skills/commit/efd80befe165b99aac8d60d01495df2bc4696e7b))
+
 ## [0.18.0](https://github.com/vosjs/skills/compare/v0.17.0...v0.18.0) (2026-10-01)
 
 

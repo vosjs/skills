@@ -223,7 +223,8 @@ ${block(core, ['ElementProps', 'ElementInstance'])}
 
 ## Knobs (\`config.params\` and \`config.presets\`)
 
-A knob is a \`ParamSpec\` over one top-level \`data\` key, and a Look a named
+A knob is a \`ParamSpec\` over one top-level \`data\` key (a file knob, kind
+\`asset\`, is over a name in \`assets\` instead), and a Look a named
 set of values. vos.so keeps at most 12 knobs and 8 Looks, the first valid
 ones, and \`vos check\` names every one it would drop before a push. Every
 bound word stays a \`data\` key whether or not it has a knob: the studio's
@@ -232,7 +233,7 @@ a person reaches for first (the palette, the headline), not to every word.
 A \`text\` knob with \`multiline: true\` suits a list a painter draws line by
 line; a list of elements is one key per element.
 
-${block(shared, ['ParamValue', 'ParamSpec', 'LookPreset', 'TEXT_PARAM_MAX'])}
+${block(shared, ['ParamValue', 'ASSET_PARAM_KINDS', 'AssetParamKind', 'ParamSpec', 'LookPreset', 'TEXT_PARAM_MAX'])}
 
 ## The context (\`ctx\`)
 

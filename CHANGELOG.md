@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.20.1](https://github.com/vosjs/skills/compare/v0.20.0...v0.20.1) (2026-10-02)
+
+
+### Bug Fixes
+
+* the library verbs arrive in @vosjs/cli 0.63 ([#80](https://github.com/vosjs/skills/issues/80)) ([7c8707a](https://github.com/vosjs/skills/commit/7c8707ac831dbfc99bcb54c999d8c3cb10bfc491))
+
 ## [0.20.0](https://github.com/vosjs/skills/compare/v0.19.0...v0.20.0) (2026-10-02)
 
 

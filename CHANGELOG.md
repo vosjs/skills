@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.21.0](https://github.com/vosjs/skills/compare/v0.20.1...v0.21.0) (2026-10-02)
+
+
+### Features
+
+* the file knob, a control that swaps a declared file ([#82](https://github.com/vosjs/skills/issues/82)) ([21b804b](https://github.com/vosjs/skills/commit/21b804bcbab07cb5184a2e7b138beb9f4e494c8e))
+
 ## [0.20.1](https://github.com/vosjs/skills/compare/v0.20.0...v0.20.1) (2026-10-02)
 
 

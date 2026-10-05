@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.21.1](https://github.com/vosjs/skills/compare/v0.21.0...v0.21.1) (2026-10-05)
+
+
+### Bug Fixes
+
+* anchor names the point of the box an {x, y} position puts there ([#84](https://github.com/vosjs/skills/issues/84)) ([eb37f0c](https://github.com/vosjs/skills/commit/eb37f0c97124fc71df561617e5c35ed7bf84f9a1))
+
 ## [0.21.0](https://github.com/vosjs/skills/compare/v0.20.1...v0.21.0) (2026-10-02)
 
 

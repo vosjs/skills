@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.22.0](https://github.com/vosjs/skills/compare/v0.21.1...v0.22.0) (2026-10-06)
+
+
+### Features
+
+* a push shows the prompt that made the vos, in the person's words ([#86](https://github.com/vosjs/skills/issues/86)) ([6f254f4](https://github.com/vosjs/skills/commit/6f254f4858aff7078eb0e12408782ab572a114d0))
+
 ## [0.21.1](https://github.com/vosjs/skills/compare/v0.21.0...v0.21.1) (2026-10-05)
 
 

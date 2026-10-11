@@ -1,5 +1,16 @@
 # Changelog
 
+## [0.23.0](https://github.com/vosjs/skills/compare/v0.22.0...v0.23.0) (2026-10-11)
+
+
+### ⚠ BREAKING CHANGES
+
+* launch-kit no longer produces still images (Chrome Web Store screenshots, tile and marquee, the Product Hunt gallery and thumbnail, the OG card, social images, the YouTube thumbnail), poster documents, or a judged reference comparison. The channel spec mirror keeps the four video cuts, the launch-kit evals keep the video scenarios, and product-video, vos-footage, vos-migrate, the README and the plugin manifests describe the video set only.
+
+### Features
+
+* launch-kit ships the release's video, not its stills ([#88](https://github.com/vosjs/skills/issues/88)) ([fa6c91a](https://github.com/vosjs/skills/commit/fa6c91a82a2420865ec66e4a770f240fdbc8d29f))
+
 ## [0.22.0](https://github.com/vosjs/skills/compare/v0.21.1...v0.22.0) (2026-10-06)
 
 

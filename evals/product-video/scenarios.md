@@ -24,17 +24,6 @@ the baseline delta.
 - a final webm exists and plays; the agent re-framed the final before
   declaring done
 
-## S2 — exact-size still from a take
-
-**Prompt:** "From that take, produce a 1280x800 still of the hero moment at
-the first zoom apex."
-
-**Pass criteria:**
-- uses `vos frames take --frame <t> --size 1280x800` (no screenshotting, no
-  re-record)
-- the chosen `t` is a zoom apex (from `--at-zooms` output), not a guess
-- output PNG is exactly 1280×800
-
 ## S3 — tighten pacing without re-recording
 
 **Prompt:** "The middle of the video drags. Tighten the pacing." (given an

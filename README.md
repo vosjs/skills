@@ -2,9 +2,8 @@
 
 Agent skills for [vos](https://github.com/vosjs/vos), the open video engine
 and the `vos` CLI. Install once and your coding agent records the real
-product, cuts it as data, and ships the release's media from one take: the
-demo, the store listing, the Product Hunt gallery, the social cuts, the OG
-card, kept current with every release. It can also author and remix vos
+product, cuts it as data, and ships the release's video from one take: the
+demo and its social cuts, kept current with every release. It can also author and remix vos
 animation programs.
 
 [![skills.sh](https://skills.sh/b/vosjs/skills)](https://skills.sh/vosjs/skills)
@@ -38,13 +37,13 @@ without `media/`, and held by `node --test evals/plugin`.
 
 | Skill | What it does | Needs |
 | --- | --- | --- |
-| [`product-video`](skills/product-video/SKILL.md) | Record and produce a shippable product demo video of a website, app, or feature: the agent drives the browser from a JSON script, the recording auto-plans zooms, and every edit is a JSON patch on `doc.json`. One take also yields exact-size store screenshots, tiles, and social stills. | `npm i -D @vosjs/cli`, a Chromium, network |
+| [`product-video`](skills/product-video/SKILL.md) | Record and produce a shippable product demo video of a website, app, or feature: the agent drives the browser from a JSON script, the recording auto-plans zooms, and every edit is a JSON patch on `doc.json`. | `npm i -D @vosjs/cli`, a Chromium, network |
 | [`vos-authoring`](skills/vos-authoring/SKILL.md) | Author vos animation programs (VosConfigJson) from scratch: schema, dialect rules, params/presets knobs, local validation with `@vosjs/core`. | `npm i @vosjs/core` (validation), `@vosjs/cli` (render) |
 | [`vos-remix`](skills/vos-remix/SKILL.md) | Remix a program from the vos.so gallery: fetch its config, edit knobs or code, validate locally, push a private copy back with lineage — then iterate it as versions. Ships the params/Looks doctrine (2–4 intent-named knobs, every knob verified to act). | `npm i -D @vosjs/cli`, a content key or remix grant |
 | [`vos-port`](skills/vos-port/SKILL.md) | Bring a Remotion or HyperFrames video into vos as a program whose words, colours and timings are knobs: the port grammar, both mapping tables, the measured coordinate rules and a reference port checked against Remotion's own render. | `npm i -D @vosjs/cli` (0.52+), the source's own render, a content key to push |
 | [`vos-create`](skills/vos-create/SKILL.md) | Create vos programs in the user's own style: pull their vos.so folder, read every recipe (`.md`) and exemplar in it, find the declared seed, author work that follows them, check and render and judge locally, and push into that folder as attributed private versions. Recipes carry the style; the user's ask decides what gets made. | `npm i -D @vosjs/cli`, a content key, a folder on vos.so |
 | [`vos-cut`](skills/vos-cut/SKILL.md) | Cut a screen recording somebody made into a product video, from its evidence: `vos digest` lists the moments the cursor track says mattered with a footage frame and a crop each, the agent narrates them into beats, edits `doc.json` by exception over the planners, verifies with stills, pushes an attributed version, and iterates with the human through the version chain. A signed-off take becomes a series' seed: its folder's `CUT.md` carries the judgment, `vos plan --style` carries the numbers. | `npm i -D @vosjs/cli`, a Chromium, a content key for hosted takes |
-| [`launch-kit`](skills/launch-kit/SKILL.md) | One take → the full launch asset kit: YouTube demo + thumbnail, X/LinkedIn cuts, Chrome Web Store screenshots + tiles, Product Hunt gallery, GitHub README loop, OG cards. Per-channel specs ship as data and every asset is verified against them in a `kit.json` manifest. | `npm i -D @vosjs/cli`, ffmpeg, a finished take |
+| [`launch-kit`](skills/launch-kit/SKILL.md) | One take → the release's video: the YouTube demo, the X feed cut, the Shorts and LinkedIn vertical cut, the GitHub README loop, with the entrance, end card, captions and bed planned as data. Per-channel specs ship as data and every cut is verified against them in a `kit.json` manifest. | `npm i -D @vosjs/cli`, ffmpeg, a finished take |
 | [`vos-migrate`](skills/vos-migrate/SKILL.md) | Turn an existing Loom, Screen Studio, Cap, or plain mp4/webm screen demo into an editable vosso take, so the next version is a re-render instead of a re-recording. | `npm i -D @vosjs/cli`, the file |
 | [`vos-footage`](skills/vos-footage/SKILL.md) | Hand a Remotion, HyperFrames, or any video composition a clean full-bleed clip of the real product, recorded and auto-zoomed with vos, always backed by an editable take on the maker's shelf. | `npm i -D @vosjs/cli`, a Chromium, a content key |
 

@@ -2,8 +2,8 @@
 // The deterministic count. One number per eval run: the problems
 // `vos validate <kit.json> --json` reports across every kit the run
 // produced, read from the assets' BYTES against the channel specs, so a
-// judged pass cannot hide a WebP under a `.png` name or a card over its
-// byte ceiling. This is the line a results file ends on and the changelog
+// judged pass cannot hide a cut in the wrong codec or one over its byte
+// ceiling. This is the line a results file ends on and the changelog
 // carries per release.
 //
 //   node evals/count.mjs <kit.json | dir>...

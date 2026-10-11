@@ -11,9 +11,8 @@ one; what changes is the skill, the CLI and the model.
 - A finished take with a tuned `doc.json`, recorded at 2560×1440 (the
   skill's own viewport rule), in a directory the agent can write to.
   `vos pull <vosId> --media <dir>` brings a hosted take home with its
-  footage. The 2026-09-02 run used the two adopter takes (Harper v2.9 and
-  Karakeep v0.33) from the runner's shelf; name your takes in the results
-  file, because a different fixture is a different number.
+  footage. Name your takes in the results file, because a different
+  fixture is a different number.
 - A vos.so project the pushes land in, holding a `BRAND.md`, or none:
   S0 requires the agent to witness the brand from the product's site
   (`vos brand <url>`), and whether it did is a finding either way.
@@ -83,16 +82,16 @@ node evals/count.mjs a b
 One line per kit, then the total, in the form the results file ends on:
 
 ```
-a/media/kit/kit.json: 0 problems across 11 assets
-b/media/kit/kit.json: 3 problems across 11 assets
-  - og card: named .png, the bytes are webp
+a/media/kit/kit.json: 0 problems across 4 assets
+b/media/kit/kit.json: 2 problems across 4 assets
+  - x feed-cut: the video is vp9, the channel takes h264 only
   ...
-3 problems across 22 assets on 2 kits
+2 problems across 8 assets on 2 kits
 ```
 
 The script runs `vos validate <kit.json> --json` on every kit it finds
 (the verifier reads each asset's bytes against the channel specs: px,
-bytes, duration, set count, and what the file really is) and exits 1 when
+bytes, duration, and what the file really is) and exits 1 when
 the total is not zero, so a CI step or a judge cannot pass a run by not
 looking. A judged PASS with a non-zero count is a FAIL.
 
@@ -103,7 +102,7 @@ looking. A judged PASS with a non-zero count is a FAIL.
 - a header: run type (A/B or single), fixtures, package versions, the
   agent and its mode, and the A/B key once opened;
 - one line per scenario, `PASS`, `FAIL` or `not run`, with the finding;
-- findings that should become scenarios (S6 and S7 were findings first);
+- findings that should become scenarios;
 - the LAST line: the count from `count.mjs`, verbatim, one per side when
   the A/B ran.
 

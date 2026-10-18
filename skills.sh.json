@@ -22,7 +22,8 @@
         "vos-create",
         "vos-remix",
         "vos-port",
-        "vos-authoring"
+        "vos-authoring",
+        "vos-score"
       ]
     }
   ]

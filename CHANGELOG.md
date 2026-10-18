@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.24.0](https://github.com/vosjs/skills/compare/v0.23.0...v0.24.0) (2026-10-18)
+
+
+### Features
+
+* vos-score composes an original score on the program's own beat grid ([#90](https://github.com/vosjs/skills/issues/90)) ([7900d20](https://github.com/vosjs/skills/commit/7900d20e5bf4e1b9f46d37537a4a092248c54de2))
+
 ## [0.23.0](https://github.com/vosjs/skills/compare/v0.22.0...v0.23.0) (2026-10-11)
 
 

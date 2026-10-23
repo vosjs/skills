@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.26.0](https://github.com/vosjs/skills/compare/v0.25.0...v0.26.0) (2026-10-23)
+
+
+### Features
+
+* scripts mark each beat's zoom and check app state; cuts assemble with repeated segments and keep-edits joins ([#94](https://github.com/vosjs/skills/issues/94)) ([56ecf88](https://github.com/vosjs/skills/commit/56ecf88bf1990a27413f24000ce84a2f5f4ed75a))
+
 ## [0.25.0](https://github.com/vosjs/skills/compare/v0.24.0...v0.25.0) (2026-10-23)
 
 

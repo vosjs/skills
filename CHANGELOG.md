@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.25.0](https://github.com/vosjs/skills/compare/v0.24.0...v0.25.0) (2026-10-23)
+
+
+### Features
+
+* skills set a cover at the payoff before every push ([#92](https://github.com/vosjs/skills/issues/92)) ([b761dda](https://github.com/vosjs/skills/commit/b761ddaeac6eed2a637626ee3e8e9b864c5f0850))
+
 ## [0.24.0](https://github.com/vosjs/skills/compare/v0.23.0...v0.24.0) (2026-10-18)
 
 

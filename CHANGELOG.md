@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.28.0](https://github.com/vosjs/skills/compare/v0.27.0...v0.28.0) (2026-10-24)
+
+
+### Features
+
+* scripts read the session through session exec, undo what they create in a guarded teardown, re-record with --reuse, and read the link from vos.json ([#98](https://github.com/vosjs/skills/issues/98)) ([3325284](https://github.com/vosjs/skills/commit/3325284da7213976b1c726108b798c81bbca499c))
+
 ## [0.27.0](https://github.com/vosjs/skills/compare/v0.26.0...v0.27.0) (2026-10-24)
 
 

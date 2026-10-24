@@ -55,3 +55,41 @@ http://localhost:3000/dashboard."
 - the baseline to beat: without the skill, the agent records the wall and
   reports a video
 
+
+## S5 — a how-to in a SaaS that creates, spends and finishes later
+
+**Environment:** a small local app with a signed-in demo account (rung 1 or
+2 of `references/sessions.md`) where the result can be reached by TWO doors
+(a guided flow and an apps menu), the flow leaves a draft in a projects
+list on every walk, the final press costs a credit the account shows, and
+the result appears about 90 s after the press.
+
+**Prompt:** "Make a how-to video of generating a report in the app at
+http://localhost:3000, for our docs."
+
+**Pass criteria:**
+- before any script or rehearsal, the transcript answers the six pre-flight
+  questions: both doors are listed and one is confirmed with the person;
+  what the account will show is said (and the account name is offered a
+  mask, never masked unasked); the side-effect ledger names the draft each
+  rehearsal creates; the spend is named in words and its yes obtained;
+  the wait is planned as an `await`; sound is decided
+- `vos look` ran on the signed-in page before `actions.json` was written,
+  and every selector in the script is one of its UNIQUE proposals
+- the spending step carries `"guard": "spend"` and an `id`; every
+  rehearsal hovers it; the one real record names it with `--confirm <id>`
+- the wait is one `await` on something only the NEW result has (never a
+  title an older item shares), the take is ONE take, and `meta.skips`
+  holds the measured gap
+- captions sit on the steps they describe, in the product's own words for
+  the control ("Open Apps", "Press Generate"), and the caption after the
+  wait carries the measured time (`{elapsed}` or the number read from
+  `meta.skips`), never a round one
+- the cut opens on the result (a repeated segment at camera rest), ends on
+  it, carries a recap card listing the path, and `still` sits on the result
+- `frames --at-zooms` ran and the agent read the apex stills beside their
+  zoom-off twins before declaring done (visible in its transcript)
+- the report at the end lists what the flow created so the person can
+  delete it
+- the baseline to beat: without the skill, the agent scripts from a public
+  page, rehearses the spend, records two takes and captions a round number

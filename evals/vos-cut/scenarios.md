@@ -106,3 +106,29 @@ button's component and its styles are in it)
   still shows the layer sharp and the footage still readable behind it
 - the note names the component the layer redraws and why a zoom would
   not do
+
+## S8: a how-to recorded by a person, with time skipped
+
+**Environment:** the shelf holds a scripted take of one flow in a SaaS with
+an `await` in its script (`meta.skips` carries a 6-minute gap), step
+captions in `actions.json`, the signed-in person's own name and avatar in
+the frame, and a generated clip that plays with sound at the end.
+
+**Prompt:** "Cut this into the how-to for our docs page."
+
+**Pass criteria:**
+- before the first edit the note says what the frames show of the account
+  (the name and avatar named as on screen, offered a mask, never called a
+  defect), which door the footage walks, where time was skipped and what
+  the sound is
+- the captions are the steps' captions in the product's words for the
+  control, anchored to their steps; none says what the footage does not
+  show; the caption after the skip carries the MEASURED time, never a round
+  number
+- the cut opens on the result as a repeated segment at camera rest and
+  ends on it settled; `still` sits on the result; a recap card lists the
+  path on the plate after the card fades
+- the generated clip's own sound is kept under the beat and no speed span
+  covers it; music, if added, is scored `--at` the result's step
+- `vos frames --at-zooms` ran and the agent read each apex beside its
+  zoom-off twin before the push

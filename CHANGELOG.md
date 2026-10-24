@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.27.0](https://github.com/vosjs/skills/compare/v0.26.0...v0.27.0) (2026-10-24)
+
+
+### Features
+
+* a pre-flight before the first take, the how-to grammar, and two rules the films taught ([#96](https://github.com/vosjs/skills/issues/96)) ([0125ca4](https://github.com/vosjs/skills/commit/0125ca4a45ed265ecff0f8d16a0905135062ab10))
+
 ## [0.26.0](https://github.com/vosjs/skills/compare/v0.25.0...v0.26.0) (2026-10-23)
 
 

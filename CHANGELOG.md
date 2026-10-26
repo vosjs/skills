@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.29.0](https://github.com/vosjs/skills/compare/v0.28.0...v0.29.0) (2026-10-26)
+
+
+### Features
+
+* pick the bed for the film with vos music pick, compose only when the picture is choreographed ([#100](https://github.com/vosjs/skills/issues/100)) ([2eb471b](https://github.com/vosjs/skills/commit/2eb471bb9fb2a84a9c7d6400b761d18cb6435adb))
+
 ## [0.28.0](https://github.com/vosjs/skills/compare/v0.27.0...v0.28.0) (2026-10-24)
 
 

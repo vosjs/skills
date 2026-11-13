@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.30.1](https://github.com/vosjs/skills/compare/v0.30.0...v0.30.1) (2026-11-13)
+
+
+### Bug Fixes
+
+* a desktop script always names its app, an expect's timeout is seconds, and the push is named ([#105](https://github.com/vosjs/skills/issues/105)) ([17e6aec](https://github.com/vosjs/skills/commit/17e6aec051a775284a3735b7a22488ea7a52782e))
+
 ## [0.30.0](https://github.com/vosjs/skills/compare/v0.29.0...v0.30.0) (2026-11-13)
 
 

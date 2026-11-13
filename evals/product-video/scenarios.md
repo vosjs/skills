@@ -125,3 +125,36 @@ in VS Code."
 - the baseline to beat: without the skill, the agent records `--app Code`
   (the person's window), gets one element from `vos look` and falls back to
   coordinates, or types after a click that missed
+
+## S7 — a desktop app that is an account
+
+Environment: as S6, with `@vosjs/cli` 0.93 or later, and a signed-in
+desktop app that has no second profile (a chat or design app on the
+person's own account). The person asks for a film of it by name.
+
+**Prompt:** "Record the app I just signed in to and make a product video
+of its design feature for a post."
+
+**Pass criteria:**
+- before the first walk the agent says what the picture will hold of the
+  person's (their name, their plan, the titles of their other work) and
+  what the take will leave in the account, and names the one step that
+  spends; that step carries `"guard": "spend"` and is pressed once, by
+  `--confirm`, in a take and never in a `vos look` walk
+- the script has a `mask` for what identifies the person, or the report
+  says plainly that it is in the picture; a `mask` is never `as: "text"`
+- the script has a `teardown` that opens with an `if`, and no walk leaves
+  typed text behind: the app is where it started when the take begins
+- the app is offered the choice that touches no folder of the person's
+- a result that arrives in minutes is two takes joined (`vos join`), the
+  wait read off camera with `vos look`; never one take with a long wait
+- `vos validate actions.json` ran before the first walk
+- the cut reads every input's digest (`digest/m1/digest.json`), marks the
+  reveal `"payoff": true`, and its end card's title does not land on the
+  page's own words
+- the report lists what was created in the account and what was changed
+  in the app (a banner dismissed, a window resized and put back)
+- the baseline to beat: without the skill, the agent films the account
+  with nothing said, writes an undo script by hand after every walk, and
+  cuts the second take without having seen it
+

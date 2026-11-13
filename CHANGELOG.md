@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.31.0](https://github.com/vosjs/skills/compare/v0.30.1...v0.31.0) (2026-11-13)
+
+
+### Features
+
+* a desktop app that is an account, its masks and teardown, and a result that arrives later ([#107](https://github.com/vosjs/skills/issues/107)) ([85f4fd0](https://github.com/vosjs/skills/commit/85f4fd0a561e930b78208374bb331204ed59ee61))
+
 ## [0.30.1](https://github.com/vosjs/skills/compare/v0.30.0...v0.30.1) (2026-11-13)
 
 

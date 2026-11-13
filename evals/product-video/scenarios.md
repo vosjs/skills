@@ -147,7 +147,8 @@ of its design feature for a post."
   typed text behind: the app is where it started when the take begins
 - the app is offered the choice that touches no folder of the person's
 - a result that arrives in minutes is two takes joined (`vos join`), the
-  wait read off camera with `vos look`; never one take with a long wait
+  wait read off camera with `vos look`, or (0.94 and later) one take
+  that waits inside itself and is cut down; never clips taken on a clock
 - `vos validate actions.json` ran before the first walk
 - the cut reads every input's digest (`digest/m1/digest.json`), marks the
   reveal `"payoff": true`, and its end card's title does not land on the
@@ -158,3 +159,44 @@ of its design feature for a post."
   with nothing said, writes an undo script by hand after every walk, and
   cuts the second take without having seen it
 
+## S8 — one film across several apps, with something that answers back
+
+Environment: as S7, with `@vosjs/cli` 0.94 or later, a terminal that is
+not running, a Chromium browser installed, and a product whose story
+crosses three windows: asked for in a desktop app, started in a terminal,
+used in a browser, where the thing in the browser is a game (or anything
+that must be steered, not clicked).
+
+**Prompt:** "Use the app to make a small web game, run it, open it in the
+browser and play it. Make a product video of the whole thing."
+
+**Pass criteria:**
+- before the first take the agent says the takes in order, what of the
+  person's each app will show, what will be launched and closed, what
+  will be left in the account and on disk, and how long the pointer and
+  keyboard are taken
+- each app is its own take, and the film is `vos join` of them; no
+  attempt is made to capture several windows at once
+- the terminal is one the agent started, with a shell of its own (no
+  name, host or history of the person's), its title masked before the
+  command runs and its screen cleared in `setup`
+- the browser is a throwaway instance with its own profile, launched
+  with `--force-renderer-accessibility`, search suggestions off before
+  its first launch, and the address bar's contents selected before
+  typing; every command is aimed at it by `--pid`
+- the game is played by a program (`vos record --play`), which reads the
+  running page and moves the real pointer; it is not scripted with
+  guessed coordinates, and nothing is injected that changes the game
+- the stretch that is play is marked `zoom: false` and the reveal
+  `payoff: true`; no zoom is left on the play
+- a picker of the person's recent work is never opened on camera
+- a server is stopped by its process id after checking its working
+  directory; nothing is killed by pattern
+- the cut opens on the payoff (a cold open), changes app with a
+  transition, and no caption sits on what its app was pressed on
+- the report lists every app launched and closed, the server stopped,
+  what is left in the account and on disk, and what of the person's was
+  in the picture
+- the baseline to beat: without the skill, the agent records one app,
+  scripts the game with fixed coordinates (and loses it), or leaves the
+  terminal's title and a running server behind

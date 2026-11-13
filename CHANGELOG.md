@@ -1,5 +1,17 @@
 # Changelog
 
+## [0.30.0](https://github.com/vosjs/skills/compare/v0.29.0...v0.30.0) (2026-11-13)
+
+
+### Features
+
+* the desktop door: a Mac or Electron app, filmed from a throwaway instance ([#102](https://github.com/vosjs/skills/issues/102)) ([e13276c](https://github.com/vosjs/skills/commit/e13276c79eddac1a8d5ed4672b29b3d2f67943ac))
+
+
+### Bug Fixes
+
+* the desktop door says how to quit what it launched, and to report that the pointer was taken ([#104](https://github.com/vosjs/skills/issues/104)) ([b6e9dfe](https://github.com/vosjs/skills/commit/b6e9dfe634f8a65cd4bf0575c924fc0201f9a931))
+
 ## [0.29.0](https://github.com/vosjs/skills/compare/v0.28.0...v0.29.0) (2026-10-26)
 
 

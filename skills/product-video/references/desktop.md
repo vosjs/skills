@@ -108,7 +108,10 @@ for it to be, and four things change.
    ]
    ```
    Open it with an `if` on what only a leftover has, so a clean app says
-   `teardown: nothing to undo`. A teardown undoes what a WALK leaves; it
+   `teardown: nothing to undo`. A list has ONE `if`, and everything after
+   it is skipped when it is not there: write the teardown for the state a
+   walk stops in, and let the next take's `setup` put right what a
+   finished take leaves (a pane left open, a view left full). A teardown undoes what a WALK leaves; it
    never deletes what the film is about, and it never presses a control
    that sends, buys or deletes.
 3. **Choose the door that touches least, and write the ledger.** An app
@@ -238,7 +241,15 @@ skill's loop), with what a desktop take gets wrong by itself:
 - **The payoff.** Mark the step that IS the reveal `"payoff": true`
   (0.93 and later). Without it `vos music pick` lands the swell on the
   last step marked `zoom: true`, which is the wrong moment when the
-  reveal plays wide and a smaller beat is zoomed on.
+  reveal plays wide and a smaller beat is zoomed on. Place the bed with
+  the line `vos music pick` prints (`vos score … --at <seconds>`) or
+  with `--track best`: a track named without `--at` starts at its top,
+  not on the payoff.
+- **The end card is laid by the verb**, never typed by hand:
+  `vos plan <take> --motion --headline "…"` on the cut film. It keeps
+  every manual span, the later takes' too (0.93 and later), and may
+  propose a speed span you did not ask for: read what it reports and
+  put what you drop in `rejected`.
 - **A joined film has a digest per take.** `vos digest film` writes the
   first take's moments to `digest/digest.json` and each later take's to
   `digest/m1/digest.json`, with its own sheet (0.93 and later). Read

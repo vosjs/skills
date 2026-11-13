@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.32.0](https://github.com/vosjs/skills/compare/v0.31.0...v0.32.0) (2026-11-13)
+
+
+### Features
+
+* a film across several apps, a thing that answers back played by a program, and a long task as one take ([#109](https://github.com/vosjs/skills/issues/109)) ([e352a84](https://github.com/vosjs/skills/commit/e352a8402c8bf31927a2945a33e53d205ddc5c98))
+
 ## [0.31.0](https://github.com/vosjs/skills/compare/v0.30.1...v0.31.0) (2026-11-13)
 
 

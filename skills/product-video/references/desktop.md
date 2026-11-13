@@ -17,7 +17,9 @@ prompt; you ask.
    and no `--dry-run`. A key that lands in the wrong place renames a file.
 2. **The real pointer and keyboard are used.** The app comes to the front
    and nobody else can use the machine while a take runs. Say so to the
-   person BEFORE the first take, and keep takes short.
+   person BEFORE the first take, and keep takes short. In a run with
+   nobody to tell first, say it in your report: what was launched, that the
+   pointer and keyboard were taken, and for how long.
 3. **Selectors are a role and a name**, read from the app's accessibility
    tree, not CSS: `button[name='Save']`, `textfield[id='title']`.
 4. **The app is somebody's.** Their own window has their files in it.
@@ -64,6 +66,11 @@ For an Electron app (VS Code, Slack, Linear, most new desktop apps):
 A native app with no profile flag (Calculator, a document app) is safe to
 film directly only when it holds nothing: check it is not already running
 (`pgrep -x <Name>`), and leave it alone when it is.
+
+**Quit what you launched, and only that**: end the process you started
+(`pkill -x <Name>` for an app that was not running before, `kill <pid>` for
+a stage). Not AppleScript, which needs a grant of its own and asks the
+person for it. Say in the report that it is closed, or that it is not.
 
 ## Look, then script
 

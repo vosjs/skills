@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.32.2](https://github.com/vosjs/skills/compare/v0.32.1...v0.32.2) (2026-11-14)
+
+
+### Bug Fixes
+
+* the multi-app reference on cli 0.95 and driver 0.4.1 ([#113](https://github.com/vosjs/skills/issues/113)) ([1a22a3b](https://github.com/vosjs/skills/commit/1a22a3bbf38827b0e6ebe9647595b7ec27c99a4b))
+
 ## [0.32.1](https://github.com/vosjs/skills/compare/v0.32.0...v0.32.1) (2026-11-14)
 
 

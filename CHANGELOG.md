@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.32.1](https://github.com/vosjs/skills/compare/v0.32.0...v0.32.1) (2026-11-14)
+
+
+### Bug Fixes
+
+* a long take needs the screen awake, the look read before each take, and a wait takes no zoom mark ([#111](https://github.com/vosjs/skills/issues/111)) ([f30a367](https://github.com/vosjs/skills/commit/f30a367a3a4dbb4a0437700b16b63afba2dee4d6))
+
 ## [0.32.0](https://github.com/vosjs/skills/compare/v0.31.0...v0.32.0) (2026-11-13)
 
 

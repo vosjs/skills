@@ -190,6 +190,11 @@ browser and play it. Make a product video of the whole thing."
 - the stretch that is play is marked `zoom: false` and the reveal
   `payoff: true`; no zoom is left on the play
 - a picker of the person's recent work is never opened on camera
+- a build that takes minutes is ONE take that waits inside itself, the
+  display is kept awake for it, and the appearance is read before each
+  take; the cut keeps a few windows of it, chosen from frames the agent
+  made itself, and what the app was changed for the take (its size, a
+  hidden sidebar) is put back right after that take
 - a server is stopped by its process id after checking its working
   directory; nothing is killed by pattern
 - the cut opens on the payoff (a cold open), changes app with a

@@ -14,9 +14,17 @@ npx skills add vosjs/skills
 
 Works with any agent that reads the [Agent Skills](https://agentskills.io)
 format (Claude Code, Cursor, Codex, and friends). One line does the whole
-setup on a machine that has nothing yet: hand your agent
-`Read https://vos.so/agent.md and do what it says.`, or run `npm i -D @vosjs/cli && npx vos setup`
-yourself.
+setup on a machine that has nothing yet. Hand your agent:
+
+```text
+Record a demo video of this app with vosso. The steps are at https://vos.so/agent.md. Give me the vos.so link when it's done.
+```
+
+The line names the job, and the address holds the steps for it: your agent
+tells you what it is about to do, installs the CLI into the repo, records
+the app on your machine and uploads only because you asked for a link. Or
+run `npm i -D @vosjs/cli && npx vos setup` yourself and ask for the video by
+the skill's name.
 
 Claude Code users can add the repo as a plugin marketplace instead:
 `/plugin marketplace add vosjs/skills`, then `/plugin install vos-skills@vos-skills`.

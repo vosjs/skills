@@ -8,6 +8,12 @@ animation programs.
 
 [![skills.sh](https://skills.sh/b/vosjs/skills)](https://skills.sh/vosjs/skills)
 
+[![Flowboard: a 34-second product demo a coding agent recorded and cut from one line](https://vos.so/v/070f9879-67b6-4f83-9914-e29d7b95f267/poster.webp)](https://vos.so/vos/take-take-2026-10-26-mvpg9hiu)
+
+What it makes: a Claude Code session with no knowledge of this app was handed
+the line below. It recorded the app, cut this 34-second demo and pushed it.
+The picture opens the video.
+
 ```bash
 npx skills add vosjs/skills
 ```
@@ -40,6 +46,10 @@ The plugin carries the ten skills plus:
 
 Both hooks are plain Node with no dependencies (`scripts/`), silent in a repo
 without `media/`, and held by `node --test evals/plugin`.
+
+The same ten skills are packaged for Codex (`.codex-plugin/plugin.json`) and
+for Cursor (`.cursor-plugin/plugin.json`). Those two carry no hooks: the two
+above are Claude Code's.
 
 ## The catalog
 

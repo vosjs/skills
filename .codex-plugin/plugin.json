@@ -1,25 +1,52 @@
 {
   "name": "vos-skills",
-  "version": "0.5.0",
+  "version": "0.32.2",
   "description": "Agent skills for vos: your coding agent records the real product and ships the release's video from one take (the demo and its social cuts), cuts your own screen recordings from their cursor evidence, migrates existing demos into editable takes, and authors or remixes vos animation programs. Deterministic renders, JSON-editable documents.",
+  "author": {
+    "name": "vosjs",
+    "url": "https://github.com/vosjs"
+  },
+  "homepage": "https://vos.so/agents",
+  "repository": "https://github.com/vosjs/skills",
+  "license": "MIT",
+  "keywords": [
+    "video",
+    "product-video",
+    "demo-video",
+    "product-demo",
+    "launch-kit",
+    "store-listing",
+    "screen-recording",
+    "screen-recorder",
+    "animation",
+    "motion-graphics",
+    "vos"
+  ],
   "skills": "./skills/",
   "interface": {
     "displayName": "vos",
-    "shortDescription": "Record the real product and ship the release's video from one take.",
+    "shortDescription": "Record your real product",
     "longDescription": "Agent skills for vos: your coding agent records the real product and ships the release's video from one take (the demo and its social cuts), cuts your own screen recordings from their cursor evidence, migrates existing demos into editable takes, and authors or remixes vos animation programs. Deterministic renders, JSON-editable documents.",
-    "logo": "./assets/logo.png",
-    "logoDark": "./assets/logo-dark.png",
-    "category": "Developer tools",
+    "developerName": "vosso",
+    "category": "Developer Tools",
+    "capabilities": [
+      "Record a product demo of a web app or a Mac app",
+      "Cut a screen recording into a product video",
+      "Cut a release's videos from one take",
+      "Author and remix vos animation programs"
+    ],
+    "websiteURL": "https://vos.so/agents",
+    "supportURL": "https://github.com/vosjs/skills/issues",
+    "privacyPolicyURL": "https://vos.so/privacy",
+    "termsOfServiceURL": "https://vos.so/privacy",
     "defaultPrompt": [
       "Make the launch video for this release",
-      "Cut the social clips for the new version",
       "Record a product demo of https://example.com",
       "Cut this screen recording into a product video"
     ],
-    "websiteURL": "https://vos.so/agents",
-    "privacyPolicyURL": "https://vos.so/privacy",
-    "termsOfServiceURL": "https://vos.so/privacy",
-    "supportURL": "https://github.com/vosjs/skills/issues",
-    "developerName": "vosso"
+    "composerIcon": "./assets/logo.png",
+    "composerIconDark": "./assets/logo-dark.png",
+    "logo": "./assets/logo.png",
+    "logoDark": "./assets/logo-dark.png"
   }
 }

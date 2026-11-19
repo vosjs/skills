@@ -105,6 +105,64 @@ try {
   fail(`.claude-plugin/marketplace.json: ${e.message}`)
 }
 
+// The plugin manifests: one version across all of them (release-please moves
+// each), and each directory's own format, so a submission is not sent back
+// for a field. Codex: developers.openai.com/plugins/deploy/submission.
+// Cursor: cursor.com/docs/reference/plugins.
+try {
+  const version = readFileSync(join(root, 'version.txt'), 'utf8').trim()
+  const read = (path) => JSON.parse(readFileSync(join(root, path), 'utf8'))
+  const claude = read('.claude-plugin/plugin.json')
+  const market = read('.claude-plugin/marketplace.json')
+  const codex = read('.codex-plugin/plugin.json')
+  const cursor = read('.cursor-plugin/plugin.json')
+  const versions = {
+    '.claude-plugin/plugin.json': claude.version,
+    '.claude-plugin/marketplace.json (metadata)': market.metadata?.version,
+    '.claude-plugin/marketplace.json (plugin)': market.plugins?.[0]?.version,
+    '.codex-plugin/plugin.json': codex.version,
+    '.cursor-plugin/plugin.json': cursor.version,
+  }
+  for (const [where, v] of Object.entries(versions)) {
+    if (v !== version) fail(`${where}: version ${v}, version.txt says ${version}`)
+  }
+
+  const ui = codex.interface ?? {}
+  if (!codex.author?.name) fail('.codex-plugin/plugin.json: author.name is required')
+  if (!Array.isArray(ui.capabilities)) fail('.codex-plugin/plugin.json: interface.capabilities must be an array')
+  for (const field of ['displayName', 'shortDescription']) {
+    const text = ui[field] ?? ''
+    if (!text || text.length > 30) fail(`.codex-plugin/plugin.json: interface.${field} is required, at most 30 characters (${text.length})`)
+  }
+  for (const field of ['longDescription', 'developerName', 'category']) {
+    if (!ui[field]) fail(`.codex-plugin/plugin.json: interface.${field} is required`)
+  }
+  const prompts = [ui.defaultPrompt ?? []].flat()
+  if (prompts.length > 3) fail(`.codex-plugin/plugin.json: at most three starter prompts (${prompts.length})`)
+  for (const prompt of prompts) {
+    if (prompt.length > 128) fail(`.codex-plugin/plugin.json: a starter prompt is over 128 characters`)
+  }
+  for (const field of ['composerIcon', 'logo']) {
+    const file = ui[field]
+    if (!file || !file.startsWith('./') || !existsSync(join(root, file))) {
+      fail(`.codex-plugin/plugin.json: interface.${field} must be a ./ path to a file in the repo`)
+    }
+  }
+
+  if (!/^[a-z0-9]([a-z0-9.-]*[a-z0-9])?$/.test(cursor.name ?? '')) {
+    fail('.cursor-plugin/plugin.json: name must be lowercase kebab-case')
+  }
+  for (const field of ['skills', 'commands', 'logo']) {
+    const path = cursor[field]
+    if (typeof path !== 'string') continue
+    if (path.startsWith('/') || path.includes('..') || !existsSync(join(root, path))) {
+      fail(`.cursor-plugin/plugin.json: ${field} must be a relative path that exists (${path})`)
+    }
+  }
+} catch (e) {
+  fail(`plugin manifests: ${e.message}`)
+}
+
 if (errors.length) {
   console.error(`check failed (${errors.length}):`)
   for (const e of errors) console.error('  ✗ ' + e)

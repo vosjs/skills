@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.32.3](https://github.com/vosjs/skills/compare/v0.32.2...v0.32.3) (2026-11-19)
+
+
+### Bug Fixes
+
+* the Codex manifest in its format, a Cursor manifest, one version across all, and a result in the README ([#116](https://github.com/vosjs/skills/issues/116)) ([0d1c0f3](https://github.com/vosjs/skills/commit/0d1c0f3aeb33c9606579078004e7efedf2875cad))
+
 ## [0.32.2](https://github.com/vosjs/skills/compare/v0.32.1...v0.32.2) (2026-11-14)
 
 

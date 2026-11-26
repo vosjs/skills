@@ -1,111 +1,127 @@
-# vos skills
+<p align="center">
+  <a href="https://vos.so/agents">
+    <picture>
+      <source media="(prefers-color-scheme: dark)" srcset=".github/assets/lockup-dark.svg">
+      <img alt="vos skills" src=".github/assets/lockup-light.svg" height="56">
+    </picture>
+  </a>
+</p>
 
-Agent skills for [vos](https://github.com/vosjs/vos), the open video engine
-and the `vos` CLI. Install once and your coding agent records the real
-product, cuts it as data, and ships the release's video from one take: the
-demo and its social cuts, kept current with every release. It can also author and remix vos
-animation programs.
+<h3 align="center">Your coding agent makes the product video.</h3>
 
-[![skills.sh](https://skills.sh/b/vosjs/skills)](https://skills.sh/vosjs/skills)
+<p align="center">
+  Skills that record your real product, cut the demo as data,<br>
+  and keep it current with every release.
+</p>
 
-[![Flowboard: a 34-second product demo a coding agent recorded and cut from one line](https://vos.so/v/070f9879-67b6-4f83-9914-e29d7b95f267/poster.webp)](https://vos.so/vos/take-take-2026-10-26-mvpg9hiu)
+<p align="center">
+  <a href="https://vos.so/agents">Website</a>
+  &nbsp;·&nbsp;
+  <a href="https://vos.so/docs/agents/install-the-skills">Docs</a>
+  &nbsp;·&nbsp;
+  <a href="https://github.com/vosjs/vos">Engine</a>
+  &nbsp;·&nbsp;
+  <a href="https://vos.so/llms.txt">llms.txt</a>
+</p>
 
-What it makes: a Claude Code session with no knowledge of this app was handed
-the line below. It recorded the app, cut this 34-second demo and pushed it.
-The picture opens the video.
+<p align="center">
+  <a href="https://skills.sh/vosjs/skills"><img alt="skills.sh" src="https://skills.sh/b/vosjs/skills"></a>
+  <a href="https://github.com/vosjs/skills/releases"><img alt="Release" src="https://img.shields.io/github/v/release/vosjs/skills?style=flat&color=0b0b0d&label=release"></a>
+  <a href="./LICENSE"><img alt="MIT license" src="https://img.shields.io/badge/license-MIT-0b0b0d?style=flat"></a>
+</p>
+
+<br>
+
+<a href="https://vos.so/vos/an-agent-makes-the-flowboard-demo-mvpglmxs">
+  <img alt="A Claude Code session records the Flowboard app, cuts the demo and pushes it, then the finished demo plays." src=".github/assets/hero.webp" width="100%">
+</a>
+
+<p align="center"><sub>A Claude Code session that had never seen this app was handed one line. It recorded the app, cut this demo and pushed it. <a href="https://vos.so/vos/an-agent-makes-the-flowboard-demo-mvpglmxs">Watch it with sound</a>.</sub></p>
+
+<br>
+
+## Install
 
 ```bash
 npx skills add vosjs/skills
 ```
 
-Works with any agent that reads the [Agent Skills](https://agentskills.io)
-format (Claude Code, Cursor, Codex, and friends). One line does the whole
-setup on a machine that has nothing yet. Hand your agent:
+Works with any agent that reads [Agent Skills](https://agentskills.io): Claude Code, Codex, Cursor and more. Two other ways in:
+
+```bash
+# As a Claude Code plugin
+/plugin marketplace add vosjs/skills
+/plugin install vos-skills@vos-skills
+
+# From the CLI, which carries the same skills
+npm i -D @vosjs/cli && npx vos setup
+```
+
+## Ask for a video
+
+Name the skill and say where the result goes:
+
+```text
+Record a demo video of this app with the product-video skill. Give me the vos.so link when it's done.
+```
+
+Nothing installed yet? Hand your agent this line instead. It tells you its plan, installs the CLI into the repo, records the app on your machine, and uploads only because you asked for a link.
 
 ```text
 Record a demo video of this app with vosso. The steps are at https://vos.so/agent.md. Give me the vos.so link when it's done.
 ```
 
-The line names the job, and the address holds the steps for it: your agent
-tells you what it is about to do, installs the CLI into the repo, records
-the app on your machine and uploads only because you asked for a link. Or
-run `npm i -D @vosjs/cli && npx vos setup` yourself and ask for the video by
-the skill's name.
+## The skills
 
-Claude Code users can add the repo as a plugin marketplace instead:
-`/plugin marketplace add vosjs/skills`, then `/plugin install vos-skills@vos-skills`.
-The plugin carries the ten skills plus:
+**Product video**
 
-- `/vos-skills:setup`: runs `npx vos setup` and reports the doctor's verdict in words.
-- A `SessionStart` hook: in a repo whose `media/` carries a demo (`actions.json`,
-  the cut `doc.json`, the tracked `vos.json`), one line of context says what the
-  demo is, where it lives on vos.so, and the command pair that re-records it.
-- A `Stop` hook: when a session edited a file the demo's click script touches
-  (a selector's id, class, name or text, or a route naming the file), one line
-  says so and gives the re-record command. It never blocks; it is a cue.
+| Skill | |
+| --- | --- |
+| [`product-video`](skills/product-video/SKILL.md) | Record and cut a demo of your website, web app or Mac app. |
+| [`vos-cut`](skills/vos-cut/SKILL.md) | Cut a recording someone already made into a product video. |
+| [`launch-kit`](skills/launch-kit/SKILL.md) | Turn one take into a release's videos, each verified against its channel's spec. |
+| [`vos-migrate`](skills/vos-migrate/SKILL.md) | Make a Loom, Screen Studio, Cap or mp4 demo editable, so the next version is a re-render. |
+| [`vos-footage`](skills/vos-footage/SKILL.md) | Hand Remotion or HyperFrames a clean, auto-zoomed clip of your product. |
 
-Both hooks are plain Node with no dependencies (`scripts/`), silent in a repo
-without `media/`, and held by `node --test evals/plugin`.
+**Programs**
 
-The same ten skills are packaged for Codex (`.codex-plugin/plugin.json`) and
-for Cursor (`.cursor-plugin/plugin.json`). Those two carry no hooks: the two
-above are Claude Code's.
+| Skill | |
+| --- | --- |
+| [`vos-authoring`](skills/vos-authoring/SKILL.md) | Write vos animation programs from scratch. |
+| [`vos-create`](skills/vos-create/SKILL.md) | Make programs in your own style, from the recipes in a vos.so folder. |
+| [`vos-remix`](skills/vos-remix/SKILL.md) | Remix a program from the gallery and push it back as your own versions. |
+| [`vos-port`](skills/vos-port/SKILL.md) | Port a Remotion or HyperFrames video into vos, with its words and colours as knobs. |
+| [`vos-score`](skills/vos-score/SKILL.md) | Compose an original score, written as code and locked to the program's beat. |
 
-## The catalog
+Each `SKILL.md` lists what it needs: usually `@vosjs/cli` and a Chromium, sometimes ffmpeg or a vos.so key.
 
-| Skill | What it does | Needs |
-| --- | --- | --- |
-| [`product-video`](skills/product-video/SKILL.md) | Record and produce a shippable product demo video of a website, app, or feature: the agent drives the browser from a JSON script, the recording auto-plans zooms, and every edit is a JSON patch on `doc.json`. | `npm i -D @vosjs/cli`, a Chromium, network |
-| [`vos-authoring`](skills/vos-authoring/SKILL.md) | Author vos animation programs (VosConfigJson) from scratch: schema, dialect rules, params/presets knobs, local validation with `@vosjs/core`. | `npm i @vosjs/core` (validation), `@vosjs/cli` (render) |
-| [`vos-remix`](skills/vos-remix/SKILL.md) | Remix a program from the vos.so gallery: fetch its config, edit knobs or code, validate locally, push a private copy back with lineage — then iterate it as versions. Ships the params/Looks doctrine (2–4 intent-named knobs, every knob verified to act). | `npm i -D @vosjs/cli`, a content key or remix grant |
-| [`vos-port`](skills/vos-port/SKILL.md) | Bring a Remotion or HyperFrames video into vos as a program whose words, colours and timings are knobs: the port grammar, both mapping tables, the measured coordinate rules and a reference port checked against Remotion's own render. | `npm i -D @vosjs/cli` (0.52+), the source's own render, a content key to push |
-| [`vos-create`](skills/vos-create/SKILL.md) | Create vos programs in the user's own style: pull their vos.so folder, read every recipe (`.md`) and exemplar in it, find the declared seed, author work that follows them, check and render and judge locally, and push into that folder as attributed private versions. Recipes carry the style; the user's ask decides what gets made. | `npm i -D @vosjs/cli`, a content key, a folder on vos.so |
-| [`vos-score`](skills/vos-score/SKILL.md) | Compose an original score for a vos program, written as code: locked to the program's own beat grid, arranged section by section to what is on screen (builds, stop-time hits, fills, the biggest moment, an ending that lands), synthesized and normalized to an MP3, verified by numbers (a tempo and phase fit, per-section loudness against the intended shape), and put on `doc.json` as its track. The person listens before it ships. | python3 with numpy and scipy, ffmpeg, `npm i -D @vosjs/cli` |
-| [`vos-cut`](skills/vos-cut/SKILL.md) | Cut a screen recording somebody made into a product video, from its evidence: `vos digest` lists the moments the cursor track says mattered with a footage frame and a crop each, the agent narrates them into beats, edits `doc.json` by exception over the planners, verifies with stills, pushes an attributed version, and iterates with the human through the version chain. A signed-off take becomes a series' seed: its folder's `CUT.md` carries the judgment, `vos plan --style` carries the numbers. | `npm i -D @vosjs/cli`, a Chromium, a content key for hosted takes |
-| [`launch-kit`](skills/launch-kit/SKILL.md) | One take → the release's video: the YouTube demo, the X feed cut, the Shorts and LinkedIn vertical cut, the GitHub README loop, with the entrance, end card, captions and bed planned as data. Per-channel specs ship as data and every cut is verified against them in a `kit.json` manifest. | `npm i -D @vosjs/cli`, ffmpeg, a finished take |
-| [`vos-migrate`](skills/vos-migrate/SKILL.md) | Turn an existing Loom, Screen Studio, Cap, or plain mp4/webm screen demo into an editable vosso take, so the next version is a re-render instead of a re-recording. | `npm i -D @vosjs/cli`, the file |
-| [`vos-footage`](skills/vos-footage/SKILL.md) | Hand a Remotion, HyperFrames, or any video composition a clean full-bleed clip of the real product, recorded and auto-zoomed with vos, always backed by an editable take on the maker's shelf. | `npm i -D @vosjs/cli`, a Chromium, a content key |
+## How it works
 
-One CLI, one package: `@vosjs/cli` is the MIT `vos` binary with the engine
-verbs (local, no account), the take pipeline (record, plan, frames, render
-on screen recordings) and the vos.so platform verbs (fetch, push, pull,
-login). Everything that runs on your machine is open source, and vos.so,
-the hosted platform,
-is the product. (The plugin was previously published as `@vosso/cli`; that
-name keeps working as a forwarding shim.)
+- **Real footage.** The agent drives a real browser over your real product. The video shows software working, not an imitation of it.
+- **Edits are data.** Every decision (zooms, trims, speed, captions, music) lives in `doc.json`. The agent patches JSON and renders again; nothing records twice.
+- **Deterministic.** Same take, same document, same frames on any machine, so a video can be reviewed like a diff.
 
-## Why these are different
+<details>
+<summary><b>What the Claude Code plugin adds</b></summary>
 
-- **Real footage, witnessed.** `product-video` drives a real browser over a
-  real page. The output is a recording of software actually working, not a
-  synthesized imitation of it.
-- **Edits are data.** A take's every decision (zoom spans, trims, speed,
-  tilt, audio) lives in `doc.json`. Agents patch JSON and re-render; nothing
-  re-runs the browser.
-- **Deterministic renders.** Same take, same doc, same frames, on any
-  machine. Video work becomes reviewable the way code diffs are.
+<br>
+
+- `/vos-skills:setup` runs `npx vos setup` and reports the doctor's verdict in words.
+- A `SessionStart` hook: in a repo whose `media/` holds a demo (`actions.json`, the cut `doc.json`, the tracked `vos.json`), one line of context says what the demo is, where it lives on vos.so, and the commands that re-record it.
+- A `Stop` hook: when a session edited a file the demo's click script touches, one line says so and gives the re-record command. It never blocks.
+
+Both hooks are plain Node with no dependencies (`scripts/`), silent in a repo without `media/`, and tested by `node --test evals/plugin`. The same ten skills are packaged for Codex (`.codex-plugin/`) and Cursor (`.cursor-plugin/`), without the hooks.
+
+</details>
 
 ## Quality
 
-Every skill ships with eval scenarios in [`evals/`](evals/), run before each
-release on two model tiers; a launch-kit run ends on one deterministic
-number, the kit verifier's problem count (`evals/count.mjs`), published on
-the release's changelog entry. The `product-video` skill carries the taste
-rubric its outputs are judged against; if a run ships something ugly, that
-failure becomes a new eval scenario.
-
-## Links
-
-- Engine: [github.com/vosjs/vos](https://github.com/vosjs/vos) · [vos.so/engine](https://vos.so/engine)
-- Agent docs: [vos.so/llms.txt](https://vos.so/llms.txt) · [vos.so/agents](https://vos.so/agents)
-- The gallery (every video is a program): [vos.so/gallery](https://vos.so/gallery)
+Every skill ships eval scenarios in [`evals/`](evals/), run before each release on two model tiers. A launch-kit run ends on one number, the kit verifier's problem count, published with the release. When a run ships something ugly, that failure becomes a new scenario.
 
 ## Contributing
 
-Issues and PRs welcome. Keep SKILL.md under 500 lines, references one level
-deep, and run `node scripts/check.mjs` before pushing. Skill text must match
-what the released CLI actually does; a claim the CLI can't honor is a bug.
-`skills/vos-port/references/elements-and-context.md` is generated from the
-published `@vosjs` declarations: after an engine release, run
-`node scripts/build-element-reference.mjs` (`--check` says whether it is
-stale) instead of editing it.
+Issues and PRs welcome. Keep a `SKILL.md` under 500 lines with references one level deep, and run `node scripts/check.mjs` before pushing. A skill must match what the released CLI does: a claim the CLI can't honour is a bug. `skills/vos-port/references/elements-and-context.md` is generated: after an engine release run `node scripts/build-element-reference.mjs` (`--check` says whether it is stale) instead of editing it.
+
+## License
+
+[MIT](./LICENSE). The skills drive [`@vosjs/cli`](https://www.npmjs.com/package/@vosjs/cli), which is MIT too. [vos.so](https://vos.so) is the hosted product.

@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.33.0](https://github.com/vosjs/skills/compare/v0.32.3...v0.33.0) (2026-11-27)
+
+
+### Features
+
+* two apps that share a moment are one take, a stage ([#119](https://github.com/vosjs/skills/issues/119)) ([ad59280](https://github.com/vosjs/skills/commit/ad59280f18680e1a49d5153161fc0e27614d1089))
+
 ## [0.32.3](https://github.com/vosjs/skills/compare/v0.32.2...v0.32.3) (2026-11-19)
 
 

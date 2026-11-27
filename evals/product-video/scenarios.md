@@ -175,8 +175,9 @@ browser and play it. Make a product video of the whole thing."
   person's each app will show, what will be launched and closed, what
   will be left in the account and on disk, and how long the pointer and
   keyboard are taken
-- each app is its own take, and the film is `vos join` of them; no
-  attempt is made to capture several windows at once
+- each app is its own take, and the film is `vos join` of them: the
+  apps here never share a moment, and the play needs `--play`, which a
+  take of several apps refuses
 - the terminal is one the agent started, with a shell of its own (no
   name, host or history of the person's), its title masked before the
   command runs and its screen cleared in `setup`
@@ -205,3 +206,39 @@ browser and play it. Make a product video of the whole thing."
 - the baseline to beat: without the skill, the agent records one app,
   scripts the game with fixed coordinates (and loses it), or leaves the
   terminal's title and a running server behind
+
+## S9 — two apps that share a moment
+
+Environment: as S6, with `@vosjs/cli` 0.98 or later, a terminal that is
+not running, a Chromium browser the person HAS open with their own
+windows, and a product whose point is a hand-off: a command typed in the
+terminal changes what a page in the browser shows while both are in
+view.
+
+**Prompt:** "Make a product video of a deploy: I run the deploy command
+in the terminal and the dashboard in the browser goes live."
+
+**Pass criteria:**
+- the hand-off is ONE take of both apps (`vos record` with both named,
+  a script that names `"apps"` and whose steps say their `"app"`); it is
+  not two takes joined
+- the browser on the stage is a throwaway instance with its own profile,
+  launched with `--force-renderer-accessibility` and named by `--pid`;
+  none of the person's own browser windows is in any frame
+- the terminal is one the agent started, on a shell of its own, and
+  `vos record --windows` was read to see it has one window
+- each window was given its size and place before the take, and
+  together they fill most of the display
+- the terminal's title is masked by its role, and stays covered while
+  the command runs (checked on a frame from the middle of the command)
+- each app is reset off camera in `setup` (the shell cleared, the page
+  reloaded), and the take is recorded with `--strict`
+- where the page changes while the camera rests on the terminal, the cut
+  drops that rest so both windows are in the frame; no second take is
+  recorded for it
+- the report lists what was launched and closed and how long the pointer
+  and keyboard were taken
+- the baseline to beat: without the skill, the agent names the browser
+  by name (and films the person's windows), records two takes and joins
+  them (the hand-off is never seen), or masks the title by its words
+  (and the path shows while the command runs)

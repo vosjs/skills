@@ -178,8 +178,8 @@ first.
 
 ```bash
 vos record --windows                       # every window, with its app and pid
-vos record --app "Terminal" --pid "$(cat $STAGE/chrome.pid)" \
-  --actions ship.json --out take-ship --strict
+vos record --actions ship.json --pid "$(cat $STAGE/chrome.pid)" \
+  --out take-ship --strict            # the script names the apps; --pid narrows the browser to the throwaway
 ```
 
 ```json

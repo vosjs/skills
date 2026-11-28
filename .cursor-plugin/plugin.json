@@ -1,6 +1,6 @@
 {
   "name": "vos-skills",
-  "version": "0.33.0",
+  "version": "0.33.1",
   "description": "Agent skills for vos: your coding agent records the real product and ships the release's video from one take (the demo and its social cuts), cuts your own screen recordings from their cursor evidence, migrates existing demos into editable takes, and authors or remixes vos animation programs. Deterministic renders, JSON-editable documents.",
   "author": {
     "name": "vosjs"

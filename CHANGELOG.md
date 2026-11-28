@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.33.1](https://github.com/vosjs/skills/compare/v0.33.0...v0.33.1) (2026-11-28)
+
+
+### Bug Fixes
+
+* a script's shell variables, js checks and desktop apps are named on the command line ([#121](https://github.com/vosjs/skills/issues/121)) ([2350d14](https://github.com/vosjs/skills/commit/2350d14359a76171ea4594f0e471711964ae9894))
+
 ## [0.33.0](https://github.com/vosjs/skills/compare/v0.32.3...v0.33.0) (2026-11-27)
 
 
